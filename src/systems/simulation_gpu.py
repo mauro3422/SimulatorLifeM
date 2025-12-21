@@ -6,6 +6,7 @@ Todo en GPU para eliminar overhead de sincronización.
 import taichi as ti
 import numpy as np
 import src.config as cfg
+from src.systems import physics_constants as phys
 
 # Inicializar Taichi (Prioridad Vulkan - Restaurado por rendimiento)
 try:
@@ -21,7 +22,8 @@ except:
 
 # Constantes (Desde Config Central)
 MAX_PARTICLES = 10000 # Buffer máximo de seguridad
-SOLVER_ITERATIONS = 3
+SOLVER_ITERATIONS = phys.SOLVER_ITERATIONS
+
 
 # Grid Espacial optimizado para WORLD_SIZE centralizado
 GRID_CELL_SIZE = 60.0
@@ -89,19 +91,19 @@ rango_enlace_max = ti.field(dtype=ti.f32, shape=())
 dist_rotura = ti.field(dtype=ti.f32, shape=())
 max_fuerza = ti.field(dtype=ti.f32, shape=())
 
-# --- FÍSICA REALISTA (Constantes de calibrar_fisica_realista.py) ---
+# --- FÍSICA REALISTA (Desde physics_constants.py) ---
 # Movimiento Browniano
-BROWNIAN_K = 0.1       # Constante de Boltzmann simulada
-BROWNIAN_BASE_TEMP = 0.05  # Temperatura ambiente base (siempre hay algo de agitación)
+BROWNIAN_K = phys.BROWNIAN_K
+BROWNIAN_BASE_TEMP = phys.BROWNIAN_BASE_TEMP
 
 # Repulsión de Coulomb
-COULOMB_K = 50.0
-REPULSION_MIN_DIST = 5.0
-REPULSION_MAX_DIST = 50.0
+COULOMB_K = phys.COULOMB_K
+REPULSION_MIN_DIST = phys.REPULSION_MIN_DIST
+REPULSION_MAX_DIST = phys.REPULSION_MAX_DIST
 
 # Electronegatividades dinámicas
 ELECTRONEG = ti.field(dtype=ti.f32, shape=len(cfg.TIPOS_NOMBRES))
-ELECTRONEG_AVG = 2.82
+ELECTRONEG_AVG = phys.ELECTRONEG_AVERAGE
 
 # Afinidad Química (matriz dinámica NxN)
 NUM_ELEMENTS = len(cfg.TIPOS_NOMBRES)

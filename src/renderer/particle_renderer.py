@@ -4,7 +4,7 @@ Extraído de main.py para modularización.
 """
 
 import moderngl
-from src.ui_config import UIConfig
+from src.config import UIConfig
 import src.config as cfg
 
 

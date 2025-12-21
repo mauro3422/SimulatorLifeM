@@ -3,7 +3,7 @@ Control Panel - Panel izquierdo de control de simulación.
 """
 
 from imgui_bundle import imgui
-from src.ui_config import UIConfig, UIWidgets
+from src.config import UIConfig, UIWidgets
 import src.config as cfg
 
 

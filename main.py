@@ -9,8 +9,7 @@ import os
 # 1. Inicializar Taichi (Delegamos a simulation_gpu para evitar conflictos)
 # ti.init(arch=ti.gpu) # Eliminado para dejar que simulation_gpu decida vulkan/opengl
 
-from src.config import SimulationConfig
-from src.ui_config import UIConfig, UIWidgets
+from src.config import SimulationConfig, UIConfig, UIWidgets
 from src.systems.simulation_gpu import (
     MAX_PARTICLES, pos, vel, radii, is_active, atom_types, 
     pos_normalized, colors, n_particles, gravity, friction, 

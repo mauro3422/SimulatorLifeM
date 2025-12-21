@@ -4,7 +4,7 @@ Inspector Panel - Panel de inspección de átomos y moléculas.
 
 import numpy as np
 from imgui_bundle import imgui
-from src.ui_config import UIConfig
+from src.config import UIConfig
 import src.config as cfg
 
 

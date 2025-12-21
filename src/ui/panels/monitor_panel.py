@@ -3,7 +3,7 @@ Monitor Panel - Panel de monitoreo de actividad molecular.
 """
 
 from imgui_bundle import imgui
-from src.ui_config import UIConfig, UIWidgets
+from src.config import UIConfig, UIWidgets
 
 
 def draw_monitor_panel(state, show_debug: bool, win_w: float):

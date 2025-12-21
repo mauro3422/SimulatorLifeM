@@ -1,19 +1,24 @@
 """
-Configuración centralizada de la Interfaz de Usuario (UI) y Parámetros Visuales.
+Configuración de UI
+===================
+Colores, dimensiones y estilos para la interfaz de usuario.
 """
 
 from imgui_bundle import imgui
 
+
 class UIConfig:
+    """Constantes de configuración visual para UI."""
+    
     # --- PALETA DE COLORES (RGBA) ---
-    COLOR_PRIMARY = (1.0, 1.0, 0.9, 1.0)      # Blanco Cálido / Foco
-    COLOR_CYAN_NEON = (0.2, 0.9, 1.0, 0.7)    # Cian Eléctrico / Estructura
-    COLOR_AQUA_SUBTLE = (0.0, 0.5, 0.7, 0.4)  # Deep Aqua / Fondo
-    COLOR_TEXT_HIGHLIGHT = (0.4, 1.0, 0.8, 1.0) # Verde/Cian para log
-    COLOR_BOND_FORMED = (0.4, 1.0, 0.6, 1.0)   # Verde Esmeralda
-    COLOR_BOND_BROKEN = (1.0, 0.4, 0.4, 1.0)   # Rojo Coral
-    COLOR_CATALYSIS = (0.2, 0.8, 1.0, 1.0)     # Azul Eléctrico
-    COLOR_ORANGE_COORD = (1.0, 0.8, 0.2, 1.0)  # Ámbar para coordenadas
+    COLOR_PRIMARY = (1.0, 1.0, 0.9, 1.0)        # Blanco Cálido
+    COLOR_CYAN_NEON = (0.2, 0.9, 1.0, 0.7)      # Cian Eléctrico
+    COLOR_AQUA_SUBTLE = (0.0, 0.5, 0.7, 0.4)    # Deep Aqua
+    COLOR_TEXT_HIGHLIGHT = (0.4, 1.0, 0.8, 1.0) # Verde/Cian
+    COLOR_BOND_FORMED = (0.4, 1.0, 0.6, 1.0)    # Verde Esmeralda
+    COLOR_BOND_BROKEN = (1.0, 0.4, 0.4, 1.0)    # Rojo Coral
+    COLOR_CATALYSIS = (0.2, 0.8, 1.0, 1.0)      # Azul Eléctrico
+    COLOR_ORANGE_COORD = (1.0, 0.8, 0.2, 1.0)   # Ámbar
     
     # --- DIMENSIONES DE PANELES ---
     PANEL_LEFT_W = 300
@@ -27,20 +32,24 @@ class UIConfig:
     SPEED_TIERS = [0.0, 0.5, 1.0, 2.0, 5.0, 10.0]
     BOOST_SPEED = 15.0
     
-    # --- PARÁMETROS DE DESTACADO (RENDERER) ---
-    HIGHLIGHT_RADIUS = 0.028  # Radio en NDC
-    HIGHLIGHT_SEGMENTS = 16   # Calidad del círculo
-    WIDTH_PRIMARY = 5.0       # Grosor átomo principal
-    WIDTH_SECONDARY = 3.0     # Grosor estructura molecular
+    # --- PARÁMETROS DE RENDERER ---
+    HIGHLIGHT_RADIUS = 0.028
+    HIGHLIGHT_SEGMENTS = 16
+    WIDTH_PRIMARY = 5.0
+    WIDTH_SECONDARY = 3.0
     
     # --- ESTILOS DE IMGUI ---
-    WINDOW_FLAGS_STATIC = (imgui.WindowFlags_.no_move | 
-                           imgui.WindowFlags_.no_resize | 
-                           imgui.WindowFlags_.no_scrollbar)
+    WINDOW_FLAGS_STATIC = (
+        imgui.WindowFlags_.no_move | 
+        imgui.WindowFlags_.no_resize | 
+        imgui.WindowFlags_.no_scrollbar
+    )
     
-    WINDOW_FLAGS_LOG = (imgui.WindowFlags_.no_move | 
-                        imgui.WindowFlags_.no_resize | 
-                        imgui.WindowFlags_.no_scrollbar)
+    WINDOW_FLAGS_LOG = (
+        imgui.WindowFlags_.no_move | 
+        imgui.WindowFlags_.no_resize | 
+        imgui.WindowFlags_.no_scrollbar
+    )
 
     @staticmethod
     def apply_style():
@@ -52,7 +61,10 @@ class UIConfig:
         style.set_color_(imgui.Col_.window_bg, (0.05, 0.05, 0.08, 0.95))
         style.set_color_(imgui.Col_.border, (0.2, 0.2, 0.3, 0.5))
 
+
 class UIWidgets:
+    """Widgets reutilizables para la interfaz de usuario."""
+
     @staticmethod
     def metric_row(label, value, color=None):
         """Dibuja una fila de métrica estandarizada."""
@@ -94,8 +106,6 @@ class UIWidgets:
     @staticmethod
     def camera_hud(camera, win_w, win_h):
         """HUD dinámico de cámara que se auto-ajusta al contenido."""
-        from src.ui_config import UIConfig
-        
         # 1. Definir textos y medir
         text_focus = f"ENFOQUE: {camera.zoom:.2f}x"
         text_coords = f"COORDENADAS: [{camera.x:.0f}, {camera.y:.0f}]"
@@ -108,7 +118,7 @@ class UIWidgets:
         # El ancho del banner es el máximo de las líneas + padding
         padding = 40
         banner_w = max(size_focus.x, size_coords.x, size_help.x) + padding
-        banner_h = 110 # Altura fija para 3 filas + espaciado
+        banner_h = 110
         
         # 2. Posicionar centrado abajo
         imgui.set_next_window_pos((win_w/2 - banner_w/2, win_h - banner_h - 25), imgui.Cond_.always)
@@ -136,8 +146,6 @@ class UIWidgets:
     @staticmethod
     def speed_selector(state):
         """Selector de velocidad simplificado (Slider Interactivo)."""
-        from src.ui_config import UIConfig
-        
         imgui.text("Escala Temporal (1.0x Óptima):")
         imgui.spacing()
         

@@ -3,7 +3,7 @@ Telemetry Panel - Panel de debug F3 con información de rendimiento.
 """
 
 from imgui_bundle import imgui
-from src.ui_config import UIConfig
+from src.config import UIConfig
 
 
 def draw_telemetry_panel(state, n_visible_count: int, win_w: float):

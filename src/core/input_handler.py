@@ -6,7 +6,7 @@ Extraído de main.py para modularización.
 import time
 import numpy as np
 from imgui_bundle import imgui
-from src.ui_config import UIConfig
+from src.config import UIConfig
 
 
 class InputHandler:
