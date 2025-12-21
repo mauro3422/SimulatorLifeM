@@ -1,3 +1,4 @@
+import taichi as ti
 import numpy as np
 import moderngl
 from imgui_bundle import imgui, immapp, hello_imgui
