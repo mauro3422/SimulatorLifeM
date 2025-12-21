@@ -31,6 +31,7 @@ from src.renderer.opengl_kernels import (
 )
 from src.core.input_handler import InputHandler
 from src.ui.panels import draw_control_panel, draw_telemetry_panel, draw_monitor_panel, draw_inspector_panel
+from src.core.perf_logger import get_perf_logger
 
 # Constantes de mundo
 WORLD_SIZE = cfg.sim_config.WORLD_SIZE
@@ -294,29 +295,36 @@ def update():
         state.renderer.ctx.clear(0.02, 0.02, 0.05, 1.0) 
 
 def main():
+    perf = get_perf_logger()
+    
     params = immapp.RunnerParams()
     params.callbacks.show_gui = gui
     params.callbacks.custom_background = update
     params.app_window_params.window_title = "QuimicPYTHON - Motor OpenGL Pro"
-    params.app_window_params.window_geometry.size = (1024, 600) # Más corto para evitar problemas con la X
+    params.app_window_params.window_geometry.size = (1024, 600)
     params.app_window_params.restore_previous_geometry = False
-    # Forzar posición centrada en monitor 0
     params.app_window_params.window_geometry.monitor_idx = 0
     params.app_window_params.window_geometry.position_mode = hello_imgui.WindowPositionMode.monitor_center
     
     def init_moderngl():
         try:
-            # Forzar creación de contexto ModernGL compartiendo el actual
             ctx = moderngl.create_context()
             state.renderer = ParticleRenderer(ctx, MAX_PARTICLES, MAX_BOND_VERTICES)
             print(f"[RENDER] Contexto ModernGL {ctx.version_code} via {ctx.info['GL_RENDERER']} listo.")
             print(f"[RENDER] Fabricante: {ctx.info['GL_VENDOR']}")
         except Exception as e:
             print(f"[CRITICAL] Error al crear contexto ModernGL: {e}")
+    
+    def on_exit():
+        """Callback al cerrar la aplicación - guarda métricas de performance."""
+        perf.print_summary()
+        perf.save_session()
 
     params.callbacks.post_init = init_moderngl
+    params.callbacks.before_exit = on_exit
     params.imgui_window_params.default_imgui_window_type = hello_imgui.DefaultImGuiWindowType.no_default_window
     immapp.run(params)
 
 if __name__ == "__main__":
     main()
+

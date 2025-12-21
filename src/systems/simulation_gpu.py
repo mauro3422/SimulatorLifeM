@@ -11,6 +11,7 @@ Los kernels están en:
 import taichi as ti
 import numpy as np
 import src.config as cfg
+from src.core.perf_logger import get_perf_logger
 
 # ===================================================================
 # IMPORTS DE KERNELS
@@ -110,27 +111,35 @@ def count_active_particles_gpu():
 
 def simulation_step_gpu():
     """Ejecuta un único paso de simulación completo en GPU."""
+    perf = get_perf_logger()
+    
     # 1. Pre-step: Aplicar fuerzas y predecir posición
+    perf.start("physics")
     physics_pre_step()
     
     # 2. PBD Solver: Iterar restricciones
+    perf.start("grid")
     for _ in range(SOLVER_ITERATIONS):
         update_grid()
         resolve_constraints_grid()
         apply_bond_forces_gpu()
+    perf.stop("grid")
     
     # 3. Post-step: Derivar velocidad final
     physics_post_step()
+    perf.stop("physics")
     
     # 4. Química: Formar/romper enlaces
+    perf.start("chemistry")
     check_bonding_gpu()
     
-    # 5. Física Avanzada (cada N frames para performance)
+    # 5. Física Avanzada
     apply_brownian_motion_gpu()
     apply_coulomb_repulsion_gpu()
     
     # 6. Efectos Evolutivos
     apply_evolutionary_effects_gpu()
+    perf.stop("chemistry")
 
 
 @ti.kernel
