@@ -25,6 +25,9 @@ from src.systems.simulation_gpu import (
 import src.config as cfg
 from src.core.context import get_context
 from src.renderer.camera import Camera
+from src.renderer.particle_renderer import ParticleRenderer
+from src.core.input_handler import InputHandler
+from src.ui.panels import draw_control_panel, draw_telemetry_panel, draw_monitor_panel, draw_inspector_panel
 
 # Constantes de mundo (Ahora desde sim_config)
 WORLD_SIZE = cfg.sim_config.WORLD_SIZE
@@ -98,136 +101,7 @@ def prepare_bond_lines_gl(zoom: ti.f32, cx: ti.f32, cy: ti.f32, aspect: ti.f32):
                         bond_vertices[idx] = v1
                         bond_vertices[idx+1] = v2
 
-class ParticleRenderer:
-    def __init__(self, ctx):
-        self.ctx = ctx
-        # 1. Shader de Partículas (VIVID)
-        self.prog = ctx.program(
-            vertex_shader='''
-                #version 330
-                in vec2 in_vert;
-                in vec3 in_color;
-                out vec3 v_color;
-                void main() {
-                    gl_Position = vec4(in_vert, 0.0, 1.0);
-                    // Tamaño dinámico desde configuración central
-                    gl_PointSize = %s; 
-                    v_color = in_color;
-                }
-            ''' % cfg.sim_config.ATOM_SIZE_GL,
-            fragment_shader='''
-                #version 330
-                in vec3 v_color;
-                out vec4 f_color;
-                void main() {
-                    float dist = length(gl_PointCoord - 0.5);
-                    if (dist > 0.5) discard;
-                    float alpha = smoothstep(0.5, 0.45, dist);
-                    float center = smoothstep(0.2, 0.0, dist);
-                    vec3 final_col = v_color * (0.8 + 0.2 * center);
-                    f_color = vec4(final_col, alpha);
-                }
-            ''',
-        )
-        
-        self.bond_prog = ctx.program(
-            vertex_shader='''
-                #version 330
-                in vec2 in_vert;
-                void main() {
-                    gl_Position = vec4(in_vert, 0.0, 1.0);
-                }
-            ''',
-            fragment_shader='''
-                #version 330
-                uniform vec4 color;
-                out vec4 f_color;
-                void main() {
-                    f_color = color;
-                }
-            ''',
-        )
-        
-        self.vbo_pos = ctx.buffer(reserve=MAX_PARTICLES * 8)
-        self.vbo_col = ctx.buffer(reserve=MAX_PARTICLES * 12)
-        self.vao = ctx.vertex_array(self.prog, [
-            (self.vbo_pos, '2f', 'in_vert'),
-            (self.vbo_col, '3f', 'in_color'),
-        ])
-        
-        self.vbo_bonds = ctx.buffer(reserve=MAX_BOND_VERTICES * 8)
-        self.vao_bonds = ctx.vertex_array(self.bond_prog, [
-            (self.vbo_bonds, '2f', 'in_vert'),
-        ])
-        
-        self.vbo_debug = ctx.buffer(reserve=16 * 8)
-        self.vao_debug = ctx.vertex_array(self.bond_prog, [
-            (self.vbo_debug, '2f', 'in_vert'),
-        ])
-
-        # VAO para Destacados (Picking)
-        # 100,000 * 8 bytes = 800KB (Suficiente para las moléculas más extremas)
-        self.vbo_select = ctx.buffer(reserve=100000 * 8) 
-        self.vao_select = ctx.vertex_array(self.bond_prog, [
-            (self.vbo_select, '2f', 'in_vert'),
-        ])
-
-    def render(self, pos_data, col_data, bond_data=None, debug_data=None, highlight_data=None, width=1280, height=720):
-        self.ctx.viewport = (0, 0, width, height)
-        # Fondo oscuro profundo
-        self.ctx.clear(0.02, 0.02, 0.05, 1.0) 
-        self.ctx.enable(moderngl.PROGRAM_POINT_SIZE)
-        self.ctx.enable(moderngl.BLEND)
-        self.ctx.blend_func = moderngl.SRC_ALPHA, moderngl.ONE_MINUS_SRC_ALPHA
-        
-        if bond_data is not None and len(bond_data) > 0:
-            self.vbo_bonds.write(bond_data.tobytes())
-            self.bond_prog['color'].value = (0.5, 1.0, 0.5, 0.4)
-            # Aplicar grosor maestro desde configuración
-            self.ctx.line_width = cfg.sim_config.BOND_WIDTH
-            self.vao_bonds.render(moderngl.LINES, vertices=len(bond_data))
-            # Opcional: dibujar una segunda pasada levemente más opaca si se desea más brillo
-            self.bond_prog['color'].value = (0.6, 1.0, 0.6, 0.2)
-            self.vao_bonds.render(moderngl.LINES, vertices=len(bond_data))
-
-        if debug_data is not None:
-            self.vbo_debug.write(debug_data.tobytes())
-            self.bond_prog['color'].value = (0.8, 0.2, 0.2, 0.8)
-            self.vao_debug.render(moderngl.LINES, vertices=8)
-            self.bond_prog['color'].value = (0.4, 0.8, 1.0, 0.8)
-            self.vao_debug.render(moderngl.LINES, vertices=8, first=8)
-
-        if len(pos_data) > 0:
-            self.vbo_pos.write(pos_data.tobytes())
-            self.vbo_col.write(col_data.tobytes())
-            self.vao.render(moderngl.POINTS, vertices=len(pos_data))
-
-        # --- DIBUJAR SELECCIÓN (Destacado) ---
-        if highlight_data is not None and len(highlight_data) > 0:
-            # Cinturón de seguridad: evitar crash si la molécula supera el buffer
-            data_bytes = highlight_data.tobytes()
-            if len(data_bytes) <= self.vbo_select.size:
-                self.vbo_select.write(data_bytes)
-            else:
-                # Escribir solo lo que quepa para no crashear
-                self.vbo_select.write(data_bytes[:self.vbo_select.size])
-            
-            # 1. Resaltar Átomos (Círculos segmentados)
-            # Cada círculo tiene 12 segmentos (24 vértices para LINES)
-            # El primer grupo es el átomo principal
-            # 1. Resaltar Átomo Principal (Borde Blanco/Dorado Intenso)
-            self.ctx.line_width = UIConfig.WIDTH_PRIMARY
-            self.bond_prog['color'].value = UIConfig.COLOR_PRIMARY
-            num_segments = UIConfig.HIGHLIGHT_SEGMENTS
-            self.vao_select.render(moderngl.LINE_LOOP, vertices=num_segments) 
-
-            # 2. Resaltar Estructura (Cian/Aqua Neón)
-            if len(highlight_data) > (num_segments * 2):
-                self.ctx.line_width = UIConfig.WIDTH_SECONDARY
-                self.bond_prog['color'].value = UIConfig.COLOR_CYAN_NEON
-                remaining_verts = (len(highlight_data) // 2) - num_segments
-                if remaining_verts > 0:
-                    self.vao_select.render(moderngl.LINES, vertices=remaining_verts, first=num_segments)
+# ParticleRenderer moved to src/renderer/particle_renderer.py
 
 class AppState:
     def __init__(self):
@@ -361,294 +235,70 @@ class AppState:
 
 state = AppState()
 
+# InputHandler con referencias a datos de simulación
+input_handler = InputHandler(
+    state=state,
+    simulation_data={
+        'pos': pos,
+        'is_active': is_active,
+        'apply_force_pulse': apply_force_pulse
+    }
+)
+
+# Physics controls para inyección en UI panels
+physics_controls = {
+    'gravity': gravity,
+    'friction': friction,
+    'temperature': temperature,
+    'prob_enlace_base': prob_enlace_base,
+    'rango_enlace_max': rango_enlace_max,
+    'dist_rotura': dist_rotura
+}
+
 def gui():
+    """Función principal de UI - Delega a módulos de paneles."""
     UIConfig.apply_style()
+    
     io = imgui.get_io()
     display_size = io.display_size
     win_w, win_h = display_size.x, display_size.y
-
-    # --- CONFIGURACIÓN DE LAYOUT DINÁMICO ---
-    panel_left_w = UIConfig.PANEL_LEFT_W
-    panel_left_h = min(680, win_h * 0.85)
     
-    panel_stats_w = UIConfig.PANEL_STATS_W
-    panel_stats_h = UIConfig.PANEL_STATS_H
-
-    # --- PANEL DE CONTROL (IZQUIERDA - Glassmorphism avanzado) ---
-    imgui.set_next_window_pos((20, 20), imgui.Cond_.always)
-    imgui.set_next_window_size((panel_left_w, panel_left_h), imgui.Cond_.always)
-    imgui.set_next_window_bg_alpha(0.75) 
+    # Panel de Control (Izquierda)
+    draw_control_panel(state, physics_controls, win_h)
     
-    imgui.begin("CENTRO DE CONTROL", None, imgui.WindowFlags_.no_move | imgui.WindowFlags_.no_resize | imgui.WindowFlags_.always_vertical_scrollbar)
+    # Panel de Telemetría F3 (Derecha superior - condicional)
+    draw_telemetry_panel(state, n_visible[None], win_w)
     
-    imgui.push_style_color(imgui.Col_.text, (0.4, 1.0, 0.8, 1.0))
-    imgui.text("SISTEMA DE GESTIÓN EVOLUTIVA (CHONPS)")
-    imgui.pop_style_color()
-    imgui.separator()
+    # Monitor de Actividad Molecular (Derecha)
+    draw_monitor_panel(state, state.show_debug, win_w)
     
-    # 1. Controles de Tiempo
-    # --- MONITOR DINÁMICO DE TIEMPO (TABS) ---
-    UIWidgets.speed_selector(state)
+    # Inspector Molecular (Inferior izquierda - condicional)
+    draw_inspector_panel(state, atom_types, win_h)
     
-    imgui.spacing()
-    imgui.separator()
-    imgui.spacing()
-
-    # --- AJUSTES FÍSICOS (Compacto) ---
-    if imgui.collapsing_header("PROPIEDADES FÍSICAS", imgui.TreeNodeFlags_.default_open):
-        imgui.push_item_width(panel_left_w * 0.6)
-        
-        changed_g, new_g = imgui.slider_float("Gravedad", gravity[None], -10.0, 10.0, "%.3f")
-        if changed_g: gravity[None] = new_g
-        
-        changed_f, new_f = imgui.slider_float("Fricción", friction[None], 0.8, 1.0, "%.3f")
-        if changed_f: friction[None] = new_f
-        
-        changed_t, new_t = imgui.slider_float("Agitación", temperature[None], 0.0, 1.0, "%.3f")
-        if changed_t: temperature[None] = new_t
-        
-        imgui.pop_item_width()
-
-    imgui.spacing()
-    imgui.separator()
-    imgui.spacing()
-    
-    # --- GESTIÓN DE MUNDO ---
-    UIWidgets.section_header("Mundo", "🌍")
-    
-    changed_real, val_real = imgui.checkbox("Modo Realismo (Científico)", cfg.sim_config.REALISM_MODE)
-    if changed_real:
-        cfg.sim_config.toggle_realism()
-        # Sincronizar cambios inmediatos a la GPU
-        prob_enlace_base[None] = cfg.sim_config.PROB_ENLACE_BASE
-        rango_enlace_max[None] = cfg.sim_config.RANGO_ENLACE_MAX
-        dist_rotura[None] = cfg.sim_config.DIST_ROTURA
-        print(f"[UI] Modo Realismo: {'ON' if cfg.sim_config.REALISM_MODE else 'OFF'}")
-
-    imgui.spacing()
-    
-    if imgui.button("RESTABLECER CÁMARA", (panel_left_w - 30, 35)):
-        state.camera.center()
-    
-    if imgui.button("REINICIAR ÁTOMOS", (panel_left_w - 30, 35)):
-        state.init_world()
-
-    imgui.end()
-
-    # --- MONITOR DE RENDIMIENTO (DERECHA - SOLO SI F3 ESTÁ ACTIVO) ---
-    if state.show_debug:
-        imgui.set_next_window_pos((win_w - panel_stats_w - 20, 20), imgui.Cond_.always)
-        imgui.set_next_window_size((panel_stats_w, panel_stats_h), imgui.Cond_.always)
-        imgui.set_next_window_bg_alpha(0.6)
-        
-        imgui.begin("TELEMETRÍA (F3)", None, imgui.WindowFlags_.no_move | imgui.WindowFlags_.no_resize)
-        imgui.text_colored((0.2, 0.8, 1.0, 1.0), "MONITOR DE SISTEMA")
-        imgui.separator()
-        imgui.text(f"FPS: {state.fps:.1f}")
-        imgui.text(f"Átomos: {state.n_particles_val}")
-        imgui.text_colored((1.0, 1.0, 0.4, 1.0), f"VisibleNodes: {n_visible[None]}")
-        imgui.text_disabled(f"Culling: Hardware-Accelerated")
-        imgui.end()
-
-    # --- MONITOR CIENTÍFICO (DERECHA) ---
-    log_h = UIConfig.LOG_H
-    imgui.set_next_window_pos((win_w - panel_stats_w - 20, 20 if not state.show_debug else panel_stats_h + 40), imgui.Cond_.always)
-    imgui.set_next_window_size((panel_stats_w, log_h), imgui.Cond_.always) 
-    imgui.begin("MONITOR DE ACTIVIDAD MOLECULAR", None, UIConfig.WINDOW_FLAGS_LOG)
-    
-    UIWidgets.section_header("MÉTRICAS DE EVOLUCIÓN", "📊")
-    
-    imgui.begin_table("StatsInfo", 2)
-    UIWidgets.metric_row("Enlaces Formados:", state.stats['bonds_formed'], UIConfig.COLOR_BOND_FORMED)
-    UIWidgets.metric_row("Enlaces Rotos:", state.stats['bonds_broken'], UIConfig.COLOR_BOND_BROKEN)
-    UIWidgets.metric_row("Transiciones Energ.:", state.stats['tunnels'], (0.8, 0.6, 1.0, 1.0))
-    imgui.end_table()
-    
-    UIWidgets.section_header("BITÁCORA DE EVENTOS", "📝")
-    UIWidgets.scrollable_log(state.event_log)
-    
-    imgui.end()
-
-    # --- INSPECTOR MOLECULAR (INFERIOR IZQUIERDA) ---
-    if state.selected_idx >= 0:
-        inspect_w = UIConfig.PANEL_INSPECT_W
-        inspect_h = UIConfig.PANEL_INSPECT_H
-        imgui.set_next_window_pos((20, win_h - inspect_h - 20), imgui.Cond_.always)
-        imgui.set_next_window_size((inspect_w, inspect_h), imgui.Cond_.always)
-        imgui.set_next_window_bg_alpha(0.9)
-        
-        imgui.begin("INSPECTOR", None, UIConfig.WINDOW_FLAGS_STATIC)
-        
-        # Obtener datos del átomo seleccionado
-        a_type = atom_types[state.selected_idx]
-        name = cfg.TIPOS_NOMBRES[a_type]
-        info = cfg.ATOMS[name]
-        col = np.array(info['color']) / 255.0
-        
-        imgui.text_colored((col[0], col[1], col[2], 1.0), f"ÁTOMO: {name} (#{state.selected_idx})")
-        imgui.separator()
-        
-        if not state.selected_mol:
-            imgui.text(f"Masa: {info['mass']} u")
-            imgui.text(f"Valencia: {info['valence']}")
-            imgui.text(f"Electroneg: {info['electronegativity']}")
-            imgui.spacing()
-            imgui.text_wrapped(f"Info: {info['description']}")
-            imgui.spacing()
-            imgui.text_colored((0.2, 0.8, 1.0, 1.0), "ENLACES ADYACENTES")
-            imgui.separator()
-            imgui.spacing()
-            imgui.text_colored((0.4, 1.0, 0.4, 1.0), "Clic de nuevo -> Expandir Molécula")
-        else:
-            formula = state.get_formula(state.selected_mol)
-            imgui.text_colored(UIConfig.COLOR_CYAN_NEON, "SISTEMA MOLECULAR DINÁMICO")
-            imgui.separator()
-            imgui.text("Fórmula Química:")
-            imgui.text_colored((1.0, 1.0, 1.0, 1.0), f"  {formula}")
-            imgui.spacing()
-            imgui.text(f"Total de Átomos: {len(state.selected_mol)}")
-            imgui.spacing()
-            imgui.text_disabled("(Clic para volver a inspección simple)")
-            imgui.text_disabled("Estructura resaltada en Cian Eléctrico.")
-
-        imgui.spacing()
-        if imgui.button("CERRAR INSPECTOR", imgui.ImVec2(-1, 0)):
-            state.selected_idx = -1
-            state.selected_mol = []
-        imgui.end()
-
-    # --- HUD DE CÁMARA DINÁMICO ---
+    # HUD de Cámara (Centro inferior)
     UIWidgets.camera_hud(state.camera, win_w, win_h)
+
 
 def update():
     # 0. Sincronización crucial Taichi -> CPU -> GL
     ti.sync()
     
     io = imgui.get_io()
-    dt = io.delta_time
-    
-    # --- GESTIÓN DE ACELERACIÓN "MODO PILOTO" ---
-    if not io.want_capture_keyboard:
-        t_now = time.time()
-        
-        # 1. Reset a Velocidad Óptima [Espacio]
-        if imgui.is_key_pressed(imgui.Key.space):
-            state.time_scale = 1.0
-            state.paused = False
-            state.boost_active = False
-            state.add_log("SISTEMA: Velocidad restablecida a 1.0x.")
-
-        # 2. Lógica de Tab (Doble-Tap vs Hold)
-        tab_just_pressed = imgui.is_key_pressed(imgui.Key.tab)
-        tab_held = imgui.is_key_down(imgui.Key.tab)
-        
-        if tab_just_pressed:
-            # Detectar Doble-Tap (dentro de 0.3s de la última pulsación)
-            if (t_now - state.last_tab_time) < 0.3 and not state.boost_active:
-                state.paused = not state.paused
-                state.time_scale = 0.0 if state.paused else 1.0
-                state.boost_active = False
-                state.add_log(f"SISTEMA: {'Pausado' if state.paused else 'Reanudado'}")
-                state.last_tab_time = 0  # Evitar triple-tap
-            else:
-                state.last_tab_time = t_now
-        
-        # 3. Acelerar mientras se mantiene Tab (Solo si NO está pausado)
-        if tab_held and not state.paused:
-            if not state.boost_active:
-                state.boost_active = True
-                state.add_log("BOOST: Acelerando evolución...")
-            
-            accel_rate = 8.0 * dt
-            state.time_scale = min(UIConfig.BOOST_SPEED, state.time_scale + accel_rate)
-        
-        # 4. Al soltar Tab: Mantener velocidad
-        elif state.boost_active and not tab_held:
-            state.boost_active = False
-            state.add_log(f"SISTEMA: Velocidad fijada en {state.time_scale:.1f}x")
-
-    # Petición: Cambiar Debug con F3
-    if imgui.is_key_pressed(imgui.Key.f3):
-        state.show_debug = not state.show_debug
-        print(f"[UI] Debug Toggle: {state.show_debug}")
-
     display_size = io.display_size
     w, h = int(display_size.x), int(display_size.y)
     
-    # 0.1 Actualización de Cámara
-    if w > 0 and h > 0:
-        if not hasattr(state, '_diag_done'):
-            print(f"[WINDOW] Res actual: {w}x{h}")
-            # Importar n_particles aquí si no es global
-            print(f"[SIM] Partículas activas: {n_particles[None]}")
-            state._diag_done = True
-        
-        state.camera.update_aspect(w, h)
-        
-        # 0.2 Input Handling (Cámara)
-        if not io.want_capture_mouse:
-            if imgui.is_mouse_dragging(imgui.MouseButton_.middle):
-                delta = io.mouse_delta
-                vis_w, vis_h = state.camera.get_visible_area()
-                move_x = -delta.x * (vis_w / w)
-                move_y = -delta.y * (vis_h / h)
-                state.camera.move(move_x, move_y)
-            
-            wheel = io.mouse_wheel
-            if wheel != 0:
-                zoom_factor = 1.15 if wheel > 0 else 0.85
-                state.camera.update_zoom(zoom_factor)
+    # --- INPUT HANDLING (Delegado a InputHandler) ---
+    input_handler.process_all(io, w, h, WORLD_SIZE)
+    
+    # Diagnóstico inicial (una sola vez)
+    if w > 0 and h > 0 and not hasattr(state, '_diag_done'):
+        print(f"[WINDOW] Res actual: {w}x{h}")
+        print(f"[SIM] Partículas activas: {n_particles[None]}")
+        state._diag_done = True
+    
+    # --- CULLING BOUNDS ---
+    margin_culling = 500.0  # Más amplio para evitar parpadeos
 
-            # --- INTERACCIÓN: Click para Selección o Onda de Choque ---
-            if imgui.is_mouse_clicked(imgui.MouseButton_.left):
-                mx, my = io.mouse_pos.x, io.mouse_pos.y
-                world_x, world_y = state.camera.screen_to_world(mx, my, w, h)
-                
-                # Sincronización leve para leer posiciones
-                p_pos = pos.to_numpy()
-                p_active = is_active.to_numpy()
-                
-                # Buscar el más cercano
-                dists_sq = np.sum((p_pos - np.array([world_x, world_y]))**2, axis=1)
-                dists_sq[~is_active.to_numpy().astype(bool)] = 1e12
-                
-                idx = np.argmin(dists_sq)
-                
-                # Radio interactivo dinámico (Escalado por Zoom)
-                # Queremos que el área de clic sea proporcional a lo que se ve en pantalla
-                vis_h = WORLD_SIZE / state.camera.zoom
-                world_px = vis_h / h # Unidades de mundo por píxel
-                # Detección: El radio del punto (30px / 2) + margen de 10px = 25px
-                detect_rad = 25.0 * world_px 
-                
-                if dists_sq[idx] < detect_rad**2:
-                    # SELECCIÓN: Ciclo Átomo -> Molécula -> Deselección
-                    if state.selected_idx == idx:
-                        if not state.selected_mol:
-                            # 2do Click: Expandir a molécula
-                            state.selected_mol = state.get_molecule_indices(idx)
-                            print(f"[PICK] Molécula detectada: {len(state.selected_mol)} átomos.")
-                        else:
-                            # 3er Click: Deseleccionar
-                            state.selected_idx = -1
-                            state.selected_mol = []
-                    else:
-                        # 1er Click: Nuevo átomo
-                        state.selected_idx = idx
-                        state.selected_mol = []
-                        print(f"[PICK] Átomo detectado: {idx}")
-                else:
-                    # Click en vacío: Deseleccionar todo
-                    state.selected_idx = -1
-                    state.selected_mol = []
-
-            # ONDA DE CHOQUE: Solo con CTRL (Separación total de eventos) 🧬
-            if imgui.is_mouse_clicked(imgui.MouseButton_.left) and io.key_ctrl:
-                mx, my = io.mouse_pos.x, io.mouse_pos.y
-                world_x, world_y = state.camera.screen_to_world(mx, my, w, h)
-                apply_force_pulse(world_x, world_y, 2.5)
-                print(f"[PWR] Pulso de Fuerzas (CTRL+Click) en Mundo: [{world_x:.1f}, {world_y:.1f}]")
-    margin_culling = 500.0 # Más amplio para evitar parpadeos
     b = state.camera.get_culling_bounds(margin_culling)
     sim_bounds[0], sim_bounds[1] = float(b[0]), float(b[1])
     sim_bounds[2], sim_bounds[3] = float(b[2]), float(b[3])
@@ -810,7 +460,7 @@ def main():
         try:
             # Forzar creación de contexto ModernGL compartiendo el actual
             ctx = moderngl.create_context()
-            state.renderer = ParticleRenderer(ctx)
+            state.renderer = ParticleRenderer(ctx, MAX_PARTICLES, MAX_BOND_VERTICES)
             print(f"[RENDER] Contexto ModernGL {ctx.version_code} via {ctx.info['GL_RENDERER']} listo.")
             print(f"[RENDER] Fabricante: {ctx.info['GL_VENDOR']}")
         except Exception as e:
