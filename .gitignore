@@ -22,6 +22,7 @@ wheels/
 
 # Simulation / Logs
 logs/
+!logs/performance/
 log.txt
 canvas_benchmark_results.txt
 

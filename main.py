@@ -134,7 +134,9 @@ def update():
     perf.start("total")
     
     # 0. Sincronización crucial Taichi -> CPU -> GL
+    perf.start("sync")
     ti.sync()
+    perf.stop("sync")
     
     io = imgui.get_io()
     display_size = io.display_size
@@ -293,7 +295,9 @@ def update():
             
             highlight_gl = np.array(h_list, dtype=np.float32)
 
+        perf.start("render")
         state.renderer.render(pos_gl, col_vis, bonds_gl, debug_gl, highlight_gl, w, h)
+        perf.stop("render")
     else:
         state.renderer.ctx.viewport = (0, 0, w, h)
         state.renderer.ctx.clear(0.02, 0.02, 0.05, 1.0)

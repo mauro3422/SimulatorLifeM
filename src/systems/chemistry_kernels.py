@@ -75,6 +75,7 @@ def check_bonding_gpu():
                                             enlaces_idx[j, idx_j] = i
                                             ti.atomic_sub(manos_libres[i], 1.0)
                                             ti.atomic_sub(manos_libres[j], 1.0)
+                                            ti.atomic_add(total_bonds_count[None], 1)  # FIX: Incrementar contador
                                         else:
                                             ti.atomic_sub(num_enlaces[i], 1)
                                             ti.atomic_sub(num_enlaces[j], 1)
