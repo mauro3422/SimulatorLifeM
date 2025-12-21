@@ -1,151 +1,52 @@
 """
 GPU-Accelerated Simulation Engine (Physics + Chemistry)
 ========================================================
-Todo en GPU para eliminar overhead de sincronización.
+Kernels de física y química ejecutados en GPU via Taichi.
+Los campos están definidos en taichi_fields.py
 """
 import taichi as ti
 import numpy as np
 import src.config as cfg
 from src.systems import physics_constants as phys
 
-# Inicializar Taichi (Prioridad Vulkan - Restaurado por rendimiento)
-try:
-    ti.init(arch=ti.vulkan, offline_cache=True)
-    print("[GPU] Modo Vulkan Activo (Alto Rendimiento)")
-except:
-    try:
-        ti.init(arch=ti.opengl)
-        print("[GPU] Fallback a OpenGL")
-    except:
-        ti.init(arch=ti.cpu)
-        print("[GPU] Fallback a CPU")
-
-# Constantes (Desde Config Central)
-MAX_PARTICLES = 10000 # Buffer máximo de seguridad
-SOLVER_ITERATIONS = phys.SOLVER_ITERATIONS
-
-
-# Grid Espacial optimizado para WORLD_SIZE centralizado
-GRID_CELL_SIZE = 60.0
-GRID_RES = int(cfg.sim_config.WORLD_SIZE * 1.5 / GRID_CELL_SIZE) + 1
-grid_count = ti.field(dtype=ti.i32, shape=(GRID_RES, GRID_RES))
-grid_pids = ti.field(dtype=ti.i32, shape=(GRID_RES, GRID_RES, 32)) # Max 32 por celda
-sim_bounds = ti.field(dtype=ti.f32, shape=4) # [min_x, min_y, max_x, max_y]
-active_particles_count = ti.field(dtype=ti.i32, shape=())
-total_bonds_count = ti.field(dtype=ti.i32, shape=()) # Atomic counter
-
-# [OPTIMIZACIÓN] Buffer compactado de partículas visibles
-# En lugar de iterar 6000, iteramos solo las visibles (O(active) vs O(N))
-visible_indices = ti.field(dtype=ti.i32, shape=MAX_PARTICLES)
-n_visible = ti.field(dtype=ti.i32, shape=())
-
-# --- CAMPOS TAICHI (Datos en GPU) ---
-pos = ti.Vector.field(2, dtype=ti.f32, shape=MAX_PARTICLES)
-vel = ti.Vector.field(2, dtype=ti.f32, shape=MAX_PARTICLES)
-pos_old = ti.Vector.field(2, dtype=ti.f32, shape=MAX_PARTICLES)
-radii = ti.field(dtype=ti.f32, shape=MAX_PARTICLES)
-is_active = ti.field(dtype=ti.i32, shape=MAX_PARTICLES)
-atom_types = ti.field(dtype=ti.i32, shape=MAX_PARTICLES)
-
-# Para GGUI rendering (posiciones normalizadas 0-1)
-pos_normalized = ti.Vector.field(2, dtype=ti.f32, shape=MAX_PARTICLES)
-colors = ti.Vector.field(3, dtype=ti.f32, shape=MAX_PARTICLES)  # RGB
-radii_normalized = ti.field(dtype=ti.f32, shape=MAX_PARTICLES)
-
-# Para dibujar enlaces (líneas)
-MAX_BONDS = MAX_PARTICLES * 4  # Max enlaces posibles
-bond_lines = ti.Vector.field(2, dtype=ti.f32, shape=(MAX_BONDS, 2))  
-n_bonds_to_draw = ti.field(dtype=ti.i32, shape=())
-
-# Química y Parámetros Dinámicos
-MAX_VALENCE = 8
-manos_libres = ti.field(dtype=ti.f32, shape=MAX_PARTICLES)
-enlaces_idx = ti.field(dtype=ti.i32, shape=(MAX_PARTICLES, MAX_VALENCE)) # IDs de vecinos enlazados
-enlaces_idx.fill(-1)
-num_enlaces = ti.field(dtype=ti.i32, shape=MAX_PARTICLES)
-prob_enlace_base = ti.field(dtype=ti.f32, shape=())
-
-# Contadores de Eventos "Evolutivos" (Restaurados)
-total_mutations = ti.field(dtype=ti.i32, shape=())   # Evolución/Transmutación
-total_tunnels = ti.field(dtype=ti.i32, shape=())      # Teletransportación/Efecto Túnel
-
-# Campos de Interacción (Click/Powers)
-click_force = ti.field(dtype=ti.f32, shape=())
-click_radius = ti.field(dtype=ti.f32, shape=())
-
-# Parámetros
-n_particles = ti.field(dtype=ti.i32, shape=())
-gravity = ti.field(dtype=ti.f32, shape=())
-friction = ti.field(dtype=ti.f32, shape=())
-temperature = ti.field(dtype=ti.f32, shape=())
-max_speed = ti.field(dtype=ti.f32, shape=())
-world_width = ti.field(dtype=ti.f32, shape=())
-world_height = ti.field(dtype=ti.f32, shape=())
-
-# Parámetros de enlaces
-dist_equilibrio = ti.field(dtype=ti.f32, shape=())
-spring_k = ti.field(dtype=ti.f32, shape=())
-damping = ti.field(dtype=ti.f32, shape=())
-rango_enlace_min = ti.field(dtype=ti.f32, shape=())
-rango_enlace_max = ti.field(dtype=ti.f32, shape=())
-dist_rotura = ti.field(dtype=ti.f32, shape=())
-max_fuerza = ti.field(dtype=ti.f32, shape=())
-
-# --- FÍSICA REALISTA (Desde physics_constants.py) ---
-# Movimiento Browniano
-BROWNIAN_K = phys.BROWNIAN_K
-BROWNIAN_BASE_TEMP = phys.BROWNIAN_BASE_TEMP
-
-# Repulsión de Coulomb
-COULOMB_K = phys.COULOMB_K
-REPULSION_MIN_DIST = phys.REPULSION_MIN_DIST
-REPULSION_MAX_DIST = phys.REPULSION_MAX_DIST
-
-# Electronegatividades dinámicas
-ELECTRONEG = ti.field(dtype=ti.f32, shape=len(cfg.TIPOS_NOMBRES))
-ELECTRONEG_AVG = phys.ELECTRONEG_AVERAGE
-
-# Afinidad Química (matriz dinámica NxN)
-NUM_ELEMENTS = len(cfg.TIPOS_NOMBRES)
-AFINIDAD_MATRIX = ti.field(dtype=ti.f32, shape=(NUM_ELEMENTS, NUM_ELEMENTS))
-
-# Masas atómicas dinámicas
-MASAS_ATOMICAS = ti.field(dtype=ti.f32, shape=NUM_ELEMENTS)
-
-# Inicializar constantes
-@ti.kernel
-def init_physics_constants():
-    """Inicializa las constantes de física realista (Vacío, se llena vía Python)."""
-    pass
-
-def sync_atomic_data():
-    """Sincroniza los datos cargados desde JSON (cfg) con los campos de Taichi."""
-    # 1. Electronegatividades
-    ELECTRONEG.from_numpy(cfg.ELECTRONEG_DATA.astype(np.float32))
+# Importar todos los campos desde el módulo centralizado
+from src.systems.taichi_fields import (
+    # Constantes
+    MAX_PARTICLES, SOLVER_ITERATIONS, MAX_VALENCE, MAX_BONDS,
+    GRID_CELL_SIZE, GRID_RES,
+    BROWNIAN_K, BROWNIAN_BASE_TEMP, COULOMB_K, 
+    REPULSION_MIN_DIST, REPULSION_MAX_DIST, ELECTRONEG_AVG, NUM_ELEMENTS,
     
-    # 2. Masas
-    MASAS_ATOMICAS.from_numpy(cfg.MASAS.astype(np.float32))
+    # Campos de partículas
+    pos, vel, pos_old, radii, is_active, atom_types,
+    pos_normalized, colors, radii_normalized,
     
-    # 3. Matriz de Afinidad (Complejo: Mapeo de Nombres a Índices)
-    afinidad_np = np.zeros((NUM_ELEMENTS, NUM_ELEMENTS), dtype=np.float32)
-    name_to_idx = {name: i for i, name in enumerate(cfg.TIPOS_NOMBRES)}
+    # Campos de química
+    manos_libres, enlaces_idx, num_enlaces, prob_enlace_base,
+    bond_lines, n_bonds_to_draw,
     
-    for i, name_i in enumerate(cfg.TIPOS_NOMBRES):
-        atom_info = cfg.ATOMS[name_i]
-        affid_dict = atom_info.get("affinities", {})
-        for name_j, strength in affid_dict.items():
-            if name_j in name_to_idx:
-                j = name_to_idx[name_j]
-                afinidad_np[i, j] = strength
-                
-    AFINIDAD_MATRIX.from_numpy(afinidad_np)
-    print(f"[GPU] Sincronizados {NUM_ELEMENTS} elementos químicos desde el sistema Data-Driven.")
+    # Grid espacial
+    grid_count, grid_pids, sim_bounds,
+    visible_indices, n_visible,
+    
+    # Contadores
+    n_particles, active_particles_count, total_bonds_count,
+    total_mutations, total_tunnels,
+    
+    # Parámetros de física
+    gravity, friction, temperature, max_speed,
+    world_width, world_height,
+    dist_equilibrio, spring_k, damping,
+    rango_enlace_min, rango_enlace_max, dist_rotura, max_fuerza,
+    click_force, click_radius,
+    
+    # Datos atómicos
+    ELECTRONEG, MASAS_ATOMICAS, AFINIDAD_MATRIX
+)
 
-# Llamar al inicio
-init_physics_constants()
-sync_atomic_data()
-
-# --- KERNELS OPTIMIZADOS (GRID) ---
+# ===================================================================
+# KERNELS DE FÍSICA Y QUÍMICA
+# ===================================================================
 
 @ti.kernel
 def update_grid():
