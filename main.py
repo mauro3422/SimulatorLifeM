@@ -28,6 +28,7 @@ from src.renderer.camera import Camera
 from src.renderer.particle_renderer import ParticleRenderer
 from src.core.input_handler import InputHandler
 from src.ui.panels import draw_control_panel, draw_telemetry_panel, draw_monitor_panel, draw_inspector_panel
+from src.core.app_state import AppState
 
 # Constantes de mundo (Ahora desde sim_config)
 WORLD_SIZE = cfg.sim_config.WORLD_SIZE
@@ -102,138 +103,49 @@ def prepare_bond_lines_gl(zoom: ti.f32, cx: ti.f32, cy: ti.f32, aspect: ti.f32):
                         bond_vertices[idx+1] = v2
 
 # ParticleRenderer moved to src/renderer/particle_renderer.py
+# AppState moved to src/core/app_state.py
 
-class AppState:
-    def __init__(self):
-        self.ctx_global = get_context()
-        self.camera = self.ctx_global.init_camera(WORLD_SIZE, 1280, 720)
-        self.camera.set_zoom(cfg.sim_config.INITIAL_ZOOM)
-        self.paused = False
-        self.time_scale = cfg.sim_config.TIME_SCALE # Sincronizado con config
-        self.show_debug = False # Por defecto oculto (se activa con F3)
-        self.n_particles_val = 5000 
-        self.renderer = None
-        self.last_time = time.time()
-        self.fps = 0.0
-        self.event_log = [] # Registro de eventos químicos
-        self.selected_idx = -1 # Átomo seleccionado
-        self.selected_mol = [] # Lista de átomos en la molécula actual
-        
-        # --- NUEVO: Gestión de Tiempo y Boost ---
-        self.boost_active = False
-        self.stored_speed = 1.0 
-        self.pause_timer = 0.0
-        self.last_tab_time = 0.0 # Para detección de doble tap
-        
-        # Métricas Acumulativas
-        self.stats = {
-            "bonds_formed": 0,
-            "bonds_broken": 0,
-            "mutations": 0,
-            "tunnels": 0
-        }
-        
-        self.init_world()
-        
-    def get_molecule_indices(self, start_idx):
-        """Traversa los enlaces para encontrar toda la molécula conectada."""
-        if start_idx < 0: return []
-        
-        mol = {start_idx}
-        stack = [start_idx]
-        
-        # Obtenemos los enlaces una vez del buffer Taichi
-        all_enlaces = enlaces_idx.to_numpy()
-        num_v_enlaces = num_enlaces.to_numpy()
-        
-        while stack:
-            curr = stack.pop()
-            # MAX_VALENCE is 8
-            for i in range(num_v_enlaces[curr]):
-                neighbor = all_enlaces[curr, i]
-                if neighbor >= 0 and neighbor not in mol:
-                    mol.add(neighbor)
-                    stack.append(neighbor)
-        return list(mol)
+# Diccionario de campos de simulación para inyección de dependencias
+simulation_fields = {
+    # Campos de partículas
+    'MAX_PARTICLES': MAX_PARTICLES,
+    'n_particles': n_particles,
+    'pos': pos,
+    'radii': radii,
+    'is_active': is_active,
+    'atom_types': atom_types,
+    'colors': colors,
+    'manos_libres': manos_libres,
+    
+    # Campos de enlaces
+    'enlaces_idx': enlaces_idx,
+    'num_enlaces': num_enlaces,
+    
+    # Campos de física
+    'gravity': gravity,
+    'friction': friction,
+    'temperature': temperature,
+    'max_speed': max_speed,
+    'world_width': world_width,
+    'world_height': world_height,
+    
+    # Campos de enlaces (parámetros)
+    'dist_equilibrio': dist_equilibrio,
+    'spring_k': spring_k,
+    'damping': damping,
+    'rango_enlace_min': rango_enlace_min,
+    'rango_enlace_max': rango_enlace_max,
+    'dist_rotura': dist_rotura,
+    'max_fuerza': max_fuerza,
+    
+    # Campos de interacción
+    'prob_enlace_base': prob_enlace_base,
+    'click_force': click_force,
+    'click_radius': click_radius,
+}
 
-    def get_formula(self, indices):
-        """Genera una fórmula simplificada (ej: H2 O)."""
-        if not indices: return ""
-        counts = {}
-        # Sincronización leve para leer tipos
-        a_types = atom_types.to_numpy()
-        for i in indices:
-            t = a_types[i]
-            sym = cfg.TIPOS_NOMBRES[t]
-            counts[sym] = counts.get(sym, 0) + 1
-        
-        formula = ""
-        # Orden preferido: C, H, O, N, P, S
-        for s in ["C", "H", "O", "N", "P", "S"]:
-            if s in counts:
-                formula += f"{s}{counts[s] if counts[s] > 1 else ''} "
-        for s, c in counts.items():
-            if s not in ["C", "H", "O", "N", "P", "S"]:
-                formula += f"{s}{c if c > 1 else ''} "
-        return formula.strip()
-
-    def add_log(self, text):
-        timestamp = time.strftime("%H:%M:%S")
-        self.event_log.insert(0, f"[{timestamp}] {text}")
-        if len(self.event_log) > 15:
-            self.event_log.pop()
-        
-    def init_world(self):
-        n_particles[None] = self.n_particles_val
-        # Sincronizar parámetros globales desde Config Central
-        gravity[None] = cfg.sim_config.GRAVITY
-        friction[None] = cfg.sim_config.FRICTION
-        temperature[None] = cfg.sim_config.TEMPERATURE
-        max_speed[None] = cfg.sim_config.MAX_VELOCIDAD
-        world_width[None] = float(WORLD_SIZE)
-        world_height[None] = float(WORLD_SIZE)
-        
-        # Parámetros de enlaces (Centralizados)
-        dist_equilibrio[None] = cfg.sim_config.DIST_EQUILIBRIO
-        spring_k[None] = cfg.sim_config.SPRING_K
-        damping[None] = cfg.sim_config.DAMPING
-        rango_enlace_min[None] = cfg.sim_config.RANGO_ENLACE_MIN
-        rango_enlace_max[None] = cfg.sim_config.RANGO_ENLACE_MAX
-        dist_rotura[None] = cfg.sim_config.DIST_ROTURA
-        max_fuerza[None] = cfg.sim_config.MAX_FUERZA
-        
-        # Parámetros de Interacción y Realismo
-        prob_enlace_base[None] = cfg.sim_config.PROB_ENLACE_BASE
-        click_force[None] = cfg.sim_config.CLICK_FORCE
-        click_radius[None] = cfg.sim_config.CLICK_RADIUS
-
-        # Spawning balanceado para CHONPS
-        # H (40%), O (20%), C (20%), N (10%), P (5%), S (5%)
-        tipos = np.random.choice([0, 1, 2, 3, 4, 5], 
-                                 size=self.n_particles_val, 
-                                 p=[0.4, 0.2, 0.2, 0.1, 0.05, 0.05])
-        atom_types_full = np.pad(tipos, (0, MAX_PARTICLES - self.n_particles_val), constant_values=0).astype(np.int32)
-        atom_types.from_numpy(atom_types_full)
-        colors_table = (cfg.COLORES / 255.0).astype(np.float32)
-        col_np = colors_table[atom_types_full]
-        colors.from_numpy(col_np)
-        radii_np = np.zeros(MAX_PARTICLES, dtype=np.float32)
-        # Sincronización perfecta: Radios físicos = Radios visuales escalados
-        # (Ajuste fino para que las conexiones se vean "en los núcleos")
-        radii_np[:self.n_particles_val] = (cfg.RADIOS[tipos] * 1.5 + 5.0) * cfg.sim_config.SCALE
-        radii.from_numpy(radii_np)
-        manos_np = np.zeros(MAX_PARTICLES, dtype=np.float32)
-        manos_np[:self.n_particles_val] = cfg.VALENCIAS[tipos]
-        manos_libres.from_numpy(manos_np)
-        margin = 1000
-        pos_np = np.zeros((MAX_PARTICLES, 2), dtype=np.float32)
-        pos_np[:self.n_particles_val, 0] = np.random.uniform(margin, WORLD_SIZE - margin, self.n_particles_val)
-        pos_np[:self.n_particles_val, 1] = np.random.uniform(margin, WORLD_SIZE - margin, self.n_particles_val)
-        pos.from_numpy(pos_np)
-        is_active.from_numpy(np.pad(np.ones(self.n_particles_val, dtype=np.int32), (0, MAX_PARTICLES - self.n_particles_val), constant_values=0))
-        print(f"[RESTORATION] Mundo {WORLD_SIZE}x{WORLD_SIZE} con {self.n_particles_val} partículas.")
-
-state = AppState()
+# Crear estado de aplicación con inyección de dependencias
+state = AppState(WORLD_SIZE, simulation_fields)
 
 # InputHandler con referencias a datos de simulación
 input_handler = InputHandler(
@@ -254,6 +166,7 @@ physics_controls = {
     'rango_enlace_max': rango_enlace_max,
     'dist_rotura': dist_rotura
 }
+
 
 def gui():
     """Función principal de UI - Delega a módulos de paneles."""
