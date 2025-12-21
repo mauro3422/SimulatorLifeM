@@ -129,6 +129,10 @@ def gui():
 
 
 def update():
+    # Performance tracking
+    perf = get_perf_logger()
+    perf.start("total")
+    
     # 0. Sincronización crucial Taichi -> CPU -> GL
     ti.sync()
     
@@ -292,7 +296,14 @@ def update():
         state.renderer.render(pos_gl, col_vis, bonds_gl, debug_gl, highlight_gl, w, h)
     else:
         state.renderer.ctx.viewport = (0, 0, w, h)
-        state.renderer.ctx.clear(0.02, 0.02, 0.05, 1.0) 
+        state.renderer.ctx.clear(0.02, 0.02, 0.05, 1.0)
+    
+    # Finalizar frame de performance
+    perf.stop("total")
+    perf.set_counter("particles_visible", n_visible[None])
+    perf.set_counter("particles_active", n_particles[None])
+    perf.set_counter("bonds_count", total_bonds_count[None])
+    perf.end_frame(state.fps)
 
 def main():
     perf = get_perf_logger()
