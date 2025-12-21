@@ -16,12 +16,16 @@ class UIConfig:
     COLOR_ORANGE_COORD = (1.0, 0.8, 0.2, 1.0)  # Ámbar para coordenadas
     
     # --- DIMENSIONES DE PANELES ---
-    PANEL_LEFT_W = 340
+    PANEL_LEFT_W = 300
     PANEL_STATS_W = 480
     PANEL_STATS_H = 180
     PANEL_INSPECT_W = 360
     PANEL_INSPECT_H = 240
     LOG_H = 420
+    
+    # --- TIEMPO Y VELOCIDAD ---
+    SPEED_TIERS = [0.0, 0.5, 1.0, 2.0, 5.0, 10.0]
+    BOOST_SPEED = 15.0
     
     # --- PARÁMETROS DE DESTACADO (RENDERER) ---
     HIGHLIGHT_RADIUS = 0.028  # Radio en NDC
@@ -128,3 +132,38 @@ class UIWidgets:
         imgui.text_disabled(text_help)
         
         imgui.end()
+
+    @staticmethod
+    def speed_selector(state):
+        """Selector de velocidad basado en Tabs/Botones."""
+        from src.ui_config import UIConfig
+        
+        imgui.text("Escala Temporal:")
+        imgui.spacing()
+        
+        # Estilo para botones de velocidad
+        btn_w = 40
+        for speed in UIConfig.SPEED_TIERS:
+            label = f"{speed}x" if speed > 0 else "||"
+            
+            # Resaltar si es la velocidad actual
+            is_active = (state.time_scale == speed)
+            if is_active:
+                imgui.push_style_color(imgui.Col_.button, (0.2, 0.8, 1.0, 0.8))
+                imgui.push_style_color(imgui.Col_.button_hovered, (0.2, 0.8, 1.0, 0.9))
+            
+            if imgui.button(f"{label}##speed_{speed}", imgui.ImVec2(btn_w, 0)):
+                state.time_scale = speed
+                state.paused = (speed == 0.0)
+            
+            if is_active:
+                imgui.pop_style_color(2)
+            
+            imgui.same_line()
+        imgui.new_line()
+        
+        # Feedback de Boost
+        if state.boost_active:
+            imgui.text_colored((1.0, 0.4, 0.4, 1.0), ">>> ACELERACIÓN MÁXIMA (TAB) <<<")
+        elif state.pause_timer > 0:
+            imgui.text_colored((1.0, 1.0, 0.0, 1.0), f"Reseteando... {state.pause_timer:.1f}s")

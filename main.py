@@ -239,6 +239,11 @@ class AppState:
         self.selected_idx = -1 # Átomo seleccionado
         self.selected_mol = [] # Lista de átomos en la molécula actual
         
+        # --- NUEVO: Gestión de Tiempo y Boost ---
+        self.boost_active = False
+        self.stored_speed = cfg.sim_config.TIME_SCALE
+        self.pause_timer = 0.0
+        
         # Métricas Acumulativas
         self.stats = {
             "bonds_formed": 0,
@@ -375,42 +380,37 @@ def gui():
     imgui.separator()
     
     # 1. Controles de Tiempo
-    imgui.push_item_width(-1)
-    _, state.paused = imgui.checkbox("PAUSAR SIMULACIÓN [P]", state.paused)
-    imgui.text("Escala Temporal:")
-    _, state.time_scale = imgui.slider_float("##Vel", state.time_scale, 0.0, 10.0)
-    imgui.pop_item_width()
+    # --- MONITOR DINÁMICO DE TIEMPO (TABS) ---
+    UIWidgets.speed_selector(state)
     
     imgui.spacing()
-    
     imgui.separator()
-    imgui.separator()
-    
-    # 2. Física
-    if imgui.collapsing_header("AJUSTES FÍSICOS", imgui.TreeNodeFlags_.default_open):
-        imgui.indent()
-        imgui.text("Gravedad:")
-        imgui.push_item_width(-1)
-        changed_g, val_g = imgui.slider_float("##G", gravity[None], -10.0, 10.0)
-        if changed_g: gravity[None] = val_g
+    imgui.spacing()
+
+    # --- AJUSTES FÍSICOS (Compacto) ---
+    if imgui.collapsing_header("PROPIEDADES FÍSICAS", imgui.TreeNodeFlags_.default_open):
+        imgui.push_item_width(panel_left_w * 0.6)
         
-        imgui.text("Fricción (Viscosidad):")
-        changed_f, val_f = imgui.slider_float("##F", friction[None], 0.8, 0.999)
-        if changed_f: friction[None] = val_f
+        changed_g, new_g = imgui.slider_float("Gravedad", gravity[None], -10.0, 10.0, "%.3f")
+        if changed_g: gravity[None] = new_g
         
-        imgui.text("Agitación (Temp):")
-        changed_t, val_t = imgui.slider_float("##T", temperature[None], 0.0, 10.0)
-        if changed_t: temperature[None] = val_t
+        changed_f, new_f = imgui.slider_float("Fricción", friction[None], 0.8, 1.0, "%.3f")
+        if changed_f: friction[None] = new_f
+        
+        changed_t, new_t = imgui.slider_float("Agitación", temperature[None], 0.0, 1.0, "%.3f")
+        if changed_t: temperature[None] = new_t
+        
         imgui.pop_item_width()
-        imgui.unindent()
-        
+
     imgui.spacing()
     imgui.separator()
     imgui.spacing()
     
-    # --- MODO REALISMO (NUEVO) ---
-    changed_r, val_r = imgui.checkbox("Modo Realismo (Científico)", cfg.sim_config.REALISM_MODE)
-    if changed_r:
+    # --- GESTIÓN DE MUNDO ---
+    UIWidgets.section_header("Mundo", "🌍")
+    
+    changed_real, val_real = imgui.checkbox("Modo Realismo (Científico)", cfg.sim_config.REALISM_MODE)
+    if changed_real:
         cfg.sim_config.toggle_realism()
         # Sincronizar cambios inmediatos a la GPU
         prob_enlace_base[None] = cfg.sim_config.PROB_ENLACE_BASE
@@ -518,6 +518,33 @@ def update():
     ti.sync()
     
     io = imgui.get_io()
+    dt = io.delta_time
+    
+    # --- GESTIÓN DE ACELERACIÓN (TAB) ---
+    if not io.want_capture_keyboard:
+        # Al presionar TAB: Activar Booster
+        if imgui.is_key_down(imgui.Key.tab):
+            if not state.boost_active:
+                state.stored_speed = state.time_scale
+                state.boost_active = True
+                state.add_log("BOOST: Aceleración temporal activa.")
+            state.time_scale = UIConfig.BOOST_SPEED
+            state.pause_timer = 0 # Cancelar cualquier pausa activa
+        
+        # Al soltar TAB: Pausa de seguridad 1.5s
+        elif state.boost_active:
+            state.boost_active = False
+            state.time_scale = 0.0
+            state.pause_timer = 1.5 
+            state.add_log("SISTEMA: Estabilizando cronología...")
+            
+    # Manejar temporizador de pausa
+    if state.pause_timer > 0:
+        state.pause_timer -= dt
+        if state.pause_timer <= 0:
+            state.time_scale = state.stored_speed
+            state.add_log("SISTEMA: Flujo temporal normalizado.")
+
     # Petición: Cambiar Debug con F3
     if imgui.is_key_pressed(imgui.Key.f3):
         state.show_debug = not state.show_debug
