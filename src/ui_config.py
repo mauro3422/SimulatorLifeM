@@ -162,8 +162,17 @@ class UIWidgets:
             imgui.same_line()
         imgui.new_line()
         
-        # Feedback de Boost
+        # Feedback de Boost / Pausa
         if state.boost_active:
-            imgui.text_colored((1.0, 0.4, 0.4, 1.0), ">>> ACELERACIÓN MÁXIMA (TAB) <<<")
+            imgui.text_colored((1.0, 0.4, 0.4, 1.0), "ACELERANDO...")
+            # Barra de progreso del Boost
+            fraction = (state.time_scale) / UIConfig.BOOST_SPEED
+            imgui.push_style_color(imgui.Col_.plot_histogram, (0.2, 0.9, 1.0, 1.0))
+            imgui.progress_bar(fraction, imgui.ImVec2(-1, 20), f"{state.time_scale:.1f}x")
+            imgui.pop_style_color()
+        elif state.time_scale == 1.0 and not state.paused:
+            imgui.text_colored((0.4, 1.0, 0.6, 1.0), ">>> FLUJO ÓPTIMO (1.0x) <<<")
         elif state.pause_timer > 0:
             imgui.text_colored((1.0, 1.0, 0.0, 1.0), f"Reseteando... {state.pause_timer:.1f}s")
+        elif state.paused:
+            imgui.text_colored((1.0, 0.4, 0.4, 1.0), "SISTEMA DETENIDO")

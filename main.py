@@ -241,8 +241,9 @@ class AppState:
         
         # --- NUEVO: Gestión de Tiempo y Boost ---
         self.boost_active = False
-        self.stored_speed = cfg.sim_config.TIME_SCALE
+        self.stored_speed = 1.0 
         self.pause_timer = 0.0
+        self.last_tab_time = 0.0 # Para detección de doble tap
         
         # Métricas Acumulativas
         self.stats = {
@@ -520,30 +521,48 @@ def update():
     io = imgui.get_io()
     dt = io.delta_time
     
-    # --- GESTIÓN DE ACELERACIÓN (TAB) ---
+    # --- GESTIÓN DE ACELERACIÓN Y PAUSA INTELIGENTE ---
     if not io.want_capture_keyboard:
-        # Al presionar TAB: Activar Booster
+        t_now = time.time()
+        
+        # 1. Pausa Estándar [Espacio]
+        if imgui.is_key_pressed(imgui.Key.space):
+            state.paused = not state.paused
+            state.time_scale = 0.0 if state.paused else 1.0
+            state.add_log(f"SISTEMA: {'Pausado' if state.paused else 'Reanudado'}")
+
+        # 2. Pedal de Aceleración [Tab]
+        if imgui.is_key_pressed(imgui.Key.tab):
+            # Detectar Doble Tap (Pausa)
+            if (t_now - state.last_tab_time) < 0.3:
+                state.paused = not state.paused
+                state.time_scale = 0.0 if state.paused else 1.0
+                state.add_log("SISTEMA: Toggle Pausa (Doble Tab)")
+            state.last_tab_time = t_now
+
         if imgui.is_key_down(imgui.Key.tab):
             if not state.boost_active:
-                state.stored_speed = state.time_scale
                 state.boost_active = True
-                state.add_log("BOOST: Aceleración temporal activa.")
-            state.time_scale = UIConfig.BOOST_SPEED
-            state.pause_timer = 0 # Cancelar cualquier pausa activa
+                state.add_log("BOOST: Acelerando evolución...")
+            
+            # Aceleración gradual (tipo pedal)
+            accel_rate = 10.0 * dt # Aumenta 10 unidades por segundo
+            state.time_scale = min(UIConfig.BOOST_SPEED, state.time_scale + accel_rate)
+            state.pause_timer = 0 
         
-        # Al soltar TAB: Pausa de seguridad 1.5s
+        # Al soltar TAB: Retorno Óptimo (1.0x) con pequeña estabilización
         elif state.boost_active:
             state.boost_active = False
-            state.time_scale = 0.0
-            state.pause_timer = 1.5 
-            state.add_log("SISTEMA: Estabilizando cronología...")
+            state.time_scale = 0.0 # Breve pausa
+            state.pause_timer = 0.5 # Estabilización corta
+            state.add_log("SISTEMA: Retorno a Velocidad Óptima.")
             
-    # Manejar temporizador de pausa
+    # Manejar temporizador de pausa (Restaurar a 1.0x)
     if state.pause_timer > 0:
         state.pause_timer -= dt
         if state.pause_timer <= 0:
-            state.time_scale = state.stored_speed
-            state.add_log("SISTEMA: Flujo temporal normalizado.")
+            state.time_scale = 1.0 # SIEMPRE vuelve a 1.0x (Velocidad Óptima)
+            state.paused = False
 
     # Petición: Cambiar Debug con F3
     if imgui.is_key_pressed(imgui.Key.f3):
