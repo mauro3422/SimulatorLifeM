@@ -361,9 +361,6 @@ def gui():
     
     panel_stats_w = UIConfig.PANEL_STATS_W
     panel_stats_h = UIConfig.PANEL_STATS_H
-    
-    banner_w = 420
-    banner_h = 100
 
     # --- PANEL DE CONTROL (IZQUIERDA - Glassmorphism avanzado) ---
     imgui.set_next_window_pos((20, 20), imgui.Cond_.always)
@@ -513,35 +510,8 @@ def gui():
             state.selected_mol = []
         imgui.end()
 
-    # --- HUD DE CÁMARA (INFERIOR - Glassmorphism) ---
-    imgui.set_next_window_pos((win_w/2 - banner_w/2, win_h - banner_h - 25), imgui.Cond_.always)
-    imgui.set_next_window_size((banner_w, banner_h), imgui.Cond_.always)
-    imgui.set_next_window_bg_alpha(0.5)
-    
-    imgui.begin("COORD_HUD", None, imgui.WindowFlags_.no_move | imgui.WindowFlags_.no_resize | imgui.WindowFlags_.no_title_bar)
-    
-    # Fila 1: ENFOQUE (Zoom)
-    imgui.set_cursor_pos((20, 12))
-    imgui.text_colored((0.5, 0.9, 1.0, 1.0), "ENFOQUE:")
-    imgui.same_line()
-    imgui.text_colored((1.0, 1.0, 1.0, 1.0), f"{state.camera.zoom:.2f}x")
-    
-    # Fila 2: COORDENADAS (Centradas y movidas abajo)
-    text_cam = f"COORDENADAS: [{state.camera.x:.0f}, {state.camera.y:.0f}]"
-    imgui.set_cursor_pos_x((banner_w - imgui.calc_text_size(text_cam).x) / 2)
-    imgui.set_cursor_pos_y(40) # Bajamos para evitar el overlap
-    imgui.text_colored((1.0, 0.8, 0.2, 1.0), text_cam)
-    
-    imgui.set_cursor_pos_y(65)
-    imgui.separator()
-    
-    # Fila 3: Ayuda (Inferior)
-    help_text = "[Mouse Wheel] ZOOM  |  [Rueda Click] MOVER"
-    imgui.set_cursor_pos_x((banner_w - imgui.calc_text_size(help_text).x) / 2)
-    imgui.set_cursor_pos_y(banner_h - 30)
-    imgui.text_disabled(help_text)
-    
-    imgui.end()
+    # --- HUD DE CÁMARA DINÁMICO ---
+    UIWidgets.camera_hud(state.camera, win_w, win_h)
 
 def update():
     # 0. Sincronización crucial Taichi -> CPU -> GL

@@ -13,6 +13,7 @@ class UIConfig:
     COLOR_BOND_FORMED = (0.4, 1.0, 0.6, 1.0)   # Verde Esmeralda
     COLOR_BOND_BROKEN = (1.0, 0.4, 0.4, 1.0)   # Rojo Coral
     COLOR_CATALYSIS = (0.2, 0.8, 1.0, 1.0)     # Azul Eléctrico
+    COLOR_ORANGE_COORD = (1.0, 0.8, 0.2, 1.0)  # Ámbar para coordenadas
     
     # --- DIMENSIONES DE PANELES ---
     PANEL_LEFT_W = 340
@@ -85,3 +86,45 @@ class UIWidgets:
                 else:
                     imgui.text_disabled(f"○ {entry}")
         imgui.end_child()
+
+    @staticmethod
+    def camera_hud(camera, win_w, win_h):
+        """HUD dinámico de cámara que se auto-ajusta al contenido."""
+        from src.ui_config import UIConfig
+        
+        # 1. Definir textos y medir
+        text_focus = f"ENFOQUE: {camera.zoom:.2f}x"
+        text_coords = f"COORDENADAS: [{camera.x:.0f}, {camera.y:.0f}]"
+        text_help = "[Mouse Wheel] ZOOM  |  [Rueda Click] MOVER"
+        
+        size_focus = imgui.calc_text_size(text_focus)
+        size_coords = imgui.calc_text_size(text_coords)
+        size_help = imgui.calc_text_size(text_help)
+        
+        # El ancho del banner es el máximo de las líneas + padding
+        padding = 40
+        banner_w = max(size_focus.x, size_coords.x, size_help.x) + padding
+        banner_h = 110 # Altura fija para 3 filas + espaciado
+        
+        # 2. Posicionar centrado abajo
+        imgui.set_next_window_pos((win_w/2 - banner_w/2, win_h - banner_h - 25), imgui.Cond_.always)
+        imgui.set_next_window_size((banner_w, banner_h), imgui.Cond_.always)
+        imgui.set_next_window_bg_alpha(0.6)
+        
+        imgui.begin("CAMERA_HUD", None, UIConfig.WINDOW_FLAGS_STATIC | imgui.WindowFlags_.no_title_bar)
+        
+        # Fila 1: Zoom (Cian)
+        imgui.set_cursor_pos_x((banner_w - size_focus.x) / 2)
+        imgui.text_colored(UIConfig.COLOR_CYAN_NEON, text_focus)
+        
+        # Fila 2: Coordenadas (Ámbar)
+        imgui.set_cursor_pos_x((banner_w - size_coords.x) / 2)
+        imgui.text_colored(UIConfig.COLOR_ORANGE_COORD, text_coords)
+        
+        imgui.separator()
+        
+        # Fila 3: Ayuda (Gris)
+        imgui.set_cursor_pos_x((banner_w - size_help.x) / 2)
+        imgui.text_disabled(text_help)
+        
+        imgui.end()
