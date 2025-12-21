@@ -1,49 +1,196 @@
+"""
+AppContext - Contexto Global Unificado de la Aplicación.
+=========================================================
+Singleton que gestiona todo el estado de la aplicación:
+- Cámara y visualización
+- Campos de simulación Taichi
+- Timeline y eventos
+- Estado de boost/pausa
+- Estadísticas y métricas
+"""
+
+import time
+import numpy as np
 import src.config as cfg
 from src.renderer.camera import Camera
 from src.core.event_system import get_event_system, SimulationTimeline, EventHistory, EventDetector
 
+
 class AppContext:
+    """
+    Contexto global unificado de la aplicación (Singleton).
+    
+    Combina la funcionalidad de AppContext + AppState en un único punto
+    de acceso para todo el estado de la aplicación.
+    """
     _instance = None
     
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(AppContext, cls).__new__(cls)
-            cls._instance.initialized = False
+            cls._instance._initialized = False
         return cls._instance
 
     def __init__(self):
-        if self.initialized:
+        if self._initialized:
             return
             
-        # Global Configuration
+        # ========== CONFIGURACIÓN GLOBAL ==========
         self.cfg = cfg
-        self.show_debug = True
         
-        # Core Systems
+        # ========== CORE SYSTEMS ==========
         self.camera = None
-        self.universe = None
+        self.renderer = None
+        self.sim = None  # Diccionario de campos Taichi (inyectado)
         
-        # Timeline & Events (Sistema de Narración)
+        # ========== TIMELINE & EVENTOS ==========
         event_sys = get_event_system()
         self.timeline: SimulationTimeline = event_sys['timeline']
         self.event_history: EventHistory = event_sys['history']
         self.event_detector: EventDetector = event_sys['detector']
+        self.event_log = []
         
-        # State
+        # ========== ESTADO DE SIMULACIÓN ==========
         self.running = True
         self.paused = False
-        self.selected_atom = -1
+        self.show_debug = False
+        self.time_scale = cfg.sim_config.TIME_SCALE
+        self.world_size = cfg.sim_config.WORLD_SIZE
+        self.n_particles_val = 5000
         
-        self.initialized = True
+        # ========== TIMING ==========
+        self.last_time = time.time()
+        self.fps = 0.0
+        
+        # ========== SELECCIÓN ==========
+        self.selected_idx = -1
+        self.selected_mol = []
+        
+        # ========== BOOST & VELOCIDAD ==========
+        self.boost_active = False
+        self.stored_speed = 1.0
+        self.pause_timer = 0.0
+        self.last_tab_time = 0.0
+        
+        # ========== ESTADÍSTICAS ==========
+        self.stats = {
+            "bonds_formed": 0,
+            "bonds_broken": 0,
+            "mutations": 0,
+            "tunnels": 0
+        }
+        
+        self._initialized = True
 
-    def init_camera(self, world_size, win_w, win_h):
-        """Initialize the camera system."""
+    # ==================== INICIALIZACIÓN ====================
+    
+    def init_camera(self, world_size: float, win_w: int, win_h: int):
+        """Inicializa el sistema de cámara."""
+        self.world_size = world_size
         self.camera = Camera(world_size, win_w, win_h)
+        self.camera.set_zoom(cfg.sim_config.INITIAL_ZOOM)
         return self.camera
 
+    def init_simulation(self, simulation_fields: dict):
+        """
+        Inyecta el diccionario de campos Taichi.
+        
+        Args:
+            simulation_fields: Dict con referencias a campos Taichi:
+                - 'n_particles', 'pos', 'vel', 'radii', 'is_active'
+                - 'atom_types', 'colors', 'manos_libres'
+                - 'enlaces_idx', 'num_enlaces'
+                - 'gravity', 'friction', 'temperature', 'max_speed'
+                - 'world_width', 'world_height'
+                - etc.
+        """
+        self.sim = simulation_fields
+        self.init_world()
+
+    def init_world(self):
+        """Inicializa el mundo con partículas aleatorias."""
+        if self.sim is None:
+            print("[ERROR] Campos de simulación no inicializados")
+            return
+            
+        sim = self.sim
+        max_particles = sim['MAX_PARTICLES']
+        
+        sim['n_particles'][None] = self.n_particles_val
+        
+        # Sincronizar parámetros desde Config Central
+        sim['gravity'][None] = cfg.sim_config.GRAVITY
+        sim['friction'][None] = cfg.sim_config.FRICTION
+        sim['temperature'][None] = cfg.sim_config.TEMPERATURE
+        sim['max_speed'][None] = cfg.sim_config.MAX_VELOCIDAD
+        sim['world_width'][None] = float(self.world_size)
+        sim['world_height'][None] = float(self.world_size)
+        
+        # Parámetros de enlaces
+        sim['dist_equilibrio'][None] = cfg.sim_config.DIST_EQUILIBRIO
+        sim['spring_k'][None] = cfg.sim_config.SPRING_K
+        sim['damping'][None] = cfg.sim_config.DAMPING
+        sim['rango_enlace_min'][None] = cfg.sim_config.RANGO_ENLACE_MIN
+        sim['rango_enlace_max'][None] = cfg.sim_config.RANGO_ENLACE_MAX
+        sim['dist_rotura'][None] = cfg.sim_config.DIST_ROTURA
+        sim['max_fuerza'][None] = cfg.sim_config.MAX_FUERZA
+        
+        # Parámetros de Interacción
+        sim['prob_enlace_base'][None] = cfg.sim_config.PROB_ENLACE_BASE
+        sim['click_force'][None] = cfg.sim_config.CLICK_FORCE
+        sim['click_radius'][None] = cfg.sim_config.CLICK_RADIUS
+
+        # Spawning balanceado para CHONPS
+        # H (40%), O (20%), C (20%), N (10%), P (5%), S (5%)
+        tipos = np.random.choice(
+            [0, 1, 2, 3, 4, 5],
+            size=self.n_particles_val,
+            p=[0.4, 0.2, 0.2, 0.1, 0.05, 0.05]
+        )
+        
+        atom_types_full = np.pad(
+            tipos, (0, max_particles - self.n_particles_val), constant_values=0
+        ).astype(np.int32)
+        sim['atom_types'].from_numpy(atom_types_full)
+        
+        colors_table = (cfg.COLORES / 255.0).astype(np.float32)
+        col_np = colors_table[atom_types_full]
+        sim['colors'].from_numpy(col_np)
+        
+        radii_np = np.zeros(max_particles, dtype=np.float32)
+        radii_np[:self.n_particles_val] = (cfg.RADIOS[tipos] * 1.5 + 5.0) * cfg.sim_config.SCALE
+        sim['radii'].from_numpy(radii_np)
+        
+        manos_np = np.zeros(max_particles, dtype=np.float32)
+        manos_np[:self.n_particles_val] = cfg.VALENCIAS[tipos]
+        sim['manos_libres'].from_numpy(manos_np)
+        
+        margin = 1000
+        pos_np = np.zeros((max_particles, 2), dtype=np.float32)
+        pos_np[:self.n_particles_val, 0] = np.random.uniform(
+            margin, self.world_size - margin, self.n_particles_val
+        )
+        pos_np[:self.n_particles_val, 1] = np.random.uniform(
+            margin, self.world_size - margin, self.n_particles_val
+        )
+        sim['pos'].from_numpy(pos_np)
+        
+        is_active_np = np.pad(
+            np.ones(self.n_particles_val, dtype=np.int32),
+            (0, max_particles - self.n_particles_val),
+            constant_values=0
+        )
+        sim['is_active'].from_numpy(is_active_np)
+        
+        print(f"[INIT] Mundo {self.world_size}x{self.world_size} con {self.n_particles_val} partículas.")
+
+    # ==================== CÁMARA ====================
+    
     def get_camera(self):
-        """Get the active camera instance."""
+        """Retorna la instancia de cámara activa."""
         return self.camera
+
+    # ==================== TIMELINE ====================
     
     def tick_simulation(self, n_steps: int = 1):
         """Avanza el tiempo de simulación."""
@@ -64,11 +211,69 @@ class AppContext:
     def speed_down(self):
         """Reduce velocidad de simulación."""
         return self.timeline.speed_down()
+
+    # ==================== EVENTOS ====================
     
     def get_recent_events(self, n: int = 5):
         """Retorna los últimos N eventos."""
         return self.event_history.get_recent(n)
+    
+    def add_log(self, text: str):
+        """Añade una entrada al log de eventos."""
+        timestamp = time.strftime("%H:%M:%S")
+        self.event_log.insert(0, f"[{timestamp}] {text}")
+        if len(self.event_log) > 15:
+            self.event_log.pop()
 
-# Global Accessor
-def get_context():
+    # ==================== MOLÉCULAS ====================
+    
+    def get_molecule_indices(self, start_idx: int) -> list:
+        """Traversa los enlaces para encontrar toda la molécula conectada."""
+        if start_idx < 0 or self.sim is None:
+            return []
+        
+        mol = {start_idx}
+        stack = [start_idx]
+        
+        # Obtenemos los enlaces del buffer Taichi
+        all_enlaces = self.sim['enlaces_idx'].to_numpy()
+        num_v_enlaces = self.sim['num_enlaces'].to_numpy()
+        
+        while stack:
+            curr = stack.pop()
+            for i in range(num_v_enlaces[curr]):
+                neighbor = all_enlaces[curr, i]
+                if neighbor >= 0 and neighbor not in mol:
+                    mol.add(neighbor)
+                    stack.append(neighbor)
+        return list(mol)
+    
+    def get_formula(self, indices: list) -> str:
+        """Genera una fórmula simplificada (ej: H2 O)."""
+        if not indices or self.sim is None:
+            return ""
+        
+        counts = {}
+        a_types = self.sim['atom_types'].to_numpy()
+        
+        for i in indices:
+            t = a_types[i]
+            sym = cfg.TIPOS_NOMBRES[t]
+            counts[sym] = counts.get(sym, 0) + 1
+        
+        formula = ""
+        # Orden preferido: C, H, O, N, P, S
+        for s in ["C", "H", "O", "N", "P", "S"]:
+            if s in counts:
+                formula += f"{s}{counts[s] if counts[s] > 1 else ''} "
+        for s, c in counts.items():
+            if s not in ["C", "H", "O", "N", "P", "S"]:
+                formula += f"{s}{c if c > 1 else ''} "
+        return formula.strip()
+
+
+# ==================== ACCESO GLOBAL ====================
+
+def get_context() -> AppContext:
+    """Retorna la instancia singleton del contexto."""
     return AppContext()

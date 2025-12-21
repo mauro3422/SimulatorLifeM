@@ -27,7 +27,6 @@ from src.renderer.camera import Camera
 from src.renderer.particle_renderer import ParticleRenderer
 from src.core.input_handler import InputHandler
 from src.ui.panels import draw_control_panel, draw_telemetry_panel, draw_monitor_panel, draw_inspector_panel
-from src.core.app_state import AppState
 
 # Constantes de mundo (Ahora desde sim_config)
 WORLD_SIZE = cfg.sim_config.WORLD_SIZE
@@ -143,8 +142,10 @@ simulation_fields = {
     'click_radius': click_radius,
 }
 
-# Crear estado de aplicación con inyección de dependencias
-state = AppState(WORLD_SIZE, simulation_fields)
+# Crear estado de aplicación usando contexto unificado
+state = get_context()
+state.init_camera(WORLD_SIZE, 1280, 720)
+state.init_simulation(simulation_fields)
 
 # InputHandler con referencias a datos de simulación
 input_handler = InputHandler(
