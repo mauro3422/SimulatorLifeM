@@ -1,12 +1,12 @@
 ======================================================================
 REPORTE DE AUDITORÍA - LifeSimulator v3.0
-Generado: 2025-12-21 15:17:33
+Generado: 2025-12-21 15:21:17
 ======================================================================
 
 📊 RESUMEN GENERAL
 --------------------------------------------------
   Archivos analizados: 27
-  Líneas totales: 3,840
+  Líneas totales: 3,841
   Tamaño total: 138.7 KB
 
 📁 ARCHIVOS POR TAMAÑO (Top 15)
@@ -14,7 +14,7 @@ Generado: 2025-12-21 15:17:33
   Archivo                                         Líneas   Código       KB
   --------------------------------------------- -------- -------- --------
   ⚠️ scripts\code_audit.py                          483      388    18.6
-  ⚠️ main.py                                        321      234    12.6
+  ⚠️ main.py                                        322      235    12.6
   ✅ src\core\context.py                            279      202     9.8
   ✅ src\systems\simulation_gpu.py                  256      166     7.6
   ✅ src\core\event_system.py                       219      177     7.8
@@ -75,6 +75,7 @@ Generado: 2025-12-21 15:17:33
 🔍 IMPORTS POTENCIALMENTE NO USADOS
 --------------------------------------------------
   main.py:
+    - taichi
     - src.renderer.camera.Camera
   scripts\verify_ui.py:
     - sys
@@ -105,9 +106,9 @@ Generado: 2025-12-21 15:17:33
 📦 DEFINICIONES SIN IMPORTAR EXTERNAMENTE
 --------------------------------------------------
   main.py:
-    - main
     - gui
     - update
+    - main
   scripts\code_audit.py:
     - CodeAuditor
     - main
@@ -120,20 +121,20 @@ Generado: 2025-12-21 15:17:33
   src\core\event_system.py:
     - SimEvent
   src\systems\molecule_detector.py:
-    - get_molecule_detector
     - MoleculeDetector
+    - get_molecule_detector
   src\systems\physics_constants.py:
-    - electroneg_to_charge
     - scale_parameter
-    - calculate_coulomb_force
     - calculate_brownian_velocity
     - get_scaled_physics
+    - electroneg_to_charge
+    - calculate_coulomb_force
   src\systems\simulation_gpu.py:
-    - count_active_particles_gpu
     - sync_to_gpu
-    - sync_from_gpu
-    - run_simulation_gpu
     - sync_positions_only
+    - run_simulation_gpu
+    - sync_from_gpu
+    - count_active_particles_gpu
   src\systems\taichi_fields.py:
     - sync_atomic_data
 
@@ -146,7 +147,7 @@ Generado: 2025-12-21 15:17:33
   src/config                              5        528      16.8
   scripts                                 2        485      18.7
   src/renderer                            3        465      17.6
-  /                                       1        321      12.6
+  /                                       1        322      12.6
   src/ui/panels                           5        280       9.0
   tests                                   1         63       2.1
   src/ui                                  1          1       0.0

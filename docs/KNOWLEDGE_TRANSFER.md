@@ -1,7 +1,7 @@
 # 🧬 LifeSimulator - Knowledge Transfer Document
 
-> **Fecha**: 2025-12-21
-> **Estado**: Producción (Estable)
+> **Fecha**: 2025-12-21 (Actualizado)
+> **Estado**: Producción (Refactorizado)
 > **Repositorio**: `mauro3422/SimulatorLifeM`
 
 ---
@@ -16,29 +16,79 @@
 
 ---
 
-## 📁 Estructura de Archivos Clave
+## 📁 Estructura de Archivos
 
-| Archivo | Responsabilidad |
-|---------|-----------------|
-| `main.py` | Loop principal, renderer, UI, input. (~820 líneas) |
-| `src/config.py` | Configuración global, carga de átomos JSON. |
-| `src/ui_config.py` | Paleta de colores, dimensiones, widgets reutilizables. |
-| `src/systems/simulation_gpu.py` | Kernels de Taichi (física, química, grid espacial). |
-| `data/atoms/*.json` | Definiciones de átomos (CHONPS) en formato Data-Driven. |
+### Arquitectura Modular (Post-Refactorización)
+
+```
+LifeSimulator/
+├── main.py                     (323 líneas) - Orquestador principal
+├── src/
+│   ├── config/
+│   │   ├── __init__.py         - Exports centralizados
+│   │   ├── simulation.py       - Parámetros de simulación
+│   │   ├── atoms.py            - Carga de átomos JSON
+│   │   ├── ui.py               - Paleta, widgets ImGui
+│   │   └── system_constants.py - Constantes de escala/tamaño
+│   │
+│   ├── core/
+│   │   ├── context.py          (279 líneas) - Singleton AppContext
+│   │   ├── event_system.py     - Timeline, eventos
+│   │   └── input_handler.py    - Teclado/mouse
+│   │
+│   ├── systems/
+│   │   ├── taichi_fields.py    - Campos Taichi centralizados
+│   │   ├── physics_constants.py - Constantes físicas
+│   │   ├── physics_kernels.py  - Kernels de física
+│   │   ├── chemistry_kernels.py - Kernels de química
+│   │   ├── simulation_gpu.py   (256 líneas) - Orquestador GPU
+│   │   └── molecule_detector.py - (Pendiente integrar)
+│   │
+│   ├── renderer/
+│   │   ├── camera.py           - Sistema de cámara
+│   │   ├── particle_renderer.py - Renderer ModernGL
+│   │   └── opengl_kernels.py   - Kernels para OpenGL
+│   │
+│   └── ui/panels/
+│       ├── control_panel.py    - Panel de controles
+│       ├── monitor_panel.py    - Monitor de estadísticas
+│       ├── telemetry_panel.py  - Telemetría
+│       └── inspector_panel.py  - Inspector de átomos
+│
+├── scripts/
+│   ├── code_audit.py           - Script de auditoría v3.0
+│   └── audit_report.txt        - Último reporte generado
+│
+└── docs/
+    ├── KNOWLEDGE_TRANSFER.md   - Este documento
+    ├── architecture.md         - Arquitectura detallada
+    ├── code_conventions.md     - Convenciones de código
+    └── features.md             - Características
+```
+
+### Métricas Actuales
+| Directorio | Archivos | Líneas |
+|------------|----------|--------|
+| `src/systems/` | 6 | ~1,000 |
+| `src/core/` | 3 | ~650 |
+| `src/config/` | 5 | ~530 |
+| `src/renderer/` | 3 | ~465 |
+| `src/ui/panels/` | 5 | ~280 |
+| **Total** | **27** | **~3,840** |
 
 ---
 
-## 🎮 Sistema de Controles (Modo Piloto)
+## 🎮 Sistema de Controles
 
 | Tecla | Acción |
 |-------|--------|
-| **Tab (Mantener)** | Acelera `time_scale` gradualmente hasta 15.0x. Al soltar, **mantiene** la velocidad. |
+| **Tab (Mantener)** | Acelera `time_scale` hasta 15.0x. Al soltar, mantiene velocidad. |
 | **Doble Tab** | Toggle Pausa. |
-| **Espacio** | Reset instantáneo a 1.0x (Velocidad Óptima). |
+| **Espacio** | Reset a 1.0x. |
 | **Mouse Wheel** | Zoom in/out. |
 | **Middle Mouse Drag** | Pan (mover cámara). |
-| **Left Click** | Seleccionar átomo. Segundo click: ver molécula. Tercero: deseleccionar. |
-| **F3** | Toggle panel de debug/telemetría. |
+| **Left Click** | Seleccionar átomo → molécula → deseleccionar. |
+| **F3** | Toggle panel de debug. |
 
 ---
 
@@ -46,62 +96,54 @@
 
 **Elementos**: Carbono, Hidrógeno, Oxígeno, Nitrógeno, Fósforo, Azufre.
 
-- **Afinidades**: Definidas en `data/atoms/*.json` (matriz de probabilidades de enlace).
-- **Eventos Evolutivos**: Mutación (cambio de tipo), Efecto Túnel (teletransportación cuántica).
-- **Contadores**: `total_bonds_count`, `total_mutations`, `total_tunnels`.
+- **Afinidades**: Definidas en `data/atoms/*.json`.
+- **Kernels de química** en `src/systems/chemistry_kernels.py`:
+  - `check_bonding_gpu` - Formación de enlaces
+  - `apply_bond_forces_gpu` - Fuerzas de resorte
+  - `apply_evolutionary_effects_gpu` - Mutación y túnel
 
 ---
 
-## 🛠️ Correcciones Recientes (Importante)
+## ✅ Refactorización Completada
 
-1. **Buffer Overflow (Crash al seleccionar moléculas grandes)**:
-   - `vbo_select` expandido de 40KB a 800KB.
-   - Guardia de escritura añadida en `ParticleRenderer.render()`.
-
-2. **Tab "Epiléptico"**:
-   - Refactorizado a máquina de estados (`tab_just_pressed` vs `tab_held`).
-   - `last_tab_time = 0` tras doble-tap para evitar triple-tap.
-
-3. **Slider vs Botones**:
-   - Botones de velocidad eliminados. Slider es el control principal.
-
----
-
-## ⚠️ Deuda Técnica / Código "Sucio"
-
-| Área | Problema | Sugerencia |
-|------|----------|------------|
-| `main.py` | Demasiado grande (820 líneas). | Extraer `InputHandler`, `Renderer`, `SimulationLoop` a módulos. |
-| `update()` | Mezcla input, física y render. | Separar en `handle_input()`, `step_simulation()`, `prepare_render()`. |
-| `gui()` | Lógica de paneles mezclada. | Crear funciones `draw_control_panel()`, `draw_monitor_panel()`, etc. |
-| `AppState` | Acumula muchos atributos. | Considerar dataclass o NamedTuple para grupos de estado. |
+| Tarea | Estado |
+|-------|--------|
+| Extraer `InputHandler` | ✅ |
+| Extraer `ParticleRenderer` | ✅ |
+| Crear `src/ui/panels/` | ✅ |
+| Unificar `AppContext` | ✅ |
+| Centralizar config en paquete | ✅ |
+| Dividir `simulation_gpu.py` | ✅ |
+| Extraer kernels OpenGL | ✅ |
+| Script de auditoría v3.0 | ✅ |
 
 ---
 
-## 📋 Checklist de Refactorización Sugerida
+## 📋 Pendiente
 
-- [ ] Extraer `class InputHandler` para toda la lógica de teclado/mouse.
-- [ ] Extraer `class SimLoop` para el bucle de simulación (`run_simulation_fast`).
-- [ ] Mover `ParticleRenderer` a `src/renderer/particle_renderer.py`.
-- [ ] Crear `src/ui/panels/` con archivos separados para cada panel ImGui.
-- [ ] Añadir type hints (PEP 484) a funciones principales.
-- [ ] Documentar kernels de Taichi con docstrings detallados.
+- [ ] Evaluar/integrar `molecule_detector.py`
+- [ ] Añadir type hints (PEP 484)
+- [ ] Guardar/Cargar estado a JSON
+- [ ] Log persistente de eventos
 
 ---
 
-## 🚀 Próximos Pasos Potenciales
+## 🔧 Herramientas de Desarrollo
 
-1. **Guardar/Cargar Estado**: Serializar posiciones, enlaces y configuración a JSON.
-2. **Editor de Moléculas**: UI para diseñar moléculas manualmente.
-3. **Log Persistente**: Exportar eventos químicos a archivo CSV.
-4. **Optimización Avanzada**: Implementar Frustum Culling real, LOD para moléculas lejanas.
+### Script de Auditoría
+```bash
+python scripts/code_audit.py
+```
+Genera `scripts/audit_report.txt` con:
+- Archivos por tamaño
+- Funciones más grandes
+- Kernels Taichi
+- TODOs/FIXMEs
+- Imports no usados
+
+### Convenciones de Código
+Ver `docs/code_conventions.md` para patrones de comentarios reconocidos.
 
 ---
 
-## 💡 Cómo Retomar Contexto
-
-Si cambias de conversación, simplemente pégame este documento al inicio y estaré al día. También puedo leer `docs/architecture.md` y `README.md` para refrescar detalles específicos.
-
----
-
-*Documento generado automáticamente por Antigravity para transferencia de conocimiento.*
+*Documento actualizado 2025-12-21 tras refactorización completa.*
