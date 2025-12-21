@@ -1,3 +1,24 @@
+# Análisis de Kernels (Taichi GPU) 🧪⚙️
+
+El rendimiento de LifeSimulator reside en sus kernels de Taichi escritos en Python pero compilados a SPIR-V/Vulkan.
+
+## 1. `simulation_step_gpu` (Core Loop)
+
+Este kernel se ejecuta en paralelo para cada partícula y realiza:
+- **Cálculo de Fuerzas CHONPS**: Utiliza una matriz de afinidad (`AFINIDAD_MATRIX`) para determinar la atracción/repulsión entre elementos.
+- **Integración de Verlet**: Actualiza posiciones basándose en velocidades previas y la aceleración calculada, manteniendo la estabilidad energética.
+- **Detección de Enlaces DPG**: Implementa un sistema de enlaces dinámicos que se forman automáticamente al entrar en el radio de equilibrio y se rompen al exceder el límite de tensión.
+
+## 2. `apply_force_pulse` (Interacción)
+
+Kernel disparado por eventos de usuario (Shockwaves):
+- Calcula vectores de repulsión radial desde el punto del clic.
+- Aplica un impulso de aceleración instantáneo que escala inversamente con la distancia al cuadrado (Lógica de campo gravitatorio/eléctrico).
+
+## 3. `update_grid` (Optimización Espacial)
+
+- Divide el mundo de 15,000x15,000 en una grilla de búsqueda.
+- Permite que cada átomo solo verifique colisiones con sus vecinos cercanos, reduciendo la complejidad de $O(N^2)$ a $O(N)$.
 # Análisis de Flujo de Kernels - QuimicPYTHON
 
 ## Resumen del Problema

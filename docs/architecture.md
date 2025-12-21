@@ -1,6 +1,29 @@
-# Arquitectura del Sistema
+# Arquitectura de LifeSimulator 🧬🏗️
 
-## Sistemas de Coordenadas
+LifeSimulator utiliza un pipeline híbrido optimizado para el procesamiento paralelo masivo en la GPU.
+
+## 🛠️ Pipeline de Datos (Vulkan/OpenGL)
+
+El sistema está diseñado para evitar la latencia de transferencia entre la CPU y la GPU:
+
+1.  **Física (Taichi Lang)**: Los kernels de Taichi procesan la integración de Verlet, colisiones y enlaces químicos directamente en los registros de la GPU.
+2.  **Sincronización Zero-Copy**: Los datos de posición y color se exponen a través de buffers de Taichi que son consumidos directamente por **ModernGL**.
+3.  **Renderizado (ModernGL)**: Se utilizan VAOs (Vertex Array Objects) para dibujar miles de puntos y líneas con una sola llamada de dibujo, permitiendo mantener +60 FPS con 10,000+ partículas.
+
+## 🎨 Arquitectura de UI (`src/ui_config.py`)
+
+Hemos estandarizado la interfaz bajo un modelo **Data-Driven**:
+
+- **UIConfig**: Centraliza todos los tokens de diseño (colores, fuentes, espaciados).
+- **UIWidgets**: Componentes de ImGui reutilizables (dashboards, logs, HUDs dinámicos).
+- **Layout Adaptativo**: Los paneles se calculan en base a la resolución actual de la ventana, asegurando que el simulador sea usable desde resoluciones portátiles hasta 4K.
+
+## 📂 Directorios Clave
+
+- `src/systems/`: Lógica de simulación y shaders.
+- `src/renderer/`: Gestión de cámara y proyección NDC.
+- `src/config.py`: Definición de la ontología química (Propiedades CHONPS).
+ordenadas
 El sistema utiliza tres espacios de coordenadas distintos que deben ser sincronizados:
 
 1.  **World Space (Mundo)**:
