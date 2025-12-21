@@ -535,28 +535,35 @@ def update():
         if imgui.is_key_pressed(imgui.Key.space):
             state.time_scale = 1.0
             state.paused = False
+            state.boost_active = False
             state.add_log("SISTEMA: Velocidad restablecida a 1.0x.")
 
-        # 2. Doble Tab para Pausar
-        if imgui.is_key_pressed(imgui.Key.tab):
-            if (t_now - state.last_tab_time) < 0.3:
+        # 2. Lógica de Tab (Doble-Tap vs Hold)
+        tab_just_pressed = imgui.is_key_pressed(imgui.Key.tab)
+        tab_held = imgui.is_key_down(imgui.Key.tab)
+        
+        if tab_just_pressed:
+            # Detectar Doble-Tap (dentro de 0.3s de la última pulsación)
+            if (t_now - state.last_tab_time) < 0.3 and not state.boost_active:
                 state.paused = not state.paused
                 state.time_scale = 0.0 if state.paused else 1.0
+                state.boost_active = False
                 state.add_log(f"SISTEMA: {'Pausado' if state.paused else 'Reanudado'}")
-            state.last_tab_time = t_now
-
-        # 3. Pedal de Aceleración [Tab] - Mantener velocidad al soltar
-        if imgui.is_key_down(imgui.Key.tab):
+                state.last_tab_time = 0  # Evitar triple-tap
+            else:
+                state.last_tab_time = t_now
+        
+        # 3. Acelerar mientras se mantiene Tab (Solo si NO está pausado)
+        if tab_held and not state.paused:
             if not state.boost_active:
                 state.boost_active = True
-                state.paused = False
                 state.add_log("BOOST: Acelerando evolución...")
             
-            # Aceleración gradual
             accel_rate = 8.0 * dt
             state.time_scale = min(UIConfig.BOOST_SPEED, state.time_scale + accel_rate)
-        elif state.boost_active:
-            # Al soltar Tab: MANTENER la velocidad alcanzada
+        
+        # 4. Al soltar Tab: Mantener velocidad
+        elif state.boost_active and not tab_held:
             state.boost_active = False
             state.add_log(f"SISTEMA: Velocidad fijada en {state.time_scale:.1f}x")
 
