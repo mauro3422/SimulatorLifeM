@@ -8,6 +8,11 @@ import taichi as ti
 import numpy as np
 import src.config as cfg
 from src.systems import physics_constants as phys
+from src.config.system_constants import (
+    MAX_PARTICLES, MAX_VALENCE, MAX_BONDS,
+    GRID_CELL_SIZE, GRID_RES, MAX_PER_CELL,
+    WORLD_SIZE
+)
 
 # ===================================================================
 # INICIALIZACIÓN TAICHI
@@ -24,16 +29,9 @@ except:
         print("[GPU] Fallback a CPU")
 
 # ===================================================================
-# CONSTANTES
+# CONSTANTES (desde módulos centralizados)
 # ===================================================================
-MAX_PARTICLES = 10000
 SOLVER_ITERATIONS = phys.SOLVER_ITERATIONS
-MAX_VALENCE = 8
-MAX_BONDS = MAX_PARTICLES * 4
-
-# Grid Espacial
-GRID_CELL_SIZE = 60.0
-GRID_RES = int(cfg.sim_config.WORLD_SIZE * 1.5 / GRID_CELL_SIZE) + 1
 
 # Física (desde physics_constants.py)
 BROWNIAN_K = phys.BROWNIAN_K
