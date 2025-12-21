@@ -10,7 +10,7 @@ import os
 # ti.init(arch=ti.gpu) # Eliminado para dejar que simulation_gpu decida vulkan/opengl
 
 from src.config import SimulationConfig
-from src.ui_config import UIConfig
+from src.ui_config import UIConfig, UIWidgets
 from src.systems.simulation_gpu import (
     MAX_PARTICLES, pos, vel, radii, is_active, atom_types, 
     pos_normalized, colors, n_particles, gravity, friction, 
@@ -350,6 +350,7 @@ class AppState:
 state = AppState()
 
 def gui():
+    UIConfig.apply_style()
     io = imgui.get_io()
     display_size = io.display_size
     win_w, win_h = display_size.x, display_size.y
@@ -451,38 +452,17 @@ def gui():
     imgui.set_next_window_size((panel_stats_w, log_h), imgui.Cond_.always) 
     imgui.begin("MONITOR DE ACTIVIDAD MOLECULAR", None, UIConfig.WINDOW_FLAGS_LOG)
     
-    # Sección de Métricas (Dashboard)
-    imgui.text_colored(UIConfig.COLOR_TEXT_HIGHLIGHT, "MÉTRICAS DE EVOLUCIÓN")
-    imgui.separator()
+    UIWidgets.section_header("MÉTRICAS DE EVOLUCIÓN", "📊")
     
     imgui.begin_table("StatsInfo", 2)
-    imgui.table_next_row()
-    imgui.table_next_column(); imgui.text("Enlaces Formados:"); imgui.table_next_column(); imgui.text_colored(UIConfig.COLOR_BOND_FORMED, f"{state.stats['bonds_formed']}")
-    imgui.table_next_row()
-    imgui.table_next_column(); imgui.text("Enlaces Rotos:"); imgui.table_next_column(); imgui.text_colored(UIConfig.COLOR_BOND_BROKEN, f"{state.stats['bonds_broken']}")
-    imgui.table_next_row()
-    imgui.table_next_column(); imgui.text("Transiciones Energ.:"); imgui.table_next_column(); imgui.text_colored((0.8, 0.6, 1.0, 1.0), f"{state.stats['tunnels']}")
+    UIWidgets.metric_row("Enlaces Formados:", state.stats['bonds_formed'], UIConfig.COLOR_BOND_FORMED)
+    UIWidgets.metric_row("Enlaces Rotos:", state.stats['bonds_broken'], UIConfig.COLOR_BOND_BROKEN)
+    UIWidgets.metric_row("Transiciones Energ.:", state.stats['tunnels'], (0.8, 0.6, 1.0, 1.0))
     imgui.end_table()
     
-    imgui.spacing()
-    imgui.separator()
-    imgui.text_colored((0.6, 0.6, 0.6, 1.0), "BITÁCORA DE EVENTOS")
+    UIWidgets.section_header("BITÁCORA DE EVENTOS", "📝")
+    UIWidgets.scrollable_log(state.event_log)
     
-    # Scrollable region for log (Más pequeña ahora que hay métricas)
-    imgui.begin_child("LogScroll", imgui.ImVec2(0, 0), True, imgui.WindowFlags_.always_vertical_scrollbar)
-    if not state.event_log:
-        imgui.text_disabled("Estabilidad molecular detectada...")
-    else:
-        for entry in state.event_log:
-            if "ENLACE" in entry:
-                imgui.text_colored(UIConfig.COLOR_BOND_FORMED, f"⚡ {entry[11:]}")
-            elif "ROTURA" in entry:
-                imgui.text_colored(UIConfig.COLOR_BOND_BROKEN, f"🔥 {entry[11:]}")
-            elif "CATÁLISIS" in entry:
-                imgui.text_colored(UIConfig.COLOR_CATALYSIS, f"🧬 {entry[11:]}")
-            else:
-                imgui.text_disabled(f"○ {entry}")
-    imgui.end_child()
     imgui.end()
 
     # --- INSPECTOR MOLECULAR (INFERIOR IZQUIERDA) ---
