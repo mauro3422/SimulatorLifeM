@@ -1,0 +1,173 @@
+======================================================================
+REPORTE DE AUDITORÍA - LifeSimulator v3.0
+Generado: 2025-12-21 15:17:33
+======================================================================
+
+📊 RESUMEN GENERAL
+--------------------------------------------------
+  Archivos analizados: 27
+  Líneas totales: 3,840
+  Tamaño total: 138.7 KB
+
+📁 ARCHIVOS POR TAMAÑO (Top 15)
+--------------------------------------------------
+  Archivo                                         Líneas   Código       KB
+  --------------------------------------------- -------- -------- --------
+  ⚠️ scripts\code_audit.py                          483      388    18.6
+  ⚠️ main.py                                        321      234    12.6
+  ✅ src\core\context.py                            279      202     9.8
+  ✅ src\systems\simulation_gpu.py                  256      166     7.6
+  ✅ src\core\event_system.py                       219      177     7.8
+  ✅ src\renderer\camera.py                         190      138     7.0
+  ✅ src\systems\physics_kernels.py                 180      116     6.6
+  ✅ src\renderer\particle_renderer.py              176      135     7.0
+  ✅ src\config\ui.py                               174      132     6.3
+  ✅ src\systems\physics_constants.py               161       80     6.6
+  ✅ src\core\input_handler.py                      157      114     6.1
+  ✅ src\systems\taichi_fields.py                   152       93     6.1
+  ✅ src\systems\chemistry_kernels.py               148      102     6.2
+  ✅ src\systems\molecule_detector.py               145      112     5.2
+  ✅ src\config\system_constants.py                 142       58     4.6
+
+🔧 FUNCIONES MÁS GRANDES (Top 10)
+--------------------------------------------------
+  update (main.py): 165 líneas
+  sync_to_gpu (src\systems\simulation_gpu.py): 52 líneas
+  draw_control_panel (src\ui\panels\control_panel.py): 48 líneas
+  check_bonding_gpu [KERNEL] (src\systems\chemistry_kernels.py): 41 líneas
+  apply_coulomb_repulsion_gpu [KERNEL] (src\systems\physics_kernels.py): 41 líneas
+  draw_inspector_panel (src\ui\panels\inspector_panel.py): 41 líneas
+  apply_bond_forces_gpu [KERNEL] (src\systems\chemistry_kernels.py): 38 líneas
+  draw_monitor_panel (src\ui\panels\monitor_panel.py): 34 líneas
+  draw_telemetry_panel (src\ui\panels\telemetry_panel.py): 33 líneas
+  resolve_constraints_grid [KERNEL] (src\systems\physics_kernels.py): 30 líneas
+
+🏗️ CLASES (ordenadas por métodos)
+--------------------------------------------------
+  AppContext (src\core\context.py): 15 métodos, 254 líneas
+  Camera (src\renderer\camera.py): 14 métodos, 188 líneas
+  CodeAuditor (scripts\code_audit.py): 12 métodos, 409 líneas
+  EventHistory (src\core\event_system.py): 7 métodos, 41 líneas
+  SimulationTimeline (src\core\event_system.py): 7 métodos, 54 líneas
+  UIWidgets (src\config\ui.py): 5 métodos, 110 líneas
+  InputHandler (src\core\input_handler.py): 5 métodos, 146 líneas
+  TestCamera (tests\camera_test.py): 4 métodos, 51 líneas
+  EventDetector (src\core\event_system.py): 4 métodos, 60 líneas
+  ParticleRenderer (src\renderer\particle_renderer.py): 4 métodos, 166 líneas
+  MoleculeDetector (src\systems\molecule_detector.py): 4 métodos, 128 líneas
+  SimulationConfig (src\config\simulation.py): 3 métodos, 82 líneas
+  SimEvent (src\core\event_system.py): 2 métodos, 20 líneas
+  UIConfig (src\config\ui.py): 1 métodos, 53 líneas
+  EventType (src\core\event_system.py): 0 métodos, 12 líneas
+
+📝 TODOS/FIXMES ENCONTRADOS
+--------------------------------------------------
+  scripts\code_audit.py:
+    L111: # TODOs y FIXMEs...
+    L362: # TODOs y FIXMEs...
+
+  Total: 2 TODOs/FIXMEs
+
+📐 SECCIONES DETECTADAS (===)
+--------------------------------------------------
+  Total: 96 secciones con '===' detectadas
+
+🔍 IMPORTS POTENCIALMENTE NO USADOS
+--------------------------------------------------
+  main.py:
+    - src.renderer.camera.Camera
+  scripts\verify_ui.py:
+    - sys
+  src\config\atoms.py:
+    - numpy
+  src\renderer\camera.py:
+    - numpy
+  src\renderer\opengl_kernels.py:
+    - taichi
+  src\systems\chemistry_kernels.py:
+    - taichi
+  src\systems\molecule_detector.py:
+    - numpy
+  src\systems\physics_constants.py:
+    - numpy
+  src\systems\physics_kernels.py:
+    - taichi
+  src\systems\simulation_gpu.py:
+    - taichi
+    - src.config
+  src\systems\taichi_fields.py:
+    - taichi
+    - src.config
+  src\ui\panels\inspector_panel.py:
+    - numpy
+    - src.config
+
+📦 DEFINICIONES SIN IMPORTAR EXTERNAMENTE
+--------------------------------------------------
+  main.py:
+    - main
+    - gui
+    - update
+  scripts\code_audit.py:
+    - CodeAuditor
+    - main
+  tests\camera_test.py:
+    - TestCamera
+  src\config\system_constants.py:
+    - recalculate_scaled_values
+  src\core\context.py:
+    - AppContext
+  src\core\event_system.py:
+    - SimEvent
+  src\systems\molecule_detector.py:
+    - get_molecule_detector
+    - MoleculeDetector
+  src\systems\physics_constants.py:
+    - electroneg_to_charge
+    - scale_parameter
+    - calculate_coulomb_force
+    - calculate_brownian_velocity
+    - get_scaled_physics
+  src\systems\simulation_gpu.py:
+    - count_active_particles_gpu
+    - sync_to_gpu
+    - sync_from_gpu
+    - run_simulation_gpu
+    - sync_positions_only
+  src\systems\taichi_fields.py:
+    - sync_atomic_data
+
+📂 ESTRUCTURA POR DIRECTORIO
+--------------------------------------------------
+  Directorio                       Archivos     Líneas         KB
+  ------------------------------ ---------- ---------- ----------
+  src/systems                             6       1042      38.3
+  src/core                                3        655      23.7
+  src/config                              5        528      16.8
+  scripts                                 2        485      18.7
+  src/renderer                            3        465      17.6
+  /                                       1        321      12.6
+  src/ui/panels                           5        280       9.0
+  tests                                   1         63       2.1
+  src/ui                                  1          1       0.0
+
+⚡ KERNELS TAICHI DETECTADOS
+--------------------------------------------------
+  @ti.kernel check_bonding_gpu (src\systems\chemistry_kernels.py): 41 líneas
+  @ti.kernel apply_coulomb_repulsion_gpu (src\systems\physics_kernels.py): 41 líneas
+  @ti.kernel apply_bond_forces_gpu (src\systems\chemistry_kernels.py): 38 líneas
+  @ti.kernel resolve_constraints_grid (src\systems\physics_kernels.py): 30 líneas
+  @ti.kernel update_borders_gl (src\renderer\opengl_kernels.py): 29 líneas
+  @ti.kernel prepare_bond_lines_gl (src\renderer\opengl_kernels.py): 29 líneas
+  @ti.kernel update_grid (src\systems\simulation_gpu.py): 25 líneas
+  @ti.kernel apply_brownian_motion_gpu (src\systems\physics_kernels.py): 22 líneas
+  @ti.kernel apply_evolutionary_effects_gpu (src\systems\chemistry_kernels.py): 16 líneas
+  @ti.kernel physics_pre_step (src\systems\physics_kernels.py): 16 líneas
+  @ti.kernel count_active_particles_gpu (src\systems\simulation_gpu.py): 11 líneas
+  @ti.kernel apply_force_pulse (src\systems\simulation_gpu.py): 11 líneas
+  @ti.kernel physics_post_step (src\systems\physics_kernels.py): 5 líneas
+  @ti.kernel shake_simulation (src\systems\physics_kernels.py): 4 líneas
+
+======================================================================
+FIN DEL REPORTE
+======================================================================
