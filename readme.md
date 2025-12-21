@@ -25,16 +25,18 @@
 - **UI/UX**: [Dear ImGui](https://github.com/ocornut/imgui) (via imgui-bundle)
 - **Matemáticas**: NumPy
 
-## 🕹️ Controles
+## 🕹️ Controles (Modo Piloto)
 
 | Entrada | Acción |
 | :--- | :--- |
-| **Clic Izquierdo** | Seleccionar Átomo / Expandir a Molécula |
+| **Clic Izquierdo** | Seleccionar Átomo / Segundo clic: Ver Molécula / Tercero: Deseleccionar |
 | **Ctrl + Clic Izquierdo** | Lanzar Pulso de Fuerza (Shockwave) |
+| **Tab (Mantener)** | 🏎️ Acelerador: Aumenta la velocidad gradualmente. Al soltar, la velocidad se **mantiene**. |
+| **Doble Tab** | ⏸️ Pausar / Reanudar Simulación |
+| **Espacio** | 🔄 Reset a Velocidad Óptima (1.0x) |
 | **Rueda del Mouse** | Zoom Dinámico |
 | **Clic Rueda (Hold)** | Panear Cámara |
 | **F3** | Alternar Modo Debug |
-| **Espacio** | Pausar / Reanudar Simulación |
 
 ## 🚀 Instalación
 
