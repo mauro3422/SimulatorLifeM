@@ -166,8 +166,8 @@ class ParticleRenderer:
         ])
 
         # VAO para Destacados (Picking)
-        # 5000 * 8 bytes = 40KB (Suficiente para moléculas muy grandes)
-        self.vbo_select = ctx.buffer(reserve=5000 * 8) 
+        # 100,000 * 8 bytes = 800KB (Suficiente para las moléculas más extremas)
+        self.vbo_select = ctx.buffer(reserve=100000 * 8) 
         self.vao_select = ctx.vertex_array(self.bond_prog, [
             (self.vbo_select, '2f', 'in_vert'),
         ])
@@ -204,7 +204,13 @@ class ParticleRenderer:
 
         # --- DIBUJAR SELECCIÓN (Destacado) ---
         if highlight_data is not None and len(highlight_data) > 0:
-            self.vbo_select.write(highlight_data.tobytes())
+            # Cinturón de seguridad: evitar crash si la molécula supera el buffer
+            data_bytes = highlight_data.tobytes()
+            if len(data_bytes) <= self.vbo_select.size:
+                self.vbo_select.write(data_bytes)
+            else:
+                # Escribir solo lo que quepa para no crashear
+                self.vbo_select.write(data_bytes[:self.vbo_select.size])
             
             # 1. Resaltar Átomos (Círculos segmentados)
             # Cada círculo tiene 12 segmentos (24 vértices para LINES)
@@ -521,48 +527,38 @@ def update():
     io = imgui.get_io()
     dt = io.delta_time
     
-    # --- GESTIÓN DE ACELERACIÓN Y PAUSA INTELIGENTE ---
+    # --- GESTIÓN DE ACELERACIÓN "MODO PILOTO" ---
     if not io.want_capture_keyboard:
         t_now = time.time()
         
-        # 1. Pausa Estándar [Espacio]
+        # 1. Reset a Velocidad Óptima [Espacio]
         if imgui.is_key_pressed(imgui.Key.space):
-            state.paused = not state.paused
-            state.time_scale = 0.0 if state.paused else 1.0
-            state.add_log(f"SISTEMA: {'Pausado' if state.paused else 'Reanudado'}")
+            state.time_scale = 1.0
+            state.paused = False
+            state.add_log("SISTEMA: Velocidad restablecida a 1.0x.")
 
-        # 2. Pedal de Aceleración [Tab]
+        # 2. Doble Tab para Pausar
         if imgui.is_key_pressed(imgui.Key.tab):
-            # Detectar Doble Tap (Pausa)
             if (t_now - state.last_tab_time) < 0.3:
                 state.paused = not state.paused
                 state.time_scale = 0.0 if state.paused else 1.0
-                state.add_log("SISTEMA: Toggle Pausa (Doble Tab)")
+                state.add_log(f"SISTEMA: {'Pausado' if state.paused else 'Reanudado'}")
             state.last_tab_time = t_now
 
+        # 3. Pedal de Aceleración [Tab] - Mantener velocidad al soltar
         if imgui.is_key_down(imgui.Key.tab):
             if not state.boost_active:
                 state.boost_active = True
+                state.paused = False
                 state.add_log("BOOST: Acelerando evolución...")
             
-            # Aceleración gradual (tipo pedal)
-            accel_rate = 10.0 * dt # Aumenta 10 unidades por segundo
+            # Aceleración gradual
+            accel_rate = 8.0 * dt
             state.time_scale = min(UIConfig.BOOST_SPEED, state.time_scale + accel_rate)
-            state.pause_timer = 0 
-        
-        # Al soltar TAB: Retorno Óptimo (1.0x) con pequeña estabilización
         elif state.boost_active:
+            # Al soltar Tab: MANTENER la velocidad alcanzada
             state.boost_active = False
-            state.time_scale = 0.0 # Breve pausa
-            state.pause_timer = 0.5 # Estabilización corta
-            state.add_log("SISTEMA: Retorno a Velocidad Óptima.")
-            
-    # Manejar temporizador de pausa (Restaurar a 1.0x)
-    if state.pause_timer > 0:
-        state.pause_timer -= dt
-        if state.pause_timer <= 0:
-            state.time_scale = 1.0 # SIEMPRE vuelve a 1.0x (Velocidad Óptima)
-            state.paused = False
+            state.add_log(f"SISTEMA: Velocidad fijada en {state.time_scale:.1f}x")
 
     # Petición: Cambiar Debug con F3
     if imgui.is_key_pressed(imgui.Key.f3):
