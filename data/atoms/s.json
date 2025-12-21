@@ -1,0 +1,22 @@
+{
+    "symbol": "S",
+    "name": "Azufre",
+    "color": [
+        255,
+        255,
+        50
+    ],
+    "radius": 13,
+    "mass": 32.0,
+    "valence": 2,
+    "electronegativity": 2.5,
+    "affinities": {
+        "H": 1.4,
+        "O": 2.0,
+        "C": 1.5,
+        "N": 1.0,
+        "P": 1.0,
+        "S": 1.8
+    },
+    "description": "Puentes de disulfuro en proteínas."
+}

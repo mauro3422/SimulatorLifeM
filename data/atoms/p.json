@@ -1,0 +1,22 @@
+{
+    "symbol": "P",
+    "name": "Fósforo",
+    "color": [
+        255,
+        150,
+        50
+    ],
+    "radius": 14,
+    "mass": 31.0,
+    "valence": 5,
+    "electronegativity": 2.1,
+    "affinities": {
+        "H": 1.2,
+        "O": 2.5,
+        "C": 1.0,
+        "N": 1.8,
+        "P": 0.5,
+        "S": 1.0
+    },
+    "description": "El motor de la energía (ATP)."
+}

@@ -1,0 +1,22 @@
+{
+    "symbol": "N",
+    "name": "Nitrógeno",
+    "color": [
+        50,
+        100,
+        255
+    ],
+    "radius": 8,
+    "mass": 14.0,
+    "valence": 3,
+    "electronegativity": 3.0,
+    "affinities": {
+        "H": 1.6,
+        "O": 1.5,
+        "C": 1.7,
+        "N": 0.3,
+        "P": 1.8,
+        "S": 1.0
+    },
+    "description": "Crucial para el ADN."
+}

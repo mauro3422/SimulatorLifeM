@@ -1,0 +1,22 @@
+{
+    "symbol": "O",
+    "name": "Oxígeno",
+    "color": [
+        255,
+        50,
+        50
+    ],
+    "radius": 10,
+    "mass": 16.0,
+    "valence": 2,
+    "electronegativity": 3.5,
+    "affinities": {
+        "H": 2.0,
+        "O": 0.3,
+        "C": 1.8,
+        "N": 1.5,
+        "P": 2.5,
+        "S": 2.0
+    },
+    "description": "Altamente reactivo, forma agua."
+}

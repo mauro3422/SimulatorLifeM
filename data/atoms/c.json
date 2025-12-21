@@ -1,0 +1,22 @@
+{
+    "symbol": "C",
+    "name": "Carbono",
+    "color": [
+        150,
+        150,
+        150
+    ],
+    "radius": 12,
+    "mass": 12.0,
+    "valence": 4,
+    "electronegativity": 2.5,
+    "affinities": {
+        "H": 1.5,
+        "O": 1.8,
+        "C": 2.2,
+        "N": 1.7,
+        "P": 1.0,
+        "S": 1.5
+    },
+    "description": "La base de la química orgánica."
+}
