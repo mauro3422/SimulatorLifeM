@@ -20,6 +20,7 @@ from src.config.atoms import (
     RADIOS, 
     MASAS, 
     VALENCIAS, 
+    VALENCIA_ELECTRONS,
     ELECTRONEG_DATA,
     load_atoms_from_json
 )
@@ -40,7 +41,9 @@ from src.config.system_constants import (
     # Interacción
     CLICK_FORCE, CLICK_RADIUS,
     # Spawn
-    ATOM_SPAWN_PROBS
+    ATOM_SPAWN_PROBS,
+    # Culling
+    CULLING_MARGIN
 )
 
 # Para compatibilidad hacia atrás
@@ -56,6 +59,7 @@ __all__ = [
     'RADIOS',
     'MASAS',
     'VALENCIAS',
+    'VALENCIA_ELECTRONS',
     'ELECTRONEG_DATA',
     'load_atoms_from_json',
     

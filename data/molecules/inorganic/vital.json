@@ -1,0 +1,117 @@
+{
+    "_meta": {
+        "category": "vital_inorganics",
+        "description": "Fundamental inorganic compounds for chemistry and life."
+    },
+    "molecules": {
+        "H2O": {
+            "identity": {
+                "names": {
+                    "es": "Agua",
+                    "en": "Water"
+                },
+                "formula": "H2O",
+                "category": "inorganic",
+                "family_color": [
+                    100,
+                    100,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "La cuna de la vida. Solvente universal.",
+                "biological_presence": "70-90% de la masa de la mayoría de los organismos.",
+                "utility": "Medio donde ocurre toda la magia química."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Solvente Universal",
+                    "Cuna de la Vida"
+                ],
+                "discovery_points": 10,
+                "difficulty": "easy"
+            }
+        },
+        "H3O2P1": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Fosforoso",
+                    "en": "Phosphorous Acid"
+                },
+                "formula": "H3O2P1",
+                "category": "inorganic",
+                "family_color": [
+                    255,
+                    150,
+                    0
+                ]
+            },
+            "lore": {
+                "origin_story": "Precursor mineral de los fosfatos biológicos.",
+                "biological_presence": "Se encuentra en sedimentos antiguos y meteoritos.",
+                "utility": "Suministro de fósforo oxidado."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Legado Mineral"
+                ],
+                "discovery_points": 35,
+                "difficulty": "medium"
+            }
+        },
+        "H1O4P1Si1": {
+            "identity": {
+                "names": {
+                    "es": "Fosfosilicato de Hidrógeno",
+                    "en": "Hydrogen Phosphosilicate"
+                },
+                "formula": "H1O4P1Si1",
+                "category": "inorganic",
+                "family_color": [
+                    200,
+                    180,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Híbrido raro entre silicio y fósforo.",
+                "biological_presence": "Fundamental en las arcillas catalíticas primordiales.",
+                "utility": "Catalizador de superficies."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Alquimia de Arcilla"
+                ],
+                "discovery_points": 90,
+                "difficulty": "hard"
+            }
+        },
+        "C1H2O3": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Carbónico",
+                    "en": "Carbonic Acid"
+                },
+                "formula": "C1H2O3",
+                "category": "acid",
+                "family_color": [
+                    200,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Se forma al disolverse el CO2 en agua.",
+                "biological_presence": "Fundamental para el transporte de CO2.",
+                "utility": "Buffer primordial que mantiene la estabilidad química."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Buffer Planetario"
+                ],
+                "discovery_points": 30,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

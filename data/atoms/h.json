@@ -9,6 +9,7 @@
     "radius": 6,
     "mass": 1.0,
     "valence": 1,
+    "valence_electrons": 1,
     "electronegativity": 2.1,
     "affinities": {
         "H": 0.5,
@@ -16,7 +17,15 @@
         "C": 1.5,
         "N": 1.6,
         "P": 1.2,
-        "S": 1.4
+        "S": 1.4,
+        "Si": 0.8
+    },
+    "origin": {
+        "source": "Big Bang",
+        "age": "13.8 mil millones de años",
+        "process": "Nucleosíntesis primordial",
+        "abundance": "75% del universo",
+        "fun_fact": "El elemento más antiguo y abundante del cosmos"
     },
     "description": "El bloque constructor más simple."
 }

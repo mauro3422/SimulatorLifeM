@@ -1,0 +1,5070 @@
+{
+    "C1H1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523698.2604873,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H6N1O3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.3084736,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O1S1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766523698.3461728,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523698.3798797,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H1O1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523698.4103625,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.4457905,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1P5S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.48005,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H5O3P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.5388305,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O2": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523698.599023,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N1O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.6565294,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H4N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.697847,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N2O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.7598855,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2": {
+        "name": "Hidr\u00f3geno Molecular",
+        "count": 9,
+        "first_discovery": 1766523698.820737,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O3": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523698.8576543,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H3N2O5P2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523698.9250658,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1S2": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523698.977606,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O2": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766523699.0130093,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H3O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.0414262,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H2O7": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.0783818,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2Si1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523699.132168,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H3O1P1": {
+        "name": "\u00c1cido Fosforoso",
+        "count": 2,
+        "first_discovery": 1766523699.1637707,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H5N1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.195749,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H3O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.236016,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O2": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523699.2942703,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H1N1O2P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.3306234,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N4O2": {
+        "name": "Tetrazol carbox\u00edlico",
+        "count": 1,
+        "first_discovery": 1766523699.3690305,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.4282165,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523699.4599764,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N1O1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523699.4940374,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H3N1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766523699.5400805,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N1O1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.6222208,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O3": {
+        "name": "\u00c1cido Carb\u00f3nico",
+        "count": 5,
+        "first_discovery": 1766523699.6694138,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O1P1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523699.7310512,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N2O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.7629843,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523699.8288004,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1P1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523699.888935,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2N1O1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523699.9268365,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1O2": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523699.9853375,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523700.0521052,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523700.107002,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C5H3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523700.16551,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O2": {
+        "name": "Glioxal",
+        "count": 5,
+        "first_discovery": 1766523700.2241607,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523700.2662444,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H3N2O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523700.3206909,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1Si1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523700.3622274,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O2S1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523700.426823,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N2O1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523700.4726157,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766523700.5357933,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523700.576788,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H4N1O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523700.63763,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523700.6947765,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2O1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523700.7360446,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H5N1O2P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523700.7976243,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3O2P1S2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523700.8552945,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1O1S1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523700.9209225,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O2": {
+        "name": "Ox\u00edgeno Molecular",
+        "count": 9,
+        "first_discovery": 1766523700.9633613,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N1O2P2S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523701.0212488,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N1O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523701.0840628,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O1S1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523701.1340194,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O4": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523701.1702783,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523701.2099326,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1O1P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523701.2671185,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O2": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523701.329594,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1S1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523701.39466,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523701.4784846,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523701.514248,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H2N1O1": {
+        "name": "Desconocida",
+        "count": 7,
+        "first_discovery": 1766523701.5800867,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523701.6411026,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523701.698646,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523701.7631564,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1P1": {
+        "name": "Transitorio",
+        "count": 9,
+        "first_discovery": 1766523701.8246138,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1S3": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523701.8776398,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H2S1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523701.9354012,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3N1": {
+        "name": "Desconocida",
+        "count": 5,
+        "first_discovery": 1766523701.9686394,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523753.7324297,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H4N2O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523753.7838104,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523753.8241158,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N1O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523753.8899949,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523753.944773,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.0104985,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2O1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523754.070526,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.138464,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O1P1": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766523754.195852,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O3P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523754.2413092,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.3228073,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O4": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523754.3912888,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4O1": {
+        "name": "Acetaldeh\u00eddo",
+        "count": 3,
+        "first_discovery": 1766523754.4316504,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2N1O3P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.504587,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H6N1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.5666375,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.637904,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C9H3O8P2S2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.6965628,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523754.771567,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O1Si1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766523754.8343945,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1O2": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523754.9045749,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H4N1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523754.9587681,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.003463,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523755.0734231,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2N2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523755.1366003,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H2O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.1853545,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.2378504,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O1": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766523755.307238,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.3635695,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.4355116,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.4939077,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.5555892,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.6025922,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1O2": {
+        "name": "Desconocida",
+        "count": 8,
+        "first_discovery": 1766523755.6601503,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O3": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523755.7376046,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2N2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.7841797,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O2": {
+        "name": "Desconocida",
+        "count": 5,
+        "first_discovery": 1766523755.844686,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523755.9092176,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H4O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523755.968882,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O3": {
+        "name": "Ozono",
+        "count": 8,
+        "first_discovery": 1766523756.0405707,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C5H2N1O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523756.1013596,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1S2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523756.1680112,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H6O3P4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523756.2312493,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3S1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523756.298308,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523756.3671896,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523756.429055,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1O3": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523756.493597,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O1": {
+        "name": "Desconocida",
+        "count": 5,
+        "first_discovery": 1766523756.556736,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523756.628459,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H1O4Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523756.6946194,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523756.7648141,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1O2": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523756.824296,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1P1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523756.8621552,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H3O1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523756.925925,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1P3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523756.9936233,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523757.0753334,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3O1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523757.126892,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523757.1963322,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2N1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523757.251658,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N1P1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523757.3017704,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N1O1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523757.3794017,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O1Si1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523757.4262052,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N1O1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523757.491044,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1O3": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523757.538706,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523757.6033168,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O3S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523757.6413472,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O5": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523757.6901555,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1P2": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523757.7565491,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O1P1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523757.8183408,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2": {
+        "name": "Ciclopropenilideno",
+        "count": 5,
+        "first_discovery": 1766523757.874274,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N1O2S1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523757.9353428,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N2": {
+        "name": "Nitr\u00f3geno Molecular",
+        "count": 5,
+        "first_discovery": 1766523758.0174508,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N1O1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523758.0776858,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H2P1": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523758.1122532,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O4": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523758.1687307,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1O2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523758.2135544,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H6N1O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523758.2872427,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523758.3654692,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C8H2O6P2S2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523758.4134266,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523758.4798334,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766523758.5438168,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3S1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523758.602349,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1O1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523758.646822,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N2O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523758.7091782,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1S1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523758.7722642,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2O2S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523758.8188207,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2N2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523758.894586,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H1N1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523758.9528983,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1P1S1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523759.0107555,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523759.0580876,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O1P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523759.1232235,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2S1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523759.1873538,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1Si1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523759.2566457,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H3": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766523759.315697,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1O1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523759.383042,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O2P3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523759.4256747,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523759.4872062,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1O1P1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523759.5310352,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523759.595068,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1O1P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523759.6661322,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N1P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523759.7238185,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N1O2": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523759.7979903,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O1": {
+        "name": "Desconocida",
+        "count": 7,
+        "first_discovery": 1766523759.8679755,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C7H2O6P2S2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523759.9395843,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523760.0072887,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523760.0719721,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O2": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766523760.1413627,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H1O5P2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523760.314164,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O1S1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523760.5948806,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O2S1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523760.8582857,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N1P1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523761.2451699,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N2O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523761.7776728,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766523762.046105,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N1O1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523762.1813822,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H1O1P1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523762.3152964,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1S2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523762.4162662,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523762.4930534,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1O1P1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523763.411061,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523763.5467398,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1O1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523763.6048424,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2O1": {
+        "name": "Desconocida",
+        "count": 8,
+        "first_discovery": 1766523763.687651,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523764.7532144,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O3P1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523764.8904033,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1O2Si1": {
+        "name": "Siloxano Simple",
+        "count": 1,
+        "first_discovery": 1766523765.4709616,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523765.6320443,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5N1O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523765.909909,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2O1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523766.7086794,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1N2O1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523766.845967,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H4O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523767.776442,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2N1O1": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523768.0453877,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1N1": {
+        "name": "Transitorio",
+        "count": 8,
+        "first_discovery": 1766523769.1102886,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O1P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523769.3787503,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1S1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523769.646192,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1P2S1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523773.3459172,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "P2": {
+        "name": "F\u00f3sforo Diat\u00f3mico",
+        "count": 4,
+        "first_discovery": 1766523774.71172,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H2O2S1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766523774.8482974,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O2P3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523776.3643522,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1P2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523776.5000768,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523782.0690496,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523783.1905334,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2S1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523784.8850486,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2O2S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766523787.4022107,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O1P2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766523788.4506104,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2P1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766523790.0948813,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1S1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523794.5046785,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N1S1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766523802.3485038,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "P1S1": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766523807.4495883,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766523827.5446413,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "P1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766523841.474389,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1P1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766523855.8111026,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N1O1P1": {
+        "name": "Desconocida",
+        "count": 5,
+        "first_discovery": 1766523907.101003,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524031.5864444,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O1S1": {
+        "name": "Tioformaldeh\u00eddo",
+        "count": 4,
+        "first_discovery": 1766524031.6582103,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524031.700615,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1Si1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524031.7631917,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O5": {
+        "name": "Transitorio Inestable",
+        "count": 2,
+        "first_discovery": 1766524031.8195415,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524031.8880994,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H2N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524031.9606078,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.0265105,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.083962,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2O2": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766524032.168546,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H4P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.2352188,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1P1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766524032.2826574,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1O1S1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766524032.3491216,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3N2O2P1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.4066844,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.478475,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.5422537,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N1O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.6102371,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O1S1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524032.673491,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.7511826,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4N1O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.813957,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1O1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524032.8875191,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.9410455,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H6N2O7P3S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524032.9959283,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H4O3Si1": {
+        "name": "\u00c1cido Sil\u00edcico",
+        "count": 1,
+        "first_discovery": 1766524033.057613,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C6O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.1269205,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O3S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524033.1815598,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5N1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.254171,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O4": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524033.3153892,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H5N1O1P2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.3757048,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1O2": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766524033.442034,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O4": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524033.5036445,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N1": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766524033.5696075,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H4": {
+        "name": "Desconocida",
+        "count": 5,
+        "first_discovery": 1766524033.6357148,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1O1": {
+        "name": "Transitorio",
+        "count": 7,
+        "first_discovery": 1766524033.6968408,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2P4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.754359,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.823645,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.8923807,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524033.9520087,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524034.01211,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524034.0822058,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1S1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766524034.1536248,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2O2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524034.2087505,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O2P1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524034.287082,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4O4P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524034.3705122,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2Si1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524034.4201636,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N2O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524034.5073485,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O3": {
+        "name": "Desconocida",
+        "count": 6,
+        "first_discovery": 1766524034.5764747,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524034.63765,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524034.7632065,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4O1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524034.8559017,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O1P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524034.9182856,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N2O2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524034.984567,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H3P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.0524657,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524035.114174,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N1O2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524035.1802473,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.2417867,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N2O4P3S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.3078845,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N1O1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524035.3676844,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.45169,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1P1S2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524035.4948301,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2O1P1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524035.5629663,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.6311722,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.7296493,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O2P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524035.7921383,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C6O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524035.860222,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O4": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766524035.9222994,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O1": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766524036.0154338,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O2P1": {
+        "name": "Transitorio",
+        "count": 5,
+        "first_discovery": 1766524036.0856566,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1O2S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524037.0556092,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N2O4P3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524037.3014445,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1O2P1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524037.8564503,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C5H7N2O6P4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524163.257661,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524163.3191621,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C7H5P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524163.4017928,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N4O3S4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524163.4723961,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C7H7N2O4P2S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524163.6546826,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O3S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524163.7357345,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524163.807416,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524163.898358,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5N2O9P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524164.0574706,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1S1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766524164.3045754,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H6O5P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524164.4592721,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524164.5207891,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524164.5866125,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524164.6539717,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H6O5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524164.7134783,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524164.7801902,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524164.8435223,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2O1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524164.937546,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O3S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524165.0330667,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N2O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524165.1238606,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O3": {
+        "name": "Desconocida",
+        "count": 5,
+        "first_discovery": 1766524165.2191958,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4O6P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524165.5313194,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O3": {
+        "name": "\u00c1cido Gliox\u00edlico",
+        "count": 2,
+        "first_discovery": 1766524165.6588778,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2N1P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524165.746288,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N1O2": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766524165.8132133,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524165.874252,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1": {
+        "name": "Acetonitrilo",
+        "count": 4,
+        "first_discovery": 1766524165.9630346,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N1O1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524166.0335956,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1O3": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524166.0942953,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H1O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524166.1633577,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524166.25128,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H5O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524166.3183603,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O1P1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524166.4299612,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O2S1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524166.4955847,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H3O1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524166.6510227,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1O3": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524166.7191527,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2O2": {
+        "name": "Transitorio",
+        "count": 6,
+        "first_discovery": 1766524166.8133469,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N1O2S1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524166.9019227,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524166.9916835,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1O2S1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766524167.063281,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O1P2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524167.3128717,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3O3P1S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524167.5077422,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O4": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524167.5750515,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N2O2P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524167.6658204,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H4P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524167.7343507,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N4O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524167.8293307,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524167.917123,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N2O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.000097,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H6O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.078974,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524168.1404946,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1S2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524168.2298288,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.2967424,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.495667,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.6513479,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H4O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.7778847,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524168.872448,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O2S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524169.054284,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524169.1443818,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1O1P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524169.2489796,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524169.473231,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524169.5789702,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N2": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524169.6691139,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C6H4O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524169.7422762,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O2P1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524169.818825,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2N1O1P1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766524169.9297187,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524170.0226874,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524170.615884,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2O3": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524170.8637073,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N3O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524171.1069386,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H1O1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524171.3489816,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524172.0707295,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N2O1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524172.6679573,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H3P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524173.5051003,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524173.8710964,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524175.4192884,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524175.5471125,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524175.671058,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2S1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766524176.148455,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H1P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524177.2064517,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O1P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524178.164174,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524178.6405127,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N2O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524179.4715304,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524182.532184,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3O5P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524183.711253,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524185.9542413,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1N1O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524188.0709577,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2O1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766524189.365429,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3O4P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524192.68471,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O2P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524199.3063354,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524199.3739152,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3P1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524201.2876635,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1Si1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524205.2006116,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "AGGREGATE_AMORPHOUS": {
+        "name": "Agregado Org\u00e1nico Amorfo",
+        "count": 9,
+        "first_discovery": 1766523698.1129622,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H7N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524994.9090238,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1O1S4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.1760776,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.302683,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H6N1O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.4785042,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H3N1O4P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.5381947,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H6N1O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.6242762,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.676798,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.7262168,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H5O2P1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.837537,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O6S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524995.9392827,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524996.1102178,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N3O6": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524996.2128341,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C7H3O8P4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524996.3050585,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1O3": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524996.3800077,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H4N1O5P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524996.4775763,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524996.667694,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O1Si1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766524996.7431886,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N1O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524996.9055238,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O2P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524997.0031028,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3O1P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766524997.396104,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3P1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766524997.6006815,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H4N2O9P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524997.80001,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N2O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524997.9022005,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524998.4996192,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4N2O5S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524998.6026363,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O1": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766524998.7997959,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N2O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524998.8996592,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766524999.0036306,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3N1O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524999.1053379,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N2O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524999.402705,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766524999.8667088,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525000.2042546,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525000.4333942,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N1O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525000.5576968,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525000.6411562,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H4O2P3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525000.740221,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1O1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525000.851115,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O1P1": {
+        "name": "Transitorio",
+        "count": 4,
+        "first_discovery": 1766525000.9343927,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H3N1O1P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525001.0142226,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525001.0956812,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4N2O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525001.1747718,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525001.2469907,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O4": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766525001.4365447,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O1S2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525001.6185713,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1O3P1": {
+        "name": "\u00c1cido Formilfosf\u00f3nico",
+        "count": 2,
+        "first_discovery": 1766525001.6889706,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1O2S1": {
+        "name": "Desconocida",
+        "count": 4,
+        "first_discovery": 1766525001.9087603,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525002.063843,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2N2O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525002.3671575,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2N1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525002.6022959,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N1O2": {
+        "name": "Piruvonitrilo \u00c1cido",
+        "count": 1,
+        "first_discovery": 1766525002.703129,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525002.9375536,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H3P3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525003.70449,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525004.0926168,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525005.0879314,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525005.2166543,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525005.5982013,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H4N2O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525006.830211,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N1O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525007.1012487,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O1P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525007.2621927,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O6P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525007.9950924,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525008.263628,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525009.3776217,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2P1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525010.0010514,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525010.139563,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525010.905731,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1P1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525012.1606386,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O1P1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525012.7933474,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N1O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525012.9217124,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525013.3063211,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N2O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525016.2826753,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N1O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525017.6705205,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O6P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525226.6407306,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525226.837877,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O2P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525227.0131083,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.1133628,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4N1O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525227.2111113,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.307252,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N1O5P3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.507487,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1O2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525227.6012053,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.701808,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5N4O5P1S1Si3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.7953453,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O2S2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.8852344,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5N1O4P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525227.9919925,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C8H3O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525228.0965583,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525228.1710453,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O2S1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525228.2588737,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H6N2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525228.63117,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N2O6": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525228.7221794,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O2P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525228.8148096,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H5N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525229.0740707,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H5N4O5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525229.1602502,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525229.266047,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C7H6N1O6Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525229.3397682,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O3P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525229.573819,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1O5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525229.6848836,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525230.0161262,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H2O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525230.1254148,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H2O2P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525230.2247255,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525230.406088,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3O1P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525230.5184522,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O1P1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525230.6286142,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525231.025756,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525231.2637963,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525231.571428,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525231.779554,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1O4P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525231.8589277,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525231.969952,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N2O4P1S1Si2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.0938115,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O2S1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.1929495,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4N1O4P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.2930694,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.3809707,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O1S1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525232.4829688,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2N1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.6473634,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N2O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.7241342,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525232.838318,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H5N2O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525233.0303888,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N1O4Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525233.1384194,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525233.3498175,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H3N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525233.5639076,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O1P1S1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766525233.7418964,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525233.842553,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O2P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525233.9374883,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525234.0475152,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3O3": {
+        "name": "Desconocida",
+        "count": 3,
+        "first_discovery": 1766525234.50993,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525234.6194124,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525234.7302535,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525234.8433557,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3P1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525234.942354,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2N1O2P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525235.05121,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525235.6376305,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N2O1P1S1Si2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525235.852917,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525235.9632518,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525236.0656471,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H5P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525236.201552,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4O1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525236.4353569,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525236.7661326,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525236.9131699,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O1P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525237.11766,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "S1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525237.2542183,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N1P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525237.341913,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1N1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525237.4346,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H1P1S1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525239.198332,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2N1O4P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525466.326447,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525466.448099,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1S1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525466.5653431,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N1P4S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525466.6691496,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H3O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525466.8037832,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H4O6P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525467.2410378,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2O1S1": {
+        "name": "Transitorio",
+        "count": 3,
+        "first_discovery": 1766525467.4701815,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2N1O1P1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525467.5497627,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H3N1O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525467.6477978,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1P2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525467.9019053,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3N1O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525468.0328867,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H1O2P2S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525468.1407478,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H4N1O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525468.4086392,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3O4": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525468.54233,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O5S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525468.7719967,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525469.082754,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2O1S2": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525469.3331404,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525469.4501758,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525469.551527,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525469.829524,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H6N2O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525469.994386,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N1S2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525470.1212723,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525470.2355633,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525470.3495896,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4O2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525470.8480437,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H1O3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525470.9754143,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N2O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525471.108318,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525471.3481002,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1O1P3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525471.683004,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525471.842003,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "P3S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525472.0002947,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3O3P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525472.1093743,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525472.3472292,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N2O5P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525473.0789597,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525473.2324271,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4O1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525473.336286,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1O2S1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525473.4945302,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N2O1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525473.7396414,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H1N2O5P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525473.9253023,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3O1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525474.1964512,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O1S2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525474.4422076,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H4S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525474.5730374,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525474.7427588,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525479.0883112,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525496.4054892,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1P3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525497.1721244,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525501.201174,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525510.0290966,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O1P1S1": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525537.661788,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H4O1P3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525834.906534,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C9H12N3O9P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525835.1089914,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525835.3730106,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525835.4870322,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H6N2O10S2Si2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525835.6180692,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525835.7466838,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H4N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525836.1035478,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525836.2380528,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H6N2P2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525836.3746727,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C5H5N1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525836.677633,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1O3P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525836.8382518,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525837.060963,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525837.5475335,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H5N2O6P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525837.6745915,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H5N1O6": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525837.7884793,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.035674,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.2481835,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N1O4P4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.3601418,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.4727511,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H3N1P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.5996015,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4P2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.723824,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1P1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.8538074,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H4O4P1S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525838.9633853,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3O7P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525839.1047838,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525839.3642957,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C8H4O2P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525839.4997642,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2S1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525839.64571,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H4O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525839.7850833,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525839.893403,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2O5": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525840.0298324,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525840.1469026,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N1O4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525840.24692,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1P1S1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525840.3741229,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525840.4920251,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525840.6112266,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H4N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525840.7436275,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3O2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525841.1284027,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3S1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525841.2413826,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O2Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525841.503127,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O1P3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525841.6472285,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1O3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525841.761407,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N2": {
+        "name": "Diazometano",
+        "count": 1,
+        "first_discovery": 1766525842.0117137,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3N2O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525842.1317933,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4N1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525842.3946168,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525842.7618396,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525843.0108314,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4H1O3P1S3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525843.1199198,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C7H3O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525843.3951876,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H5O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525843.6476128,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525843.7602112,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1P1S1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525844.1179235,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525844.4194744,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1P1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525844.5277114,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C6H3O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525844.7530978,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525844.8800921,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2O1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525845.1595757,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525845.2968948,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525845.4478452,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525845.5877578,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "O5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525847.3433025,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525847.8824794,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525849.0778067,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525849.2534366,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4H2O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525849.9120367,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H1O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525850.4462209,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N1O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525850.84921,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2N1O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525851.0219903,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525851.5268574,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1O2P1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525851.8098674,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525851.9549742,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525853.3267076,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H2N1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525876.8053555,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C4N1O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525903.1209517,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3N1O3P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525903.2493064,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H3O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525903.519875,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H2O4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525904.0100143,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N3O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525904.8018308,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H4N1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525905.027085,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H2N2O1": {
+        "name": "Desconocida",
+        "count": 2,
+        "first_discovery": 1766525905.4256709,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H1N4O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525906.1867557,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1N1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525906.323332,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N1Si1": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766525906.4558818,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3N1O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525906.654801,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3N1O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525906.8120704,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C1H1N1O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525906.9407947,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H2N3O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525907.0513964,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2": {
+        "name": "Transitorio",
+        "count": 2,
+        "first_discovery": 1766525907.1774492,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H4O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525907.3139172,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2O5S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525907.4401965,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2O4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525908.9786143,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N3O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525909.3812952,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H1N2O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525912.8462658,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "N2O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766525926.7528868,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C3H4O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526317.5009713,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2N2O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526317.6084087,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C6H3N1O6": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526317.9889784,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H4Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526318.586899,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C5H8N2O7P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526318.7264624,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526318.872389,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C8H5N1O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526319.1582234,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H4N1O5P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526319.2856784,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H3N1O3S4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526319.7628846,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3O3P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526319.9003396,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3N2O2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526320.0346928,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526320.1693232,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H5N2O5S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526320.2953374,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C6H8N2O5S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526320.43863,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H4N2O4P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526321.0698555,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H4O2P5": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526321.3525133,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H2O4S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526323.1383753,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H4O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526323.2878177,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H5O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526323.5535436,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3O4S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526323.8523645,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N1O2S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526324.0008144,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H4N2O1": {
+        "name": "Urea",
+        "count": 1,
+        "first_discovery": 1766526324.4253705,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "H3O1P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526324.8134015,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3O1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526326.3783343,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N2O2Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526327.0660918,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3N2O1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526327.2144573,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H3O3S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526327.3561926,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526328.1889353,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H3": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766526329.5538187,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526329.7179356,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2N2O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526330.543825,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N1O4P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526330.8041232,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2O2P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526331.2618012,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C1H2O1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526331.4091163,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H1N1O3": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526331.5465791,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "N1O3P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526331.675339,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1O3S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526332.352822,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2O1P2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526332.5021904,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O1P3": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766526332.7711525,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H2O2S4": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526332.9099736,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H2N2O1Si1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526333.4630008,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "S2": {
+        "name": "Azufre Diat\u00f3mico",
+        "count": 1,
+        "first_discovery": 1766526334.364045,
+        "is_significant": true,
+        "unlocked_traits": []
+    },
+    "C2H3O1S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526334.7373133,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C4": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766526335.1255603,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H2O1P2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526335.6629531,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "P3": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766526336.1734219,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2H3N1O1P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526340.1383274,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H1N2O2P1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526344.7096384,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "O2S2": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766526344.8449006,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "H4": {
+        "name": "Transitorio",
+        "count": 1,
+        "first_discovery": 1766526350.0296476,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C3H1O2P1S2": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526350.0471346,
+        "is_significant": false,
+        "unlocked_traits": []
+    },
+    "C2O2S1": {
+        "name": "Desconocida",
+        "count": 1,
+        "first_discovery": 1766526358.1544373,
+        "is_significant": false,
+        "unlocked_traits": []
+    }
+}

@@ -9,6 +9,7 @@
     "radius": 8,
     "mass": 14.0,
     "valence": 3,
+    "valence_electrons": 5,
     "electronegativity": 3.0,
     "affinities": {
         "H": 1.6,
@@ -16,7 +17,15 @@
         "C": 1.7,
         "N": 0.3,
         "P": 1.8,
-        "S": 1.0
+        "S": 1.0,
+        "Si": 0.5
+    },
+    "origin": {
+        "source": "Estrellas masivas",
+        "age": "~11 mil millones de años",
+        "process": "Ciclo CNO (fusión catalizada por carbono)",
+        "abundance": "7º elemento más abundante",
+        "fun_fact": "78% de nuestra atmósfera es nitrógeno - esencial para ADN y proteínas"
     },
     "description": "Crucial para el ADN."
 }

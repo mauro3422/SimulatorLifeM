@@ -18,8 +18,8 @@ def draw_control_panel(state, physics_controls: dict, win_h: float):
              'rango_enlace_max', 'dist_rotura'}
         win_h: Window height
     """
-    panel_w = UIConfig.PANEL_LEFT_W
-    panel_h = min(680, win_h * 0.85)
+    panel_w = 320  # Más ancho para que quepa el texto
+    panel_h = min(400, win_h * 0.60)  # Menos alto para no estorbar
     
     imgui.set_next_window_pos((20, 20), imgui.Cond_.always)
     imgui.set_next_window_size((panel_w, panel_h), imgui.Cond_.always)
@@ -94,10 +94,3 @@ def _draw_world_section(state, physics_controls: dict, panel_w: float):
         physics_controls['dist_rotura'][None] = cfg.sim_config.DIST_ROTURA
         print(f"[UI] Modo Realismo: {'ON' if cfg.sim_config.REALISM_MODE else 'OFF'}")
 
-    imgui.spacing()
-    
-    if imgui.button("RESTABLECER CÁMARA", (panel_w - 30, 35)):
-        state.camera.center()
-    
-    if imgui.button("REINICIAR ÁTOMOS", (panel_w - 30, 35)):
-        state.init_world()

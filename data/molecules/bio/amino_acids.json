@@ -1,0 +1,36 @@
+{
+    "_meta": {
+        "category": "amino_acids",
+        "description": "Building blocks of proteins."
+    },
+    "molecules": {
+        "C2H5N1O2": {
+            "identity": {
+                "names": {
+                    "es": "Glicina",
+                    "en": "Glycine"
+                },
+                "formula": "C2H5N1O2",
+                "category": "amino_acid",
+                "family_color": [
+                    200,
+                    100,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "El aminoácido más simple. Detectado en cometas.",
+                "biological_presence": "Abundante en colágeno y proteínas estructurales.",
+                "utility": "Bloque de construcción básico para proteínas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Enlace Peptídico",
+                    "Bloque Primordial"
+                ],
+                "discovery_points": 50,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

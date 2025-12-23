@@ -14,6 +14,7 @@ import numpy as np
 import src.config as cfg
 from src.renderer.camera import Camera
 from src.core.event_system import get_event_system, SimulationTimeline, EventHistory, EventDetector
+from src.systems.zone_manager import get_zone_manager
 
 
 class AppContext:
@@ -54,9 +55,22 @@ class AppContext:
         self.running = True
         self.paused = False
         self.show_debug = False
+        self.show_quimidex = [False] # Toggle para la ventana de QuimiDex
+        self.show_labels = True  # Mostrar etiquetas de elementos (H, C, O)
+        self.show_molecules = False  # Highlight de moléculas (partículas con enlaces)
+        self.lod_threshold = 2.2 # Umbral para cambio a modo Macro (Burbujas)
         self.time_scale = cfg.sim_config.TIME_SCALE
+        
+        # ========== PROGRESIÓN & METABOLISMO ==========
+        from src.systems.progression import get_progression_manager
+        self.progression = get_progression_manager(self)
+        self.atp = self.progression.atp # Shortcut
+
         self.world_size = cfg.sim_config.WORLD_SIZE
         self.n_particles_val = 5000
+        
+        # Datos de render para UI (updateado cada frame)
+        self.render_data = {}
         
         # ========== TIMING ==========
         self.last_time = time.time()
@@ -65,6 +79,10 @@ class AppContext:
         # ========== SELECCIÓN ==========
         self.selected_idx = -1
         self.selected_mol = []
+        
+        # ========== JUGADOR ==========
+        self.player_idx = 0  # El jugador siempre es la partícula 0 (H atom)
+        self.player_force = [0.0, 0.0]  # Fuerza a aplicar este frame
         
         # ========== BOOST & VELOCIDAD ==========
         self.boost_active = False
@@ -79,6 +97,9 @@ class AppContext:
             "mutations": 0,
             "tunnels": 0
         }
+        self.last_bonds = 0
+        self.last_mutations = 0
+        self.last_tunnels = 0
         
         self._initialized = True
 
@@ -140,13 +161,41 @@ class AppContext:
         sim['click_force'][None] = cfg.sim_config.CLICK_FORCE
         sim['click_radius'][None] = cfg.sim_config.CLICK_RADIUS
 
-        # Spawning balanceado para CHONPS
-        # H (40%), O (20%), C (20%), N (10%), P (5%), S (5%)
-        tipos = np.random.choice(
-            [0, 1, 2, 3, 4, 5],
-            size=self.n_particles_val,
-            p=[0.4, 0.2, 0.2, 0.1, 0.05, 0.05]
-        )
+        # Spawning balanceado para CHONPS+Si (Realista con Silicatos)
+        # Atom order: [C, H, N, O, P, S, Si] (indices 0-6)
+        
+        # 1. Generar Posiciones Primero
+        margin = 1000
+        pos_np = np.zeros((max_particles, 2), dtype=np.float32)
+        pos_np[:self.n_particles_val, 0] = np.random.uniform(margin, self.world_size - margin, self.n_particles_val)
+        pos_np[:self.n_particles_val, 1] = np.random.uniform(margin, self.world_size - margin, self.n_particles_val)
+        
+        # 2. Decidir tipos basados en la posición (Zonas)
+        zm = get_zone_manager(self.world_size)
+        tipos = np.zeros(self.n_particles_val, dtype=np.int32)
+        
+        # Probabilidades Base (Oceano Abierto)
+        p_base = [0.15, 0.50, 0.05, 0.25, 0.02, 0.02, 0.01] # C, H, N, O, P, S, Si
+        # Probabilidades en Arcilla (Rico en Si, C, N)
+        p_clay = [0.25, 0.35, 0.15, 0.15, 0.02, 0.03, 0.05]
+        # Probabilidades en Ventila (Rico en P, S, metales/C)
+        p_vent = [0.25, 0.35, 0.05, 0.15, 0.10, 0.10, 0.00]
+        
+        for idx in range(self.n_particles_val):
+            p_to_use = p_base
+            zone = zm.get_zone_at(pos_np[idx])
+            if zone:
+                from src.systems.zone_manager import ZoneType
+                if zone.type == ZoneType.CLAY:
+                    p_to_use = p_clay
+                elif zone.type == ZoneType.THERMAL_VENT:
+                    p_to_use = p_vent
+                    
+            tipos[idx] = np.random.choice([0, 1, 2, 3, 4, 5, 6], p=p_to_use)
+
+        # JUGADOR: Índice 0 siempre es un átomo de H (si el usuario lo controla)
+        tipos[0] = 1  # H = tipo 1
+        self.player_idx = 0
         
         atom_types_full = np.pad(
             tipos, (0, max_particles - self.n_particles_val), constant_values=0
@@ -165,14 +214,6 @@ class AppContext:
         manos_np[:self.n_particles_val] = cfg.VALENCIAS[tipos]
         sim['manos_libres'].from_numpy(manos_np)
         
-        margin = 1000
-        pos_np = np.zeros((max_particles, 2), dtype=np.float32)
-        pos_np[:self.n_particles_val, 0] = np.random.uniform(
-            margin, self.world_size - margin, self.n_particles_val
-        )
-        pos_np[:self.n_particles_val, 1] = np.random.uniform(
-            margin, self.world_size - margin, self.n_particles_val
-        )
         sim['pos'].from_numpy(pos_np)
         
         is_active_np = np.pad(
@@ -218,14 +259,93 @@ class AppContext:
         """Retorna los últimos N eventos."""
         return self.event_history.get_recent(n)
     
-    def add_log(self, text: str):
+    def add_log(self, text: str, category: str = "info"):
         """Añade una entrada al log de eventos."""
         timestamp = time.strftime("%H:%M:%S")
         self.event_log.insert(0, f"[{timestamp}] {text}")
-        if len(self.event_log) > 15:
+        if len(self.event_log) > 20:
             self.event_log.pop()
 
-    # ==================== MOLÉCULAS ====================
+    def get_player_pos(self) -> np.ndarray:
+        """Retorna la posición del jugador en el mundo."""
+        if self.sim and 'pos' in self.sim:
+            pos_np = self.sim['pos'].to_numpy()
+            return pos_np[self.player_idx]
+        return None
+
+    def get_molecule_indices(self, atom_idx: int):
+        """Retorna los índices de todos los átomos conectados al dado."""
+        from src.systems.molecular_analyzer import get_molecular_analyzer
+        analyzer = get_molecular_analyzer()
+        for mid, mol in analyzer.active_molecules.items():
+            if atom_idx in mol.atom_indices:
+                return mol.atom_indices
+        return [atom_idx]
+
+    def get_formula(self, indices):
+        """Obtiene la fórmula química para un set de índices."""
+        from src.systems.molecular_analyzer import get_molecular_analyzer
+        return get_molecular_analyzer().get_formula(indices, self.sim['atom_types'].to_numpy())
+
+
+    def get_valence(self, idx: int) -> int:
+        """Retorna la valencia máxima de un átomo."""
+        if self.sim is None: return 4
+        atom_types = self.sim.get('atom_types')
+        if atom_types is not None:
+            types_np = atom_types.to_numpy()
+            if idx < len(types_np):
+                a_type = types_np[idx]
+                return cfg.VALENCIAS[a_type]
+        return 4 # Default
+
+
+    def sync_to_gpu(self):
+        """Sincroniza el estado de Python a los campos Taichi en la GPU."""
+        sim = self.sim
+        if sim is None:
+            return
+        
+        # 1. Aplicar BUFFS de progresión a los parámetros de Config
+        base_rotura = cfg.sim_config.DIST_ROTURA
+        base_speed = cfg.sim_config.MAX_VELOCIDAD
+        
+        if "stability" in self.progression.active_buffs:
+            # Los enlaces aguantan un 50% más de estiramiento
+            sim['dist_rotura'][None] = base_rotura * 1.5
+        else:
+            sim['dist_rotura'][None] = base_rotura
+            
+        if "speed" in self.progression.active_buffs:
+            sim['max_speed'][None] = base_speed * 1.2
+        else:
+            sim['max_speed'][None] = base_speed
+
+        # 2. Catálisis de Arcilla
+        if self.progression.in_clay:
+            sim['prob_enlace_base'][None] = 0.95 # Muy alta probabilidad en arcilla
+        else:
+            sim['prob_enlace_base'][None] = cfg.sim_config.PROB_ENLACE_BASE
+        
+        # 3. Sincronizar parámetros estáticos o HUD
+        sim['gravity'][None] = cfg.sim_config.GRAVITY
+        sim['friction'][None] = cfg.sim_config.FRICTION
+        sim['temperature'][None] = cfg.sim_config.TEMPERATURE
+        
+        # Parámetros de enlaces
+        sim['dist_equilibrio'][None] = cfg.sim_config.DIST_EQUILIBRIO
+        sim['spring_k'][None] = cfg.sim_config.SPRING_K
+        sim['damping'][None] = cfg.sim_config.DAMPING
+        sim['rango_enlace_min'][None] = cfg.sim_config.RANGO_ENLACE_MIN
+        sim['rango_enlace_max'][None] = cfg.sim_config.RANGO_ENLACE_MAX
+        sim['max_fuerza'][None] = cfg.sim_config.MAX_FUERZA
+        
+        # Parámetros de Interacción
+        sim['click_force'][None] = cfg.sim_config.CLICK_FORCE
+        sim['click_radius'][None] = cfg.sim_config.CLICK_RADIUS
+
+    # --- Input Handler updates --- 
+
     
     def get_molecule_indices(self, start_idx: int) -> list:
         """Traversa los enlaces para encontrar toda la molécula conectada."""
@@ -249,27 +369,26 @@ class AppContext:
         return list(mol)
     
     def get_formula(self, indices: list) -> str:
-        """Genera una fórmula simplificada (ej: H2 O)."""
+        """Genera fórmula estricta para identificación (ej: H2O1, C1H4)."""
         if not indices or self.sim is None:
             return ""
         
         counts = {}
-        a_types = self.sim['atom_types'].to_numpy()
+        # Acceso directo para evitar overhead de to_numpy() si son pocos indices
+        types = self.sim['atom_types']
         
         for i in indices:
-            t = a_types[i]
+            t = types[i]
             sym = cfg.TIPOS_NOMBRES[t]
             counts[sym] = counts.get(sym, 0) + 1
         
+        # Orden alfabético estricto para consistencia con diccionario
+        sorted_syms = sorted(counts.keys())
         formula = ""
-        # Orden preferido: C, H, O, N, P, S
-        for s in ["C", "H", "O", "N", "P", "S"]:
-            if s in counts:
-                formula += f"{s}{counts[s] if counts[s] > 1 else ''} "
-        for s, c in counts.items():
-            if s not in ["C", "H", "O", "N", "P", "S"]:
-                formula += f"{s}{c if c > 1 else ''} "
-        return formula.strip()
+        for s in sorted_syms:
+            formula += f"{s}{counts[s]}"
+            
+        return formula
 
 
 # ==================== ACCESO GLOBAL ====================

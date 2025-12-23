@@ -5,6 +5,7 @@ Detecta moleculas conocidas en la simulacion y genera eventos.
 """
 import numpy as np
 from src.core.event_system import EventType, get_event_system
+from src.systems.molecular_analyzer import MolecularAnalyzer
 
 class MoleculeDetector:
     """Detecta moleculas conocidas y genera eventos."""
@@ -15,125 +16,122 @@ class MoleculeDetector:
         self.history = event_sys['history']
         self.timeline = event_sys['timeline']
         
-        # Contadores para evitar spam de eventos
-        self.last_water_count = 0
-        self.last_organic_chain_count = 0
-        self.last_complex_count = 0
-        self.check_interval = 60  # Cada 60 frames
+        # History of unique molecules found in this session
+        self.discovered_formulas = set()
+        
+        self.check_interval = 60  # Cada 60 frames (1 segundo aprox)
         self.last_check_frame = 0
+        
+        # Cache: Skip BFS if bond count unchanged
+        self.last_bonds_count = -1  # Force first scan
+        
+        # Statistics for F3 panel
+        self.stats = {
+            'total_molecules': 0,      # All molecules found in last scan
+            'known_molecules': 0,      # Molecules with known names
+            'transitory_states': 0,    # Estados transitorios detectados
+            'unique_discoveries': 0,   # First-time discoveries this session
+            'last_scan_formulas': {},  # formula -> count from last scan
+        }
+        
+        # Composition Cache: tuple(sorted_indices) -> formula
+        self._composition_cache = {}
+        self._cache_hits = 0
+        self._cache_misses = 0
     
-    def detect_molecules(self, atom_types_np, enlaces_idx_np, num_enlaces_np, n_particles):
+    def detect_molecules_fast(self, atom_types_np, molecule_id_np, num_enlaces_np, n_particles):
         """
-        Escanea la simulacion y detecta moleculas conocidas.
-        Genera eventos cuando se detectan nuevas moleculas.
+        FAST VERSION: Usa molecule_id ya propagado en GPU (sin BFS en CPU).
+        El GPU ya ejecutó reset_molecule_ids() + propagate_molecule_ids_step().
+        Solo necesitamos agrupar por ID y calcular fórmulas.
         """
-        current_frame = self.timeline.frame
+        from collections import defaultdict
         
-        # Solo verificar cada N frames para no afectar rendimiento
-        if current_frame - self.last_check_frame < self.check_interval:
-            return
-        self.last_check_frame = current_frame
-        
-        # Tipos: H=0, O=1, C=2, N=3
-        water_count = 0
-        organic_chains = 0
-        complex_molecules = 0
-        
-        visited = set()
-        
+        # 1. Agrupar partículas por molecule_id (O(N) lineal)
+        molecules = defaultdict(list)
         for i in range(n_particles):
-            if i in visited:
+            if num_enlaces_np[i] > 0:  # Solo partículas con enlaces
+                mid = molecule_id_np[i]
+                if mid >= 0:  # Include ID=0 (player often has index 0)
+                    molecules[mid].append(i)
+        
+        # 2. Procesar cada molécula
+        current_scan_formulas = {}
+        
+        for mid, indices in molecules.items():
+            if len(indices) < 2:
                 continue
             
-            # Detectar H2O: Oxigeno con 2 Hidrogenos
-            if atom_types_np[i] == 1:  # Oxigeno
-                h_count = 0
-                h_ids = []
-                for k in range(num_enlaces_np[i]):
-                    j = enlaces_idx_np[i, k]
-                    if j >= 0 and atom_types_np[j] == 0:  # Hidrogeno
-                        h_count += 1
-                        h_ids.append(j)
+            # 2.1 Caching Check: Hashing composition
+            indices.sort()
+            comp_key = tuple(indices)
+            
+            formula = ""
+            if comp_key in self._composition_cache:
+                formula = self._composition_cache[comp_key]
+                self._cache_hits += 1
+            else:
+                formula = self._build_formula(indices, atom_types_np)
+                self._composition_cache[comp_key] = formula
+                self._cache_misses += 1
+            
+            current_scan_formulas[formula] = current_scan_formulas.get(formula, 0) + 1
+            
+            # 2.2 Registro de descubrimientos (Solo si es nuevo en esta sesión)
+            if formula not in self.discovered_formulas:
+                self.discovered_formulas.add(formula)
                 
-                if h_count == 2:
-                    water_count += 1
-                    visited.add(i)
-                    visited.update(h_ids)
-            
-            # Detectar cadenas de carbono (C-C-C+)
-            if atom_types_np[i] == 2:  # Carbono
-                chain_length = self._count_carbon_chain(i, atom_types_np, enlaces_idx_np, num_enlaces_np, visited)
-                if chain_length >= 3:
-                    organic_chains += 1
-            
-            # Detectar moleculas complejas (5+ atomos conectados)
-            molecule_size = self._count_molecule_size(i, enlaces_idx_np, num_enlaces_np, set())
-            if molecule_size >= 5:
-                complex_molecules += 1
+                from src.config.molecules import get_molecule_name
+                real_name = get_molecule_name(formula)
+                
+                from src.gameplay.inventory import get_inventory
+                is_new_record = get_inventory().register_discovery(formula, real_name)
+                
+                if is_new_record and real_name != "Transitorio":
+                    from src.core.context import get_context
+                    get_context().add_log(f"✨ DESCUBRIMIENTO: {real_name} ({formula})")
+                    print(f"✨ [DISCOVERY] Nueva Molécula detectada: {formula} ({real_name})")
+                    
+                    self.detector.create_event(
+                        EventType.COMPLEX_STRUCTURE,
+                        f"Nueva Estructura: {formula}",
+                        count=1
+                    )
         
-        # Generar eventos si hay cambios significativos
-        if water_count > self.last_water_count:
-            new_water = water_count - self.last_water_count
-            self.detector.create_event(
-                EventType.WATER_FORMED,
-                f"H2O formada! Total: {water_count}",
-                count=water_count, new=new_water
-            )
-        self.last_water_count = water_count
+        # Periocically clean cache to avoid memory leak if many transient states occur
+        if len(self._composition_cache) > 2000:
+             self._composition_cache.clear()
+             print("[CHEM] 🧹 Cache de química limpiado.")
         
-        if organic_chains > self.last_organic_chain_count:
-            new_chains = organic_chains - self.last_organic_chain_count
-            self.detector.create_event(
-                EventType.ORGANIC_CHAIN,
-                f"Cadena C-C detectada! Total: {organic_chains}",
-                count=organic_chains, new=new_chains
-            )
-        self.last_organic_chain_count = organic_chains
+        # 3. Actualizar stats
+        total_mols = sum(current_scan_formulas.values())
+        known_count = 0
+        from src.config.molecules import MOLECULES
+        for formula in current_scan_formulas:
+            if formula in MOLECULES:
+                known_count += current_scan_formulas[formula]
         
-        if complex_molecules > self.last_complex_count:
-            new_complex = complex_molecules - self.last_complex_count
-            self.detector.create_event(
-                EventType.COMPLEX_STRUCTURE,
-                f"Molecula compleja (5+ atomos)! Total: {complex_molecules}",
-                count=complex_molecules, new=new_complex
-            )
-        self.last_complex_count = complex_molecules
+        self.stats['total_molecules'] = total_mols
+        self.stats['known_molecules'] = known_count
+        self.stats['transitory_states'] = total_mols - known_count
+        self.stats['unique_discoveries'] = len(self.discovered_formulas)
+        self.stats['last_scan_formulas'] = current_scan_formulas
     
-    def _count_carbon_chain(self, start, atom_types, enlaces_idx, num_enlaces, global_visited):
-        """Cuenta la longitud de una cadena de carbonos."""
-        if atom_types[start] != 2:
-            return 0
-        
-        visited = {start}
-        queue = [start]
-        chain_length = 1
-        
-        while queue:
-            current = queue.pop(0)
-            for k in range(num_enlaces[current]):
-                j = enlaces_idx[current, k]
-                if j >= 0 and j not in visited and atom_types[j] == 2:
-                    visited.add(j)
-                    queue.append(j)
-                    chain_length += 1
-        
-        global_visited.update(visited)
-        return chain_length
-    
-    def _count_molecule_size(self, start, enlaces_idx, num_enlaces, visited):
-        """Cuenta el tamano total de una molecula conectada."""
-        if start in visited:
-            return 0
-        
-        visited.add(start)
-        size = 1
-        
-        for k in range(num_enlaces[start]):
-            j = enlaces_idx[start, k]
-            if j >= 0 and j not in visited:
-                size += self._count_molecule_size(j, enlaces_idx, num_enlaces, visited)
-        
-        return size
+    def detect_molecules(self, atom_types_np, enlaces_idx_np, num_enlaces_np, molecule_id_np, n_particles):
+        """
+        LEGACY VERSION: Mantiene compatibilidad pero usa versión rápida internamente.
+        """
+        # Usar versión rápida
+        self.detect_molecules_fast(atom_types_np, molecule_id_np, num_enlaces_np, n_particles)
+
+    def _bfs_molecule(self, start_idx, enlaces_idx, num_enlaces):
+        """Delegated to MolecularAnalyzer for consistency."""
+        return MolecularAnalyzer.get_molecule_indices(start_idx, enlaces_idx, num_enlaces)
+
+    def _build_formula(self, indices, atom_types):
+        """Delegated to MolecularAnalyzer for consistency."""
+        return MolecularAnalyzer.get_formula(indices, atom_types)
+
 
 # Singleton global
 _molecule_detector = None

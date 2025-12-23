@@ -10,15 +10,25 @@ Uso:
 """
 
 # ===================================================================
+# ESCALA MAESTRA (SINGLE SOURCE OF TRUTH)
+# ===================================================================
+# Factor de escala maestro que afecta TODO el sistema
+# Cambiar este valor escala proporcionalmente: visuales, física, química
+MASTER_SCALE = 3.0
+
+# Alias para compatibilidad (usar MASTER_SCALE en código nuevo)
+VISUAL_SCALE = MASTER_SCALE
+
+# ===================================================================
 # ESCALA DEL MUNDO
 # ===================================================================
 # Tamaño del mundo de simulación en unidades
 # Cambiar este valor afecta TODO el sistema de coordenadas
 WORLD_SIZE = 15000
 
-# Factor de escala maestro para visuales (átomos, enlaces)
-# Multiplica tamaños de render sin afectar física
-VISUAL_SCALE = 3.0
+# Margen de simulación fuera de cámara (Chemical Culling)
+# Rango extra donde los átomos se "despiertan" antes de ser visibles
+CULLING_MARGIN = 1500.0
 
 # Zoom inicial de la cámara
 INITIAL_ZOOM = 4.15
@@ -35,6 +45,7 @@ MAX_PARTICLES = 10000
 DEFAULT_PARTICLES = 5000
 
 # Máximo de enlaces por átomo (valencia máxima)
+# NOTA: También definido en physics_constants.py para compatibilidad
 MAX_VALENCE = 8
 
 # Buffer de enlaces para rendering
@@ -45,13 +56,13 @@ MAX_BONDS = MAX_PARTICLES * 4
 # GRID ESPACIAL
 # ===================================================================
 # Tamaño de cada celda del grid de colisiones
-GRID_CELL_SIZE = 60.0
+GRID_CELL_SIZE = 1000.0 # Wide cell for stress test cluster
 
 # Resolución del grid (calculada automáticamente)
 GRID_RES = int(WORLD_SIZE * 1.5 / GRID_CELL_SIZE) + 1
 
 # Máximo de partículas por celda del grid
-MAX_PER_CELL = 32
+MAX_PER_CELL = 5000 # Full capacity for stress test cluster
 
 
 # ===================================================================

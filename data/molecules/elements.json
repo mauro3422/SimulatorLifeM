@@ -1,0 +1,86 @@
+{
+    "_meta": {
+        "category": "elements",
+        "description": "Elemental molecules found in nature"
+    },
+    "molecules": {
+        "H2": {
+            "names": {
+                "es": "Hidrógeno Molecular",
+                "en": "Molecular Hydrogen"
+            },
+            "category": "element",
+            "origin": "primordial",
+            "color": [
+                200,
+                200,
+                255
+            ]
+        },
+        "O2": {
+            "names": {
+                "es": "Oxígeno Molecular",
+                "en": "Molecular Oxygen"
+            },
+            "category": "element",
+            "origin": "primordial",
+            "color": [
+                100,
+                100,
+                255
+            ]
+        },
+        "N2": {
+            "names": {
+                "es": "Nitrógeno Molecular",
+                "en": "Molecular Nitrogen"
+            },
+            "category": "element",
+            "origin": "primordial",
+            "color": [
+                100,
+                255,
+                100
+            ]
+        },
+        "S2": {
+            "names": {
+                "es": "Azufre Diatómico",
+                "en": "Diatomic Sulfur"
+            },
+            "category": "element",
+            "origin": "primordial",
+            "color": [
+                255,
+                255,
+                100
+            ]
+        },
+        "P2": {
+            "names": {
+                "es": "Fósforo Diatómico",
+                "en": "Diatomic Phosphorus"
+            },
+            "category": "element",
+            "origin": "primordial",
+            "color": [
+                255,
+                150,
+                0
+            ]
+        },
+        "O3": {
+            "names": {
+                "es": "Ozono",
+                "en": "Ozone"
+            },
+            "category": "gas",
+            "origin": "natural",
+            "color": [
+                150,
+                150,
+                255
+            ]
+        }
+    }
+}

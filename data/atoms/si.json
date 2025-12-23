@@ -1,0 +1,31 @@
+{
+    "symbol": "Si",
+    "name": "Silicio",
+    "color": [
+        139,
+        119,
+        101
+    ],
+    "radius": 14,
+    "mass": 28.0,
+    "valence": 4,
+    "valence_electrons": 4,
+    "electronegativity": 1.9,
+    "affinities": {
+        "H": 0.8,
+        "O": 3.5,
+        "C": 0.6,
+        "N": 0.5,
+        "P": 0.7,
+        "S": 0.8,
+        "Si": 1.2
+    },
+    "origin": {
+        "source": "Estrellas masivas moribundas",
+        "age": "~10 mil millones de años",
+        "process": "Fusión de oxígeno en capas internas de gigantes rojas",
+        "abundance": "8º elemento más abundante del universo, 2º en corteza terrestre (28%)",
+        "fun_fact": "La Tierra es básicamente una bola de silicatos - arena, rocas, arcilla son SiO₂"
+    },
+    "description": "Base de silicatos y arcilla. Enlaces Si-O muy fuertes forman estructuras cristalinas catalíticas."
+}

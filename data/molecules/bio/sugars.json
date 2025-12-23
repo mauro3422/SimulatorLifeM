@@ -1,0 +1,63 @@
+{
+    "_meta": {
+        "category": "sugars",
+        "description": "Carbohydrates and fundamental energy sources."
+    },
+    "molecules": {
+        "C6H12O6": {
+            "identity": {
+                "names": {
+                    "es": "Glucosa",
+                    "en": "Glucose"
+                },
+                "formula": "C6H12O6",
+                "category": "sugar",
+                "family_color": [
+                    255,
+                    200,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "El combustible universal de la vida.",
+                "biological_presence": "Base del metabolismo celular.",
+                "utility": "Principal fuente de energía rápida."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Energía Vital",
+                    "Primer Azúcar"
+                ],
+                "discovery_points": 100,
+                "difficulty": "hard"
+            }
+        },
+        "C5H10O5": {
+            "identity": {
+                "names": {
+                    "es": "Ribosa",
+                    "en": "Ribose"
+                },
+                "formula": "C5H10O5",
+                "category": "sugar",
+                "family_color": [
+                    255,
+                    180,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Componente estructural del ARN.",
+                "biological_presence": "Forma el esqueleto de los ácidos ribonucleicos.",
+                "utility": "Soporte estructural para la información genética."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Arquitecto del ARN"
+                ],
+                "discovery_points": 80,
+                "difficulty": "hard"
+            }
+        }
+    }
+}

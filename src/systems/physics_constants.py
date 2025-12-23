@@ -12,15 +12,13 @@ FÍSICA IMPLEMENTADA:
 """
 
 import numpy as np
+from src.config.system_constants import WORLD_SIZE, MASTER_SCALE
 
 # ==============================================================================
 # ESCALA DE SIMULACIÓN
 # ==============================================================================
-# Factor de escala maestro: 1.0 = escala base, >1 = mundo más grande
-SIMULATION_SCALE = 3.0
-
-# Mundo en unidades de simulación (no metros)
-WORLD_SIZE = 15000  # Unidades de simulación
+# Usar MASTER_SCALE de system_constants.py (single source of truth)
+SIMULATION_SCALE = MASTER_SCALE  # Alias para compatibilidad
 
 
 # ==============================================================================
@@ -31,8 +29,38 @@ WORLD_SIZE = 15000  # Unidades de simulación
 # - T: Temperatura (0.0 = congelado, 1.0 = muy caliente)
 # - m: Masa atómica relativa
 
-BROWNIAN_K = 0.1            # Constante de Boltzmann simulada
-BROWNIAN_BASE_TEMP = 0.05   # Temperatura ambiente mínima (siempre hay algo de agitación)
+# ==============================================================================
+# FÍSICA: MOVIMIENTO BROWNIANO (Agitación Térmica)
+# ==============================================================================
+# Fórmula: v_rms = √(k_B * T / m)
+# - k_B: Constante de Boltzmann simulada
+# - T: Temperatura (0.0 = congelado, 1.0 = muy caliente)
+# - m: Masa atómica relativa
+
+# ==============================================================================
+# FÍSICA: MOVIMIENTO BROWNIANO (Agitación Térmica)
+# ==============================================================================
+# Fórmula: v_rms = √(k_B * T / m)
+# - k_B: Constante de Boltzmann simulada
+# - T: Temperatura (0.0 = congelado, 1.0 = muy caliente)
+# - m: Masa atómica relativa
+
+BROWNIAN_K = 0.05           # Constante "de Boltzmann" ajustada
+BROWNIAN_BASE_TEMP = 0.15   # Temperatura ambiente (~300K escalado) - más dinámico
+
+
+# ... (Coulomb, Hooke constants unchanged) ...
+
+# ==============================================================================
+# FÍSICA: VAN DER WAALS (Fuerzas Intermoleculares)
+# ==============================================================================
+# Fuerza Lennard-Jones modificada para simular cohesión líquida.
+# F = attract
+
+VDW_K = 2.5                 # Intensidad realista (~10-15% fuerza de enlace)
+VDW_RANGE_FACTOR = 3.0      # Radio de efecto (x radio del átomo)
+
+
 
 
 # ==============================================================================
@@ -62,7 +90,7 @@ ELECTRONEG_AVERAGE = 2.82   # Electronegatividad media (referencia)
 SPRING_K_DEFAULT = 1.5          # Rigidez del enlace
 DAMPING_DEFAULT = 2.0           # Amortiguamiento (reduce oscilaciones)
 DIST_EQUILIBRIO_BASE = 35.0     # Distancia de equilibrio base (escala 1.0)
-DIST_ROTURA_FACTOR = 1.5        # Factor de rotura (dist_rotura = rango_max * factor)
+DIST_ROTURA_FACTOR = 2.5        # AUMENTADO: 2.5x distancia max para rotura (más elástico)
 
 
 # ==============================================================================
@@ -71,7 +99,7 @@ DIST_ROTURA_FACTOR = 1.5        # Factor de rotura (dist_rotura = rango_max * fa
 # Referencia: Müller et al. 2007 - "Position Based Dynamics"
 # Pasos: predecir -> resolver restricciones -> derivar velocidad
 
-SOLVER_ITERATIONS = 3       # Iteraciones de Gauss-Seidel
+SOLVER_ITERATIONS = 4       # Stable value for molecular simulation
 VELOCITY_DERIVATION = 0.9   # Factor de derivación (pos - pos_old) * factor
 COLLISION_CORRECTION = 0.7  # Factor de corrección de colisión
 
@@ -99,8 +127,58 @@ MAX_VALENCE = 8                 # Máximo número de enlaces por átomo
 # ==============================================================================
 MUTATION_PROBABILITY = 0.00005  # Probabilidad de mutación por frame
 TUNNEL_VELOCITY_THRESHOLD = 0.95  # % de max_speed para activar túnel
-TUNNEL_PROBABILITY = 0.01       # Probabilidad de efecto túnel
+TUNNEL_PROBABILITY = 0.01       # Probabilidad de efecto túnel (1%)
+
+
+# ==============================================================================
+# FÍSICA: VAN DER WAALS (Fuerzas Intermoleculares)
+# ==============================================================================
+# Fuerza Lennard-Jones modificada para simular cohesión líquida.
+# F = attract
+
+VDW_K = 3.0                 # Intensidad ajustada (suficiente para líquido, no explosiva)
+VDW_RANGE_FACTOR = 3.0      # Radio de efecto (x radio del átomo)
+
 TUNNEL_JUMP_DISTANCE = 60.0     # Distancia del salto cuántico
+
+# Factores de fuerza (anteriormente hardcodeados)
+BOND_FORCE_FACTOR = 0.8         # AUMENTADO: Enlaces más fuertes para evitar rotura
+COULOMB_FORCE_FACTOR = 0.1      # Factor de aplicación de fuerzas de Coulomb
+HBOND_BOOST = 3.0               # Refuerzo para Puentes de Hidrógeno (Atracción direccional)
+
+
+# ==============================================================================
+# VISUALIZACIÓN 2.5D (Profundidad)
+# ==============================================================================
+# Sistema de profundidad visual para representar geometría 3D en 2D
+# Los átomos con Z > 0 aparecen más cerca (más grandes, colores vivos)
+# Los átomos con Z < 0 aparecen más lejos (más pequeños, colores desaturados)
+
+DEPTH_Z_AMPLITUDE = 50.0        # Amplitud máxima de Z (unidades mundo)
+DEPTH_SIZE_FACTOR = 0.6         # Factor de escala por unidad Z (0.6 = ±60% tamaño - MUY visible)
+DEPTH_DESAT_FACTOR = 0.3        # Factor de desaturación para Z negativo (0.3 = 30% max)
+
+
+# ==============================================================================
+# QUÍMICA AVANZADA: TORSIONES (DIEDROS)
+# ==============================================================================
+# Rigidez del giro entre 4 átomos (A-B-C-D)
+DIHEDRAL_K = 0.5            # Fuerza para mantener zig-zags
+DIHEDRAL_DAMPING = 0.2      # Amortiguamiento torsional
+HYDROPHOBIC_K = 5.0             # Fuerza de atracción para átomos no polares en agua
+
+
+# ==============================================================================
+# MEDIO (SOLVATACIÓN / CAMPOS)
+# ==============================================================================
+# Propiedades del medio que rodea a las partículas
+MEDIUM_TYPE_VACUUM = 0
+MEDIUM_TYPE_WATER = 1
+MEDIUM_TYPE_OIL = 2
+
+# Valores por defecto para el medio (Agua)
+MEDIUM_VISCOSITY_DEFAULT = 0.5   # Fricción extra del medio
+MEDIUM_POLARITY_DEFAULT = 0.8    # 0.0=No polar (grasas), 1.0=Altamente polar (Agua)
 
 
 # ==============================================================================

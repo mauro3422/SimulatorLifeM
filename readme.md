@@ -7,66 +7,81 @@
 
 **LifeSimulator** es un motor de simulación molecular masiva diseñado para explorar la estabilidad química y la evolución emergente en tiempo real. Utiliza un pipeline híbrido de **GPU Computing (Taichi)** para la física y **OpenGL Moderno (ModernGL)** para el renderizado de alta fidelidad.
 
-![Preview](https://raw.githubusercontent.com/mauro3422/SimulatorLifeM/main/docs/media/preview.png) *(Placeholder por imagen real)*
+## 🚀 Performance (v3.0 - Ultra-Loop)
+
+| Métrica | Valor |
+|---------|-------|
+| **FPS** | 90-106 (zoom alto) |
+| **Partículas** | 5,000-10,000 |
+| **Latencia DataTx** | <0.5ms |
+| **Pipeline** | Universal GPU Buffer |
 
 ## ✨ Características Principales
 
-- **⚙️ Motor de Física Masivo**: Simulación de miles de partículas CHONPS (Carbono, Hidrógeno, Oxígeno, Nitrógeno, Fósforo, Azufre) con enlaces dinámicos y fuerzas interatómicas.
-- **🧬 Selección Molecular Dinámica**: Sistema de "Picking" inteligente que detecta y resalta estructuras moleculares completas en tiempo real mientras se forman o rompen.
-- **📊 Monitor Científico**: Dashboard en tiempo real que mide transiciones energéticas, formación de enlaces y actividad catalítica.
-- **🎨 Interfaz Premium**: UI basada en Glassmorphism con temas de color Cian Eléctrico y Blanco-Oro, optimizada para resolución 1280x720+.
-- **🚀 Pipeline 100% GPU**: Transferencia de datos eficiente entre Taichi y ModernGL sin cuellos de botella en la CPU.
+- **⚙️ Motor de Física Masivo**: Simulación de miles de partículas CHONPS con "Total Fusion" (física + química en un solo pass GPU).
+- **🏭 Fábrica Molecular**: Evolución desde un átomo a una compleja fábrica de biopolímeros con gestión de recursos.
+- **⚛️ Quimidex**: Sistema de enciclopedia interactiva con auditoría de moléculas desconocidas y buffs educativos.
+- **🌋 Zonas de Catálisis**: Entornos con física alterada (Arcilla, Ventilas Termales) que dictan la evolución.
+- **🥊 Competencia Biota**: Próxima implementación de IA competitiva luchando por la sopa primordial.
 
 ## 🛠️ Stack Tecnológico
 
 - **Lenguaje**: Python 3.13
-- **Física**: [Taichi Lang](https://github.com/taichi-dev/taichi) (Vulkan/Cuda/OpenGL Backend)
+- **Física**: [Taichi Lang](https://github.com/taichi-dev/taichi) (Vulkan/Cuda Backend)
 - **Renderizado**: [ModernGL](https://github.com/moderngl/moderngl) (OpenGL Core Profile)
 - **UI/UX**: [Dear ImGui](https://github.com/ocornut/imgui) (via imgui-bundle)
-- **Matemáticas**: NumPy
 
-## 🕹️ Controles (Modo Piloto)
+## 🕹️ Controles
 
 | Entrada | Acción |
 | :--- | :--- |
-| **Clic Izquierdo** | Seleccionar Átomo / Segundo clic: Ver Molécula / Tercero: Deseleccionar |
-| **Ctrl + Clic Izquierdo** | Lanzar Pulso de Fuerza (Shockwave) |
-| **Tab (Mantener)** | 🏎️ Acelerador: Aumenta la velocidad gradualmente. Al soltar, la velocidad se **mantiene**. |
-| **Doble Tab** | ⏸️ Pausar / Reanudar Simulación |
-| **Espacio** | 🔄 Reset a Velocidad Óptima (1.0x) |
-| **Rueda del Mouse** | Zoom Dinámico |
-| **Clic Rueda (Hold)** | Panear Cámara |
-| **F3** | Alternar Modo Debug |
+| **Clic Izquierdo** | Seleccionar Átomo / Molécula |
+| **Ctrl + Clic** | Lanzar Pulso de Fuerza |
+| **Tab (Mantener)** | 🏎️ Acelerador de Tiempo |
+| **Doble Tab** | ⏸️ Pausar / Reanudar |
+| **Espacio** | Reset a Velocidad 1.0x |
+| **Rueda Mouse** | Zoom Dinámico |
+| **F3** | Modo Debug |
 
 ## 🚀 Instalación
 
-1. **Clonar el repositorio**:
-   ```bash
-   git clone https://github.com/mauro3422/SimulatorLifeM.git
-   cd SimulatorLifeM
-   ```
-
-2. **Instalar dependencias**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Ejecutar**:
-   ```bash
-   python main.py
-   ```
+```bash
+git clone https://github.com/mauro3422/SimulatorLifeM.git
+cd SimulatorLifeM
+pip install -r requirements.txt
+python main.py
+```
 
 ## 📂 Estructura del Proyecto
 
-- `main.py`: Punto de entrada, orquestador de UI y Renderizado.
-- `src/ui_config.py`: Configuración centralizada de estética y widgets.
-- `src/systems/simulation_gpu.py`: Kernels de física en Taichi.
-- `src/config.py`: Parámetros globales de simulación y tabla periódica.
-- `docs/`: Documentación técnica detallada sobre arquitectura y kernels.
+```
+LifeSimulator/
+├── main.py                 # Orquestador principal
+├── src/
+│   ├── systems/            # Física, Química, Kernels GPU
+│   ├── renderer/           # OpenGL, Shaders, Cámara
+│   ├── config/             # Constantes, UI Config
+│   └── core/               # Utils, Performance Logger
+├── benchmarks/             # 📊 Scripts de benchmark
+│   ├── monitor.py          # Monitor de performance
+│   └── results/            # Logs de benchmarks
+├── docs/                   # Documentación técnica
+└── logs/                   # Logs de aplicación
+```
+
+## 📊 Benchmarks
+
+```bash
+# Ver métricas de performance
+python benchmarks/monitor.py
+
+# Ejecutar benchmark completo
+python benchmarks/benchmark_gpu.py
+```
 
 ## 📜 Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+MIT License. Ver `LICENSE` para detalles.
 
 ---
 *Desarrollado con ❤️ para la exploración de la vida artificial.*

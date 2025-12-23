@@ -3,7 +3,9 @@ Monitor Panel - Panel de monitoreo de actividad molecular.
 """
 
 from imgui_bundle import imgui
+from imgui_bundle import imgui
 from src.config import UIConfig, UIWidgets
+from src.systems.taichi_fields import total_bonds_broken_dist
 
 
 def draw_monitor_panel(state, show_debug: bool, win_w: float):
@@ -24,19 +26,23 @@ def draw_monitor_panel(state, show_debug: bool, win_w: float):
     
     imgui.set_next_window_pos((win_w - panel_w - 20, y_pos), imgui.Cond_.always)
     imgui.set_next_window_size((panel_w, log_h), imgui.Cond_.always)
-    imgui.begin("MONITOR DE ACTIVIDAD MOLECULAR", None, UIConfig.WINDOW_FLAGS_LOG)
     
-    # Métricas de Evolución
-    UIWidgets.section_header("MÉTRICAS DE EVOLUCIÓN", "📊")
+    # imgui.begin returns (visible, opened) - check visible before drawing content
+    visible, _ = imgui.begin("MONITOR DE ACTIVIDAD MOLECULAR", None, UIConfig.WINDOW_FLAGS_LOG)
     
-    imgui.begin_table("StatsInfo", 2)
-    UIWidgets.metric_row("Enlaces Formados:", state.stats['bonds_formed'], UIConfig.COLOR_BOND_FORMED)
-    UIWidgets.metric_row("Enlaces Rotos:", state.stats['bonds_broken'], UIConfig.COLOR_BOND_BROKEN)
-    UIWidgets.metric_row("Transiciones Energ.:", state.stats['tunnels'], (0.8, 0.6, 1.0, 1.0))
-    imgui.end_table()
-    
-    # Bitácora de Eventos
-    UIWidgets.section_header("BITÁCORA DE EVENTOS", "📝")
-    UIWidgets.scrollable_log(state.event_log)
+    if visible:
+        # Métricas de Evolución
+        UIWidgets.section_header("MÉTRICAS DE EVOLUCIÓN", "📊")
+        
+        imgui.begin_table("StatsInfo", 2)
+        UIWidgets.metric_row("Enlaces Formados:", state.stats['bonds_formed'], UIConfig.COLOR_BOND_FORMED)
+        UIWidgets.metric_row("Enlaces Rotos:", state.stats['bonds_broken'], UIConfig.COLOR_BOND_BROKEN)
+        UIWidgets.metric_row("Rotos por Dist.:", total_bonds_broken_dist[None], (1.0, 0.4, 0.4, 1.0))
+        UIWidgets.metric_row("Transiciones Energ.:", state.stats['tunnels'], (0.8, 0.6, 1.0, 1.0))
+        imgui.end_table()
+        
+        # Bitácora de Eventos
+        UIWidgets.section_header("BITÁCORA DE EVENTOS", "📝")
+        UIWidgets.scrollable_log(state.event_log)
     
     imgui.end()

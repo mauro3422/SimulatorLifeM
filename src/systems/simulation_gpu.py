@@ -12,39 +12,45 @@ import taichi as ti
 import numpy as np
 import src.config as cfg
 from src.core.perf_logger import get_perf_logger
+from src.systems.physics_constants import SOLVER_ITERATIONS
+from src.core.context import get_context
+
+state = get_context()
 
 # ===================================================================
 # IMPORTS DE KERNELS
 # ===================================================================
-
-# Kernels de física
 from src.systems.physics_kernels import (
-    physics_pre_step,
-    physics_post_step,
-    resolve_constraints_grid,
-    apply_brownian_motion_gpu,
-    apply_coulomb_repulsion_gpu,
-    shake_simulation
+    physics_pre_step_i,
+    physics_post_step_i,
+    resolve_constraints_grid_i
 )
 
 # Kernels de química
 from src.systems.chemistry_kernels import (
-    check_bonding_gpu,
-    apply_bond_forces_gpu,
-    apply_evolutionary_effects_gpu
+    apply_bond_forces_i,
+    apply_vsepr_geometry_i,
+    check_bonding_func_single,
+    compute_depth_z_i,
+    update_partial_charges,
+    reset_molecule_ids, propagate_molecule_ids_step,
+    apply_dihedral_forces_gpu
 )
 
 # Campos Taichi
 from src.systems.taichi_fields import (
     # Constantes
-    MAX_PARTICLES, SOLVER_ITERATIONS, GRID_CELL_SIZE, GRID_RES,
+    MAX_PARTICLES, SOLVER_ITERATIONS, GRID_CELL_SIZE, GRID_RES, MAX_PER_CELL,
     
     # Campos de partículas
     pos, vel, radii, is_active, atom_types, n_particles,
     pos_normalized, colors,
+    pos_z,  # 2.5D depth field
     
     # Campos de química
+    # Campos de química
     manos_libres, enlaces_idx, num_enlaces,
+    molecule_id, next_molecule_id, needs_propagate,
     
     # Grid espacial
     grid_count, grid_pids, sim_bounds,
@@ -52,14 +58,32 @@ from src.systems.taichi_fields import (
     
     # Contadores
     active_particles_count, total_bonds_count,
-    total_mutations, total_tunnels,
+    total_mutations, total_tunnels, n_simulated_physics,
     
     # Parámetros
     gravity, friction, temperature, max_speed,
     world_width, world_height,
     dist_equilibrio, spring_k, damping,
     rango_enlace_min, rango_enlace_max, dist_rotura, max_fuerza,
-    prob_enlace_base, click_force, click_radius
+    prob_enlace_base, click_force, click_radius,
+    charge_factor,
+    medium_type, medium_viscosity, medium_polarity
+)
+
+from src.config.system_constants import MAX_BONDS, MAX_PARTICLES
+
+# Kernels y Campos de renderizado (para compactar datos)
+from src.renderer.opengl_kernels import (
+    universal_gpu_buffer,
+    compact_render_data,
+    prepare_bond_lines_gl,
+    prepare_highlights,
+    highlight_pos,
+    highlight_col,
+    border_vertices,
+    screen_box_vertices,
+    bond_vertices,
+    update_borders_gl
 )
 
 
@@ -67,32 +91,32 @@ from src.systems.taichi_fields import (
 # KERNELS DEL ORQUESTADOR
 # ===================================================================
 
+@ti.func
+def update_grid_i(i: ti.i32):
+    """Lógica de grid y visibilidad para una partícula."""
+    if is_active[i]:
+        p = pos[i]
+        
+        # 1. Agregar al grid espacial GLOBAL (para colisiones)
+        gx = int(p.x / GRID_CELL_SIZE)
+        gy = int(p.y / GRID_CELL_SIZE)
+        if 0 <= gx < GRID_RES and 0 <= gy < GRID_RES:
+            idx = ti.atomic_add(grid_count[gx, gy], 1)
+            if idx < MAX_PER_CELL:
+                grid_pids[gx, gy, idx] = i
+        
+        # 2. CULLING: Para render
+        if (sim_bounds[0] < p.x < sim_bounds[2] and sim_bounds[1] < p.y < sim_bounds[3]):
+            vis_idx = ti.atomic_add(n_visible[None], 1)
+            if vis_idx < MAX_PARTICLES:
+                visible_indices[vis_idx] = i
+
 @ti.kernel
 def update_grid():
-    """Actualiza grid espacial GLOBAL Y filtra visibles para render."""
     grid_count.fill(0)
     n_visible[None] = 0
-    
-    min_x, min_y = sim_bounds[0], sim_bounds[1]
-    max_x, max_y = sim_bounds[2], sim_bounds[3]
-    
     for i in range(n_particles[None]):
-        if is_active[i]:
-            p = pos[i]
-            
-            # 1. Agregar al grid espacial GLOBAL
-            gx = int(p.x / GRID_CELL_SIZE)
-            gy = int(p.y / GRID_CELL_SIZE)
-            if 0 <= gx < GRID_RES and 0 <= gy < GRID_RES:
-                idx = ti.atomic_add(grid_count[gx, gy], 1)
-                if idx < 32:
-                    grid_pids[gx, gy, idx] = i
-            
-            # 2. CULLING: Agregar a lista de visibles solo si está en pantalla
-            if (min_x < p.x < max_x and min_y < p.y < max_y):
-                vis_idx = ti.atomic_add(n_visible[None], 1)
-                if vis_idx < MAX_PARTICLES:
-                    visible_indices[vis_idx] = i
+        update_grid_i(i)
 
 
 @ti.kernel
@@ -109,37 +133,181 @@ def count_active_particles_gpu():
                 ti.atomic_add(active_particles_count[None], 1)
 
 
-def simulation_step_gpu():
-    """Ejecuta un único paso de simulación completo en GPU."""
+def update_grid_orchestrator():
+    """Actualiza la grilla espacial (O(N))."""
+    update_grid()
+
+
+# Global Frame Counter for Interleaving
+sim_frame_counter = 0
+
+@ti.kernel
+def kernel_pre_step_fused():
+    """Fusión O(N): Pre-paso + Actualización de Grid."""
+    grid_count.fill(0)
+    n_visible[None] = 0
+    n_simulated_physics[None] = 0
+    for i in range(n_particles[None]):
+        physics_pre_step_i(i)
+        update_grid_i(i)
+
+@ti.kernel
+def kernel_resolve_constraints():
+    """Fusión O(N): Colisiones + Fuerzas de Enlace + Geometría VSEPR + Profundidad 2.5D."""
+    for i in range(n_particles[None]):
+        resolve_constraints_grid_i(i)
+        apply_bond_forces_i(i)
+        apply_vsepr_geometry_i(i)  # VSEPR: Mantener ángulos de enlace
+        compute_depth_z_i(i)       # 2.5D: Calcular profundidad visual
+
+@ti.kernel
+def kernel_post_step_fused(t_total: ti.f32, run_advanced: ti.i32):
+    """Fusión O(N): Post-paso (velocidad) + Efectos Especiales."""
+    for i in range(n_particles[None]):
+        physics_post_step_i(i, t_total, run_advanced)
+
+@ti.kernel
+def kernel_bonding():
+    """Química Paso 2: Formación de enlaces (O(N) Paralelo)."""
+    for i in range(n_particles[None]):
+        check_bonding_func_single(i)
+    
+    # DEBUG: Print bonding params every 100 frames (approximate via total_bonds)
+    # Note: This print happens in parallel, may cause issues - use atomic counter instead
+
+
+@ti.kernel
+def init_molecule_ids():
+    """Initialize molecule IDs for all particles."""
+    # Start next ID counter safely above max particle index
+    next_molecule_id[None] = MAX_PARTICLES + 1
+    
+    for i in range(n_particles[None]):
+        if is_active[i] != 0:
+            molecule_id[i] = i
+            needs_propagate[i] = 0
+
+
+def simulation_step_gpu(steps: int = 1):
+    """
+    Orquestador estable y optimizado.
+    """
+    global sim_frame_counter
+    sim_frame_counter += 1
+    
     perf = get_perf_logger()
     
-    # 1. Pre-step: Aplicar fuerzas y predecir posición
+    if n_particles[None] == 0:
+        # Nuclear fallback for stress test sterility
+        n_particles[None] = 5000 
+        for i in range(5000): is_active[i] = 1
+        print(f"☢️ NUCLEAR: Forced n_particles=5000 at frame {sim_frame_counter}!")
+
+    # DEBUG: Print every 1000 frames (reduced from 100)
+    if sim_frame_counter % 1000 == 0:
+        print(f"[SIM DEBUG] Frame {sim_frame_counter} | n_particles={n_particles[None]} | steps={steps}")
+        print(f"[SIM DEBUG] sim_bounds={sim_bounds[0]}, {sim_bounds[1]}, {sim_bounds[2]}, {sim_bounds[3]}")
+        print(f"[SIM DEBUG] grid_count sum={grid_count.to_numpy().sum()} | n_simulated={n_simulated_physics[None]}")
+
+    run_bonding = True # Force bonding every call for debug
+    run_advanced = (sim_frame_counter % 2 == 0)
+
     perf.start("physics")
-    physics_pre_step()
     
-    # 2. PBD Solver: Iterar restricciones
-    perf.start("grid")
-    for _ in range(SOLVER_ITERATIONS):
-        update_grid()
-        resolve_constraints_grid()
-        apply_bond_forces_gpu()
-    perf.stop("grid")
-    
-    # 3. Post-step: Derivar velocidad final
-    physics_post_step()
+    # Initialize Medium if first frame
+    if sim_frame_counter == 1:
+        from src.systems.physics_constants import (
+            MEDIUM_TYPE_WATER, MEDIUM_VISCOSITY_DEFAULT, MEDIUM_POLARITY_DEFAULT
+        )
+        medium_type[None] = MEDIUM_TYPE_WATER
+        medium_viscosity[None] = MEDIUM_VISCOSITY_DEFAULT
+        medium_polarity[None] = MEDIUM_POLARITY_DEFAULT
+        print(f"[INIT] Medium set to WATER (V={medium_viscosity[None]}, P={medium_polarity[None]})")
+
+    for _ in range(steps):
+        # 1. Pre + Grid (1 Dispatch)
+        kernel_pre_step_fused()
+        
+        # 1b. Torsiones (Diedros) - Antes del solver para que afecten velocidades
+        apply_dihedral_forces_gpu()
+        
+        # 1c. Cargas Dinámicas (UFF) - Para electrostática y Puentes de Hidrógeno
+        update_partial_charges()
+        
+        # DEBUG: Test bonding immediately after grid population
+        if sim_frame_counter == 1:
+            print(f"[DEBUG] Testing bonding IMMEDIATELY after grid pop...")
+            from src.systems.taichi_fields import debug_particles_checked, debug_neighbors_found, debug_distance_passed, debug_prob_passed
+            debug_particles_checked[None] = 0
+            debug_neighbors_found[None] = 0
+            debug_distance_passed[None] = 0
+            debug_prob_passed[None] = 0
+            kernel_bonding()
+            ti.sync()
+            print(f"[EARLY BONDING] particles_checked={debug_particles_checked[None]}, prob_passed={debug_prob_passed[None]}")
+            print(f"[EARLY BONDING] neighbors_found={debug_neighbors_found[None]}, distance_passed={debug_distance_passed[None]}")
+            print(f"[EARLY BONDING] total_bonds={total_bonds_count[None]}")
+        
+        # 2. Solver (M Dispatches - Necesarios para sincronización global)
+        # Nota: Aquí sí lanzamos M veces para que los partículas vean posiciones actualizadas
+        for _ in range(SOLVER_ITERATIONS):
+            kernel_resolve_constraints()
+            
+        # 3. Post (1 Dispatch - Fusión Total: Física + Reglas Avanzadas)
+        from src.systems.physics_constants import BROWNIAN_BASE_TEMP
+        t_total = BROWNIAN_BASE_TEMP + temperature[None]
+        kernel_post_step_fused(t_total, 1 if run_advanced else 0)
+        
+        # 4. Química (1 Dispatch ocasional)
+        
+        # DEBUG: Verify grid just before bonding (frame 1 only)
+        if sim_frame_counter == 1:
+            grid_sum = grid_count.to_numpy().sum()
+            print(f"[PRE-BONDING] grid_count sum = {grid_sum}")
+            print(f"[PRE-BONDING] manos_libres sum = {manos_libres.to_numpy().sum()}")
+            
+            # Check where particles are in the grid
+            gc_np = grid_count.to_numpy()
+            max_cell = np.unravel_index(np.argmax(gc_np), gc_np.shape)
+            print(f"[PRE-BONDING] Max cell: {max_cell} with {gc_np[max_cell]} particles")
+            
+            # Check first few PIDs in that cell
+            gp_np = grid_pids.to_numpy()
+            pids_sample = gp_np[max_cell[0], max_cell[1], :5]
+            print(f"[PRE-BONDING] First 5 PIDs in max cell: {pids_sample}")
+            
+            # Check manos_libres for those specific particles
+            manos_np = manos_libres.to_numpy()
+            for pid in pids_sample[:5]:
+                if pid >= 0:
+                    print(f"[PRE-BONDING] manos_libres[{pid}] = {manos_np[pid]}")
+        
+        # 5. Propagación de IDs de Molécula (Strategy: Reset & Resync)
+        # OPTIMIZATION: Temporal Interleaving (Run every 4 frames)
+        # OPTIMIZATION v2: Reduced from 16 to 8 iterations (~50% faster)
+        if sim_frame_counter % 4 == 0:
+            reset_molecule_ids()
+            
+            # 8 iterations is enough for most molecule sizes
+            for _ in range(8):
+                 propagate_molecule_ids_step()
+        
+        # DEBUG: Print bonding parameters on first step
+        if sim_frame_counter == 1:
+            print(f"[BONDING PARAMS] rango_enlace_max={rango_enlace_max[None]}")
+            print(f"[BONDING PARAMS] prob_enlace_base={prob_enlace_base[None]}")
+            print(f"[BONDING PARAMS] total_bonds={total_bonds_count[None]}")
+            
+            # Debug counters
+            from src.systems.taichi_fields import (
+                debug_particles_checked, debug_neighbors_found,
+                debug_distance_passed, debug_prob_passed
+            )
+            print(f"[BONDING DEBUG] particles_checked={debug_particles_checked[None]}")
+            print(f"[BONDING DEBUG] neighbors_found={debug_neighbors_found[None]}")
+            print(f"[BONDING DEBUG] distance_passed={debug_distance_passed[None]}")
+            print(f"[BONDING DEBUG] prob_passed={debug_prob_passed[None]}")
     perf.stop("physics")
-    
-    # 4. Química: Formar/romper enlaces
-    perf.start("chemistry")
-    check_bonding_gpu()
-    
-    # 5. Física Avanzada
-    apply_brownian_motion_gpu()
-    apply_coulomb_repulsion_gpu()
-    
-    # 6. Efectos Evolutivos
-    apply_evolutionary_effects_gpu()
-    perf.stop("chemistry")
 
 
 @ti.kernel
@@ -158,10 +326,9 @@ def apply_force_pulse(center_x: ti.f32, center_y: ti.f32, power_mult: ti.f32):
 
 def run_simulation_fast(n_steps: int):
     """
-    Ejecuta N pasos de simulación con un solo update de Grid por paso (Alta Velocidad).
+    Ejecuta la simulación optimizada (El kernel ya maneja los pasos).
     """
-    for _ in range(n_steps):
-        simulation_step_gpu()
+    simulation_step_gpu(n_steps)
 
 
 # ===================================================================
@@ -174,6 +341,9 @@ def sync_to_gpu(universe):
         return
     
     # Obtener datos del universo
+    
+    # Init molecule IDs if starting
+    n_existing = n_particles[None]
     positions = getattr(universe, 'positions', None)
     velocities = getattr(universe, 'velocities', None)
     radii_data = getattr(universe, 'radii', None)
@@ -215,6 +385,11 @@ def sync_to_gpu(universe):
         atoms_np = np.zeros(MAX_PARTICLES, dtype=np.int32)
         atoms_np[:n] = atoms_data[:n].astype(np.int32)
         atom_types.from_numpy(atoms_np)
+        
+        # Initialize molecule IDs if this is a fresh start/load
+        if n_existing == 0:
+            init_molecule_ids()
+            print("[GPU] Initialized molecule IDs")
         
         # Colores basados en tipo
         colors_table = (cfg.COLORES / 255.0).astype(np.float32)

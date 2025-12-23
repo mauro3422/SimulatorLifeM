@@ -25,6 +25,9 @@ logs/
 !logs/performance/
 log.txt
 canvas_benchmark_results.txt
+benchmarks/results/*.log
+benchmarks/results/*.txt
+benchmarks/results/*.json
 
 # IDEs
 .vscode/

@@ -1,0 +1,198 @@
+{
+    "_meta": {
+        "category": "prebiotic_precursors",
+        "description": "Molecules that bridge inorganic chemistry and complex life."
+    },
+    "molecules": {
+        "C1H4N2O1": {
+            "identity": {
+                "names": {
+                    "es": "Urea",
+                    "en": "Urea"
+                },
+                "formula": "C1H4N2O1",
+                "category": "organic",
+                "family_color": [
+                    255,
+                    255,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Primera molécula orgánica sintetizada a partir de inorgánicos.",
+                "biological_presence": "Principal medio de excreción de nitrógeno.",
+                "utility": "Eslabón entre la química inorgánica y la biología."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Fin del Vitalismo",
+                    "Ciclo del Nitrógeno"
+                ],
+                "discovery_points": 45,
+                "difficulty": "medium"
+            }
+        },
+        "C2H2O2": {
+            "identity": {
+                "names": {
+                    "es": "Glioxal",
+                    "en": "Glyoxal"
+                },
+                "formula": "C2H2O2",
+                "category": "organic",
+                "family_color": [
+                    255,
+                    200,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Dialdehído más pequeño. Intermedio en azúcares.",
+                "biological_presence": "Subproducto del metabolismo oxidativo.",
+                "utility": "Puente hacia carbohidratos complejos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Puente hacia Azúcares"
+                ],
+                "discovery_points": 60,
+                "difficulty": "medium"
+            }
+        },
+        "C2H4O1": {
+            "identity": {
+                "names": {
+                    "es": "Acetaldehído",
+                    "en": "Acetaldehyde"
+                },
+                "formula": "C2H4O1",
+                "category": "aldehyde",
+                "family_color": [
+                    255,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Intermediario clave en la formación de azúcares.",
+                "biological_presence": "Producto metabólico en la fermentación.",
+                "utility": "Fundamental para la reacción de la formosa."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Semilla de Azúcar"
+                ],
+                "discovery_points": 55,
+                "difficulty": "medium"
+            }
+        },
+        "C3H3N1O2": {
+            "identity": {
+                "names": {
+                    "es": "Piruvonitrilo Ácido",
+                    "en": "Pyruvonitrilic Acid"
+                },
+                "formula": "C3H3N1O2",
+                "category": "precursor",
+                "family_color": [
+                    200,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Nitrilo derivado del ácido pirúvico.",
+                "biological_presence": "Potencial precursor de aminoácidos mediante aminación reactiva.",
+                "utility": "Eslabón avanzado en la síntesis de monómeros biológicos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Síntesis Avanzada"
+                ],
+                "discovery_points": 75,
+                "difficulty": "hard"
+            }
+        },
+        "C2H1N4O2": {
+            "identity": {
+                "names": {
+                    "es": "Tetrazol carboxílico",
+                    "en": "Tetrazole carboxylic acid"
+                },
+                "formula": "C2H1N4O2",
+                "category": "precursor",
+                "family_color": [
+                    255,
+                    150,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura heterocíclica de alta energía rica en nitrógeno.",
+                "biological_presence": "Posible análogo primitivo de nucleobases.",
+                "utility": "Almacenamiento de energía química y precursor de heterociclos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Código Nitrogenado"
+                ],
+                "discovery_points": 90,
+                "difficulty": "hard"
+            }
+        },
+        "H3O1P1": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Fosforoso",
+                    "en": "Phosphorous Acid"
+                },
+                "formula": "H3O1P1",
+                "category": "phosphorus_compound",
+                "family_color": [
+                    255,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Estado de oxidación +3 del fósforo, más reactivo que los fosfatos.",
+                "biological_presence": "Fuente potencial de fósforo soluble en la Tierra primitiva.",
+                "utility": "Bloque clave para la síntesis de nucleótidos reducidos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Fósforo Reducido"
+                ],
+                "discovery_points": 60,
+                "difficulty": "medium"
+            }
+        },
+        "C1H1O3P1": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Formilfosfónico",
+                    "en": "Formylphosphonic Acid"
+                },
+                "formula": "C1H1O3P1",
+                "category": "phosphorus_compound",
+                "family_color": [
+                    220,
+                    180,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula que une un grupo formilo con un grupo fosfato.",
+                "biological_presence": "Intermedio teórico en el metabolismo del carbono y fósforo primordiales.",
+                "utility": "Precursor de fosfatos orgánicos complejos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Puente de Fósforo"
+                ],
+                "discovery_points": 80,
+                "difficulty": "hard"
+            }
+        }
+    }
+}

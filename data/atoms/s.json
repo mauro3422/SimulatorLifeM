@@ -8,15 +8,24 @@
     ],
     "radius": 13,
     "mass": 32.0,
-    "valence": 2,
-    "electronegativity": 2.5,
+    "valence": 6,
+    "valence_electrons": 6,
+    "electronegativity": 2.58,
     "affinities": {
         "H": 1.4,
         "O": 2.0,
         "C": 1.5,
         "N": 1.0,
         "P": 1.0,
-        "S": 1.8
+        "S": 1.8,
+        "Si": 0.8
+    },
+    "origin": {
+        "source": "Supernovas tipo II",
+        "age": "~9 mil millones de años",
+        "process": "Fusión de oxígeno en núcleos estelares masivos",
+        "abundance": "10º elemento más abundante",
+        "fun_fact": "Las bacterias cerca de ventilas termales usan azufre en lugar de oxígeno para respirar"
     },
     "description": "Puentes de disulfuro en proteínas."
 }

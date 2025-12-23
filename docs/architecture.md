@@ -2,68 +2,143 @@
 
 LifeSimulator utiliza un pipeline híbrido optimizado para el procesamiento paralelo masivo en la GPU.
 
-## 🛠️ Pipeline de Datos (Vulkan/OpenGL)
+## 🚀 Pipeline de Datos v3.0 (Ultra-Loop)
 
-El sistema está diseñado para evitar la latencia de transferencia entre la CPU y la GPU:
+El sistema está diseñado para **UN SOLO punto de sincronización** por frame:
 
-1.  **Física (Taichi Lang)**: Los kernels de Taichi procesan la integración de Verlet, colisiones y enlaces químicos directamente en los registros de la GPU.
-2.  **Sincronización Zero-Copy**: Los datos de posición y color se exponen a través de buffers de Taichi que son consumidos directamente por **ModernGL**.
-3.  **Renderizado (ModernGL)**: Se utilizan VAOs (Vertex Array Objects) para dibujar miles de puntos y líneas con una sola llamada de dibujo, permitiendo mantener +60 FPS con 10,000+ partículas.
+```mermaid
+graph LR
+    A[Física GPU] --> B[Compact Render Data]
+    B --> C[Universal Buffer]
+    C --> D[to_numpy]
+    D --> E[Zero-Copy Slice]
+    E --> F[OpenGL Render]
+```
 
-## 🎨 Arquitectura de UI (`src/ui_config.py`)
+### Universal GPU Buffer
 
-Hemos estandarizado la interfaz bajo un modelo **Data-Driven**:
+Todo el dato necesario para renderizar se empaqueta en un solo buffer contiguo:
 
-- **UIConfig**: Centraliza todos los tokens de diseño (colores, fuentes, espaciados).
-- **UIWidgets**: Componentes de ImGui reutilizables (dashboards, logs, HUDs dinámicos).
-- **Layout Adaptativo**: Los paneles se calculan en base a la resolución actual de la ventana, asegurando que el simulador sea usable desde resoluciones portátiles hasta 4K.
+```
+Buffer Layout:
+┌─────────────────────────────────────────────────────┐
+│ Row 0-1:    Stats (vis_count, bonds, mutations...) │
+│ Row 2-N:    Particle Data (x, y, r, g, b, alpha)   │
+│ Row N+2-M:  Bond Vertices (x, y, ...)              │
+│ Row M+2-K:  Highlight Data (pos, color)            │
+│ Row K+2:    Debug Borders                          │
+└─────────────────────────────────────────────────────┘
+```
+
+**Beneficios:**
+- 1 sola llamada `to_numpy()` por frame
+- Zero-copy slicing con NumPy views
+- Latencia GPU→CPU < 0.5ms
+
+### Total Fusion Kernels
+
+Los kernels de física están fusionados para minimizar dispatches GPU:
+
+| Kernel | Contenido |
+|--------|-----------|
+| `kernel_pre_step_fused` | Grid update + Force application |
+| `kernel_resolve_constraints` | Colisiones (N iteraciones) |
+| `kernel_post_step_fused` | Integración + Brownian + Coulomb + Reglas |
+| `kernel_bonding` | Química (cada N frames) |
+
+### Sistema de Reglas Modulares
+
+Nuevas reglas de física se implementan como `ti.func` e inyectan en `kernel_post_step_fused`:
+
+```python
+@ti.func
+def apply_nueva_regla_i(i: ti.i32):
+    # Lógica de la regla
+    vel[i] += ...
+
+# Se llama dentro de kernel_post_step_fused
+if run_advanced:
+    apply_brownian_i(i, t_total)
+    apply_electrostatic_forces_i(i)  # UFF implementation
+    apply_vsepr_geometry_i(i)        # VSEPR stabilization
+    apply_nueva_regla_i(i)
+```
+
+## 💎 Física Avanzada (2.5D + VSEPR)
+
+### VSEPR (Valence Shell Electron Pair Repulsion)
+El simulador ya no es plano. Los átomos utilizan la coordenada `pos_z` para alcanzar geometrías realistas:
+- **Tetraédrica (109.5°)**: Para Carbono (sp3).
+- **Angular (104.5°)**: Para Agua (H2O).
+- **Lineal (180°)**: Para CO2.
+- **Symmetry Breaking**: Se inducen pequeños desplazamientos en Z para evitar que las moléculas se queden "atrapadas" en un plano 2D.
+
+### UFF (Universal Force Field) & Cargas Parciales
+Las moléculas calculan sus dipolos dinámicamente:
+1. Se mide la diferencia de electronegatividad con vecinos.
+2. Se asigna una `partial_charge` a cada átomo.
+3. Se aplican fuerzas de Coulomb ($1/r^2$) y Puentes de Hidrógeno direccionales.
+
+## 🎨 Arquitectura de UI
+
+- **UIConfig**: Tokens de diseño centralizados.
+- **UIWidgets**: Componentes ImGui reutilizables.
+- **ParticleRenderer**: VAOs para rendering masivo.
 
 ## 📂 Directorios Clave
 
-- `src/systems/`: Lógica de simulación y shaders.
-- `src/renderer/`: Gestión de cámara y proyección NDC.
-- `src/config.py`: Definición de la ontología química (Propiedades CHONPS).
-ordenadas
-El sistema utiliza tres espacios de coordenadas distintos que deben ser sincronizados:
+scripts/
+├── monitor.py           # LifeMonitor CLI (audit, forensic, tune, bench)
+├── dev_tools.py         # Developer Suite (code audit, stats)
+├── archives/            # Legacy scripts
+└── advanced_molecular_analyzer.py  # Gold standard benchmark
 
-1.  **World Space (Mundo)**:
-    *   Coordenadas flotantes reales de la simulación.
-    *   Rango: `[0, 0]` a `[5000, 5000]` (definido como `WORLD_SIZE`).
-    *   Usado por: `simulation_gpu.py` (física), `pos` field, `cam_x/cam_y`.
+benchmarks/
+├── monitor.py           # Live monitoring
+└── lab/                 # Synthetic benchmarks (bottlenecks, transfer)
 
-2.  **Normalized Space (Taichi GGUI)**:
-    *   Coordenadas de renderizado requeridas por Taichi (`canvas.circles`, `canvas.lines`).
-    *   Rango: `[0.0, 0.0]` (abajo-izq) a `[1.0, 1.0]` (arriba-der).
-    *   Transformación (Kernel `normalize_positions_with_zoom` en `main.py`):
-        ```python
-        rel_x = (pos_world - cam_x) * zoom
-        norm_x = (rel_x / WORLD_SIZE) + offset_x
-        ```
-    *   *Nota*: La UI ocupa el 25% derecho, por lo que el centro de la simulación en pantalla es `x=0.375` (mitad de 0.75).
+src/
+├── systems/
+│   ├── simulation_gpu.py    # Orquestador de física
+│   ├── physics_kernels.py   # Kernels fusionados
+│   ├── chemistry_kernels.py # Re-exports para compatibilidad
+│   ├── chemistry/           # ⭐ Paquete modular de química
+│   │   ├── bonding.py       #   Formación de enlaces
+│   │   ├── bond_forces.py   #   Fuerzas de resorte (Hooke)
+│   │   ├── vsepr.py         #   Geometría molecular VSEPR
+│   │   ├── dihedral.py      #   Fuerzas torsionales (zig-zag)
+│   │   └── depth_z.py       #   Profundidad 2.5D
+│   ├── molecular_analyzer.py # Inteligencia Química Unificada
+│   ├── molecule_detector.py  # Detección runtime (delega a Analyzer)
+│   └── taichi_fields.py     # Campos GPU centralizados
+├── renderer/
+│   ├── opengl_kernels.py    # Universal Buffer + Compaction
+│   ├── particle_renderer.py # ModernGL VAOs
+│   ├── shader_sources.py    # ⭐ GLSL shaders centralizados
+│   └── camera.py            # Proyección NDC
+├── core/
+│   ├── frame_loop.py        # Bucle principal (tick, render)
+│   ├── molecule_scanner.py  # ⭐ Escaneo de moléculas conocidas
+│   ├── lod_bubbles.py       # ⭐ Burbujas LOD (zoom semántico)
+│   ├── context.py           # AppContext singleton
+│   └── perf_logger.py       # Logging de performance
+└── config/
+    └── system_constants.py  # MAX_PARTICLES, GRID_SIZE, etc.
+```
 
-3.  **Culling Space (Visible Box)**:
-    *   Cálculo en CPU (`main.py`) para determinar qué enviar a GPU.
-    *   Fórmula de Área Visible:
-        ```python
-        width_visible = (0.75 * WORLD_SIZE) / zoom
-        height_visible = (1.0 * WORLD_SIZE) / zoom
-        ```
-    *   Margen: Se agrega un borde (`margin`) para evitar "popping" visual.
+## 🔄 Flujo de Frame
 
-## Componentes Principales
-El proyecto utiliza un patrón de **Contexto de Mundo** para mantener el estado de la simulación separado de la lógica de procesamiento.
+1. **Physics** → `simulation_step_gpu()` ejecuta física fusionada.
+2. **Render Prep** → `compact_render_data()` empaqueta al Universal Buffer.
+3. **Sync** → `universal_gpu_buffer.to_numpy()` (ÚNICO sync).
+4. **CPU Slice** → NumPy extrae stats, particles, bonds con views.
+5. **OpenGL** → `renderer.render()` dibuja con datos extraídos.
 
-- **`src/core/universe.py`**: Contiene la clase `Universe`, que es el almacén de datos (NumPy arrays para posiciones, velocidades, etc.).
-- **`src/systems/`**: Contiene módulos sin estado (stateless) que operan sobre el `Universe`.
-  - `physics.py`: Maneja gravedad, rebotes, colisiones y temperatura.
-  - `chemistry.py`: Maneja la formación y mantenimiento de enlaces covalentes (regla de valencias).
+## ⚡ Optimizaciones Futuras (Opcionales)
 
-## Sistema de UI Modular
-La interfaz de usuario está separada en `src/renderer/ui/` para permitir su escalado sin ensuciar el renderizado principal.
-- **Widgets**: Componentes básicos (Sliders con tooltips, Botones).
-- **Panels**: Composiciones complejas (Panel de control, Tarjetas de información).
+- **Hibernación de Partículas**: Desactivar física para velocidad < 0.01.
+- **GPU Instancing Puro**: Eliminar `to_numpy()` completamente.
+- **Sub-stepping**: Procesar solo N% de partículas por frame.
 
-## Flujo de Datos
-1. `main.py` inicializa el `Universe` y los `Panels`.
-2. En cada frame, se llama a `loop_procesamiento()` que ejecuta los sistemas.
-3. El `ControlPanel` modifica directamente los parámetros en `sim_config`, afectando los sistemas en el siguiente frame.
+---
+*Última actualización: 2024-12-23 (v3.2)*

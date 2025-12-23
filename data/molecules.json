@@ -1,0 +1,957 @@
+{
+    "_meta": {
+        "version": "1.0.0",
+        "description": "Base de datos de moléculas conocidas con soporte i18n",
+        "supported_languages": [
+            "es",
+            "en"
+        ],
+        "default_language": "es"
+    },
+    "molecules": {
+        "H2": {
+            "names": {
+                "es": "Hidrógeno Molecular",
+                "en": "Molecular Hydrogen"
+            },
+            "category": "element",
+            "origin": "primordial"
+        },
+        "O2": {
+            "names": {
+                "es": "Oxígeno Molecular",
+                "en": "Molecular Oxygen"
+            },
+            "category": "element",
+            "origin": "primordial"
+        },
+        "N2": {
+            "names": {
+                "es": "Nitrógeno Molecular",
+                "en": "Molecular Nitrogen"
+            },
+            "category": "element",
+            "origin": "primordial"
+        },
+        "S2": {
+            "names": {
+                "es": "Azufre Diatómico",
+                "en": "Diatomic Sulfur"
+            },
+            "category": "element",
+            "origin": "primordial"
+        },
+        "P2": {
+            "names": {
+                "es": "Fósforo Diatómico",
+                "en": "Diatomic Phosphorus"
+            },
+            "category": "element",
+            "origin": "primordial"
+        },
+        "O3": {
+            "names": {
+                "es": "Ozono",
+                "en": "Ozone"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "C1O2": {
+            "names": {
+                "es": "Dióxido de Carbono",
+                "en": "Carbon Dioxide"
+            },
+            "category": "gas",
+            "origin": "primordial"
+        },
+        "C1O1": {
+            "names": {
+                "es": "Monóxido de Carbono",
+                "en": "Carbon Monoxide"
+            },
+            "category": "gas",
+            "origin": "primordial"
+        },
+        "N1O1": {
+            "names": {
+                "es": "Óxido Nítrico",
+                "en": "Nitric Oxide"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "N1O2": {
+            "names": {
+                "es": "Dióxido de Nitrógeno",
+                "en": "Nitrogen Dioxide"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "N2O1": {
+            "names": {
+                "es": "Óxido Nitroso",
+                "en": "Nitrous Oxide"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "H2S1": {
+            "names": {
+                "es": "Sulfuro de Hidrógeno",
+                "en": "Hydrogen Sulfide"
+            },
+            "category": "gas",
+            "origin": "primordial"
+        },
+        "S1O2": {
+            "names": {
+                "es": "Dióxido de Azufre",
+                "en": "Sulfur Dioxide"
+            },
+            "category": "gas",
+            "origin": "volcanic"
+        },
+        "S1O3": {
+            "names": {
+                "es": "Trióxido de Azufre",
+                "en": "Sulfur Trioxide"
+            },
+            "category": "gas",
+            "origin": "volcanic"
+        },
+        "H2O1": {
+            "names": {
+                "es": "Agua",
+                "en": "Water"
+            },
+            "category": "water",
+            "origin": "primordial"
+        },
+        "H2O2": {
+            "names": {
+                "es": "Peróxido de Hidrógeno",
+                "en": "Hydrogen Peroxide"
+            },
+            "category": "water",
+            "origin": "natural"
+        },
+        "H3O1": {
+            "names": {
+                "es": "Ion Hidronio",
+                "en": "Hydronium Ion"
+            },
+            "category": "ion",
+            "origin": "natural"
+        },
+        "H1N1O3": {
+            "names": {
+                "es": "Ácido Nítrico",
+                "en": "Nitric Acid"
+            },
+            "category": "acid_inorganic",
+            "origin": "natural"
+        },
+        "H2S1O4": {
+            "names": {
+                "es": "Ácido Sulfúrico",
+                "en": "Sulfuric Acid"
+            },
+            "category": "acid_inorganic",
+            "origin": "volcanic"
+        },
+        "H3P1O4": {
+            "names": {
+                "es": "Ácido Fosfórico",
+                "en": "Phosphoric Acid"
+            },
+            "category": "acid_inorganic",
+            "origin": "prebiotic"
+        },
+        "H1C1N1": {
+            "names": {
+                "es": "Ácido Cianhídrico",
+                "en": "Hydrogen Cyanide"
+            },
+            "category": "acid_inorganic",
+            "origin": "primordial"
+        },
+        "N1H3": {
+            "names": {
+                "es": "Amoníaco",
+                "en": "Ammonia"
+            },
+            "category": "base",
+            "origin": "primordial"
+        },
+        "N2H4": {
+            "names": {
+                "es": "Hidrazina",
+                "en": "Hydrazine"
+            },
+            "category": "base",
+            "origin": "prebiotic"
+        },
+        "C1H4": {
+            "names": {
+                "es": "Metano",
+                "en": "Methane"
+            },
+            "category": "hydrocarbon",
+            "origin": "primordial"
+        },
+        "C2H6": {
+            "names": {
+                "es": "Etano",
+                "en": "Ethane"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C3H8": {
+            "names": {
+                "es": "Propano",
+                "en": "Propane"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C4H10": {
+            "names": {
+                "es": "Butano",
+                "en": "Butane"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C2H4": {
+            "names": {
+                "es": "Etileno",
+                "en": "Ethylene"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C3H6": {
+            "names": {
+                "es": "Propeno",
+                "en": "Propene"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C2H2": {
+            "names": {
+                "es": "Acetileno",
+                "en": "Acetylene"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C6H6": {
+            "names": {
+                "es": "Benceno",
+                "en": "Benzene"
+            },
+            "category": "hydrocarbon",
+            "origin": "natural"
+        },
+        "C1H4O1": {
+            "names": {
+                "es": "Metanol",
+                "en": "Methanol"
+            },
+            "category": "alcohol",
+            "origin": "prebiotic"
+        },
+        "C2H6O1": {
+            "names": {
+                "es": "Etanol",
+                "en": "Ethanol"
+            },
+            "category": "alcohol",
+            "origin": "natural"
+        },
+        "C3H8O1": {
+            "names": {
+                "es": "Propanol",
+                "en": "Propanol"
+            },
+            "category": "alcohol",
+            "origin": "natural"
+        },
+        "C2H6O2": {
+            "names": {
+                "es": "Etilenglicol",
+                "en": "Ethylene Glycol"
+            },
+            "category": "alcohol",
+            "origin": "synthetic"
+        },
+        "C3H8O3": {
+            "names": {
+                "es": "Glicerol",
+                "en": "Glycerol"
+            },
+            "category": "alcohol",
+            "origin": "prebiotic"
+        },
+        "C1H2O1": {
+            "names": {
+                "es": "Formaldehído",
+                "en": "Formaldehyde"
+            },
+            "category": "aldehyde",
+            "origin": "primordial"
+        },
+        "C2H4O1": {
+            "names": {
+                "es": "Acetaldehído",
+                "en": "Acetaldehyde"
+            },
+            "category": "aldehyde",
+            "origin": "prebiotic"
+        },
+        "C3H6O1": {
+            "names": {
+                "es": "Acetona",
+                "en": "Acetone"
+            },
+            "category": "ketone",
+            "origin": "natural"
+        },
+        "C1H2O2": {
+            "names": {
+                "es": "Ácido Fórmico",
+                "en": "Formic Acid"
+            },
+            "category": "acid_organic",
+            "origin": "primordial"
+        },
+        "C2H4O2": {
+            "names": {
+                "es": "Ácido Acético",
+                "en": "Acetic Acid"
+            },
+            "category": "acid_organic",
+            "origin": "prebiotic"
+        },
+        "C3H6O2": {
+            "names": {
+                "es": "Ácido Propanoico",
+                "en": "Propanoic Acid"
+            },
+            "category": "acid_organic",
+            "origin": "natural"
+        },
+        "C2H2O4": {
+            "names": {
+                "es": "Ácido Oxálico",
+                "en": "Oxalic Acid"
+            },
+            "category": "acid_organic",
+            "origin": "natural"
+        },
+        "C3H4O3": {
+            "names": {
+                "es": "Ácido Pirúvico",
+                "en": "Pyruvic Acid"
+            },
+            "category": "acid_organic",
+            "origin": "prebiotic"
+        },
+        "C4H6O5": {
+            "names": {
+                "es": "Ácido Málico",
+                "en": "Malic Acid"
+            },
+            "category": "acid_organic",
+            "origin": "natural"
+        },
+        "C6H8O7": {
+            "names": {
+                "es": "Ácido Cítrico",
+                "en": "Citric Acid"
+            },
+            "category": "acid_organic",
+            "origin": "natural"
+        },
+        "C3H6O3": {
+            "names": {
+                "es": "Gliceraldehído",
+                "en": "Glyceraldehyde"
+            },
+            "category": "sugar",
+            "origin": "prebiotic"
+        },
+        "C5H10O5": {
+            "names": {
+                "es": "Ribosa",
+                "en": "Ribose"
+            },
+            "category": "sugar",
+            "origin": "prebiotic"
+        },
+        "C6H12O6": {
+            "names": {
+                "es": "Glucosa",
+                "en": "Glucose"
+            },
+            "category": "sugar",
+            "origin": "prebiotic"
+        },
+        "C2H5N1O2": {
+            "names": {
+                "es": "Glicina",
+                "en": "Glycine"
+            },
+            "category": "amino_acid",
+            "origin": "prebiotic"
+        },
+        "C3H7N1O2": {
+            "names": {
+                "es": "Alanina",
+                "en": "Alanine"
+            },
+            "category": "amino_acid",
+            "origin": "prebiotic"
+        },
+        "C4H7N1O4": {
+            "names": {
+                "es": "Ácido Aspártico",
+                "en": "Aspartic Acid"
+            },
+            "category": "amino_acid",
+            "origin": "prebiotic"
+        },
+        "C5H9N1O4": {
+            "names": {
+                "es": "Ácido Glutámico",
+                "en": "Glutamic Acid"
+            },
+            "category": "amino_acid",
+            "origin": "prebiotic"
+        },
+        "C3H7N1O3": {
+            "names": {
+                "es": "Serina",
+                "en": "Serine"
+            },
+            "category": "amino_acid",
+            "origin": "prebiotic"
+        },
+        "C5H5N5": {
+            "names": {
+                "es": "Adenina",
+                "en": "Adenine"
+            },
+            "category": "nucleobase",
+            "origin": "prebiotic"
+        },
+        "C5H5N5O1": {
+            "names": {
+                "es": "Guanina",
+                "en": "Guanine"
+            },
+            "category": "nucleobase",
+            "origin": "prebiotic"
+        },
+        "C4H5N3O1": {
+            "names": {
+                "es": "Citosina",
+                "en": "Cytosine"
+            },
+            "category": "nucleobase",
+            "origin": "prebiotic"
+        },
+        "C5H6N2O2": {
+            "names": {
+                "es": "Timina",
+                "en": "Thymine"
+            },
+            "category": "nucleobase",
+            "origin": "prebiotic"
+        },
+        "C4H4N2O2": {
+            "names": {
+                "es": "Uracilo",
+                "en": "Uracil"
+            },
+            "category": "nucleobase",
+            "origin": "prebiotic"
+        },
+        "C2H3N1": {
+            "names": {
+                "es": "Acetonitrilo",
+                "en": "Acetonitrile"
+            },
+            "category": "prebiotic",
+            "origin": "primordial"
+        },
+        "C1H3N1": {
+            "names": {
+                "es": "Metilamina",
+                "en": "Methylamine"
+            },
+            "category": "prebiotic",
+            "origin": "primordial"
+        },
+        "C2H5N1": {
+            "names": {
+                "es": "Etilamina",
+                "en": "Ethylamine"
+            },
+            "category": "prebiotic",
+            "origin": "prebiotic"
+        },
+        "C1N1O1": {
+            "names": {
+                "es": "Isocianato",
+                "en": "Isocyanate"
+            },
+            "category": "prebiotic",
+            "origin": "primordial"
+        },
+        "C1H3N1O1": {
+            "names": {
+                "es": "Formamida",
+                "en": "Formamide"
+            },
+            "category": "prebiotic",
+            "origin": "primordial"
+        },
+        "C2H4N2O1": {
+            "names": {
+                "es": "Urea",
+                "en": "Urea"
+            },
+            "category": "prebiotic",
+            "origin": "prebiotic"
+        },
+        "C1H2N2": {
+            "names": {
+                "es": "Carbodiimida",
+                "en": "Carbodiimide"
+            },
+            "category": "prebiotic",
+            "origin": "prebiotic"
+        },
+        "H1O4P1": {
+            "names": {
+                "es": "Ion Fosfato",
+                "en": "Phosphate Ion"
+            },
+            "category": "ion",
+            "origin": "primordial"
+        },
+        "H2O4S1": {
+            "names": {
+                "es": "Ion Sulfato",
+                "en": "Sulfate Ion"
+            },
+            "category": "ion",
+            "origin": "natural"
+        },
+        "O4P1": {
+            "names": {
+                "es": "Ortofosfato",
+                "en": "Orthophosphate"
+            },
+            "category": "ion",
+            "origin": "primordial"
+        },
+        "C1H3": {
+            "names": {
+                "es": "Metilo",
+                "en": "Methyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2H5": {
+            "names": {
+                "es": "Etilo",
+                "en": "Ethyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "O1H1": {
+            "names": {
+                "es": "Hidroxilo",
+                "en": "Hydroxyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "N1H2": {
+            "names": {
+                "es": "Amino",
+                "en": "Amino Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2": {
+            "names": {
+                "es": "Dicarbono",
+                "en": "Dicarbon"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C3": {
+            "names": {
+                "es": "Tricarbono",
+                "en": "Tricarbon"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C4": {
+            "names": {
+                "es": "Tetracarbono",
+                "en": "Tetracarbon"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C5": {
+            "names": {
+                "es": "Pentacarbono",
+                "en": "Pentacarbon"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C6": {
+            "names": {
+                "es": "Hexacarbono",
+                "en": "Hexacarbon"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H1O1": {
+            "names": {
+                "es": "Radical Hidroxilo",
+                "en": "Hydroxyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H1N1": {
+            "names": {
+                "es": "Imino",
+                "en": "Imino Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H1": {
+            "names": {
+                "es": "Metilidino",
+                "en": "Methylidyne"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H2": {
+            "names": {
+                "es": "Metileno",
+                "en": "Methylene"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2H1": {
+            "names": {
+                "es": "Etilidino",
+                "en": "Ethylidyne"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2H3": {
+            "names": {
+                "es": "Vinilo",
+                "en": "Vinyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C3H3": {
+            "names": {
+                "es": "Propargilo",
+                "en": "Propargyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C3H5": {
+            "names": {
+                "es": "Alilo",
+                "en": "Allyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H3N1": {
+            "names": {
+                "es": "Amoníaco",
+                "en": "Ammonia (alt)"
+            },
+            "category": "base",
+            "origin": "primordial"
+        },
+        "H2N1": {
+            "names": {
+                "es": "Amiduro",
+                "en": "Amide Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1N1": {
+            "names": {
+                "es": "Cianógeno",
+                "en": "Cyanogen"
+            },
+            "category": "radical",
+            "origin": "primordial"
+        },
+        "C2N1": {
+            "names": {
+                "es": "Cianoetino",
+                "en": "Cyanoethynyl"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H1O2": {
+            "names": {
+                "es": "Hidroperóxido",
+                "en": "Hydroperoxyl"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H1O3": {
+            "names": {
+                "es": "Ácido Hipoozonico",
+                "en": "Acidic Ozone"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H1S1": {
+            "names": {
+                "es": "Mercaptano",
+                "en": "Thiol Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H2N1O1": {
+            "names": {
+                "es": "Hidroxilamina (rad)",
+                "en": "Hydroxylamine(rad)"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H3N1O1": {
+            "names": {
+                "es": "Hidroxilamina",
+                "en": "Hydroxylamine"
+            },
+            "category": "prebiotic",
+            "origin": "prebiotic"
+        },
+        "C1O3": {
+            "names": {
+                "es": "Carbonato",
+                "en": "Carbonate"
+            },
+            "category": "ion",
+            "origin": "natural"
+        },
+        "N2O2": {
+            "names": {
+                "es": "Dióxido de Dinitrógeno",
+                "en": "Dinitrogen Dioxide"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "N1O3": {
+            "names": {
+                "es": "Trióxido de Nitrógeno",
+                "en": "Nitrogen Trioxide"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "C1H1O1": {
+            "names": {
+                "es": "Formilo",
+                "en": "Formyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2H1O1": {
+            "names": {
+                "es": "Ceteno",
+                "en": "Ketene Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2O1": {
+            "names": {
+                "es": "Subcarbono",
+                "en": "Dicarbon Monoxide"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C3O1": {
+            "names": {
+                "es": "Tricarbono-Óxido",
+                "en": "Tricarbon Monoxide"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2O2": {
+            "names": {
+                "es": "Anhídrido Oxálico",
+                "en": "Oxalic Anhydride"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H1N1": {
+            "names": {
+                "es": "Ácido Isociánico (rad)",
+                "en": "Isocyanic(rad)"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H2N1": {
+            "names": {
+                "es": "Metileniminino",
+                "en": "Methylene Imine"
+            },
+            "category": "prebiotic",
+            "origin": "prebiotic"
+        },
+        "C1H4N1": {
+            "names": {
+                "es": "Ión Metilamonio",
+                "en": "Methylammonium"
+            },
+            "category": "ion",
+            "origin": "natural"
+        },
+        "C1H1O2": {
+            "names": {
+                "es": "Formiloxi",
+                "en": "Formyloxy"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H3O1": {
+            "names": {
+                "es": "Metoxi",
+                "en": "Methoxy Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H3O2": {
+            "names": {
+                "es": "Metilperóxido",
+                "en": "Methyl Peroxide"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2H3O1": {
+            "names": {
+                "es": "Acetilo",
+                "en": "Acetyl Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C2H3O2": {
+            "names": {
+                "es": "Acetato (rad)",
+                "en": "Acetate Radical"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "C1H1O3": {
+            "names": {
+                "es": "Bicarbonato (rad)",
+                "en": "Bicarbonate(rad)"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H1P1": {
+            "names": {
+                "es": "Fosfino (rad)",
+                "en": "Phosphino"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H2P1": {
+            "names": {
+                "es": "Fosfino",
+                "en": "Phosphine(rad)"
+            },
+            "category": "radical",
+            "origin": "transient"
+        },
+        "H3P1": {
+            "names": {
+                "es": "Fosfina",
+                "en": "Phosphine"
+            },
+            "category": "gas",
+            "origin": "primordial"
+        },
+        "O1S1": {
+            "names": {
+                "es": "Monóxido de Azufre",
+                "en": "Sulfur Monoxide"
+            },
+            "category": "gas",
+            "origin": "volcanic"
+        },
+        "C1S1": {
+            "names": {
+                "es": "Sulfuro de Carbono",
+                "en": "Carbon Monosulfide"
+            },
+            "category": "gas",
+            "origin": "natural"
+        },
+        "C2S1": {
+            "names": {
+                "es": "Disulfuro de Carbono (rad)",
+                "en": "Carbon Disulfide(rad)"
+            },
+            "category": "radical",
+            "origin": "transient"
+        }
+    }
+}

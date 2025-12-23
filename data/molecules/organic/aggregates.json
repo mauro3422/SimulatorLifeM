@@ -1,0 +1,36 @@
+{
+    "_meta": {
+        "category": "aggregates",
+        "description": "Complex, disordered organic matter (Tholins/Tar)."
+    },
+    "molecules": {
+        "AGGREGATE_AMORPHOUS": {
+            "identity": {
+                "names": {
+                    "es": "Agregado Orgánico Amorfo",
+                    "en": "Amorphous Organic Aggregate"
+                },
+                "formula": "C?H?N?...",
+                "category": "organic_aggregate",
+                "family_color": [
+                    139,
+                    69,
+                    19
+                ]
+            },
+            "lore": {
+                "origin_story": "Más conocido como 'Brea Prebiótica' o 'Tolinós'. No es una sola molécula, sino una mezcla desordenada de polímeros orgánicos que se forman cuando la energía impacta sobre mezclas de carbono y nitrógeno.",
+                "biological_presence": "Se encuentra en lunas como Titán y en los sedimentos de los experimentos de Miller-Urey. Representa la 'química sucia' que precede a la vida.",
+                "utility": "Aunque inestable para la codificación genética, sirve como reservorio masivo de carbono y precursores orgánicos que la vida puede 'limpiar' y reutilizar."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Sopa Primordial",
+                    "Química Sucia"
+                ],
+                "discovery_points": 25,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

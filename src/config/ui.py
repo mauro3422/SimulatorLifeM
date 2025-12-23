@@ -13,6 +13,7 @@ class UIConfig:
     # --- PALETA DE COLORES (RGBA) ---
     COLOR_PRIMARY = (1.0, 1.0, 0.9, 1.0)        # Blanco Cálido
     COLOR_CYAN_NEON = (0.2, 0.9, 1.0, 0.7)      # Cian Eléctrico
+    COLOR_GREEN_NEON = (0.4, 1.0, 0.6, 1.0)     # Verde Neón
     COLOR_AQUA_SUBTLE = (0.0, 0.5, 0.7, 0.4)    # Deep Aqua
     COLOR_TEXT_HIGHLIGHT = (0.4, 1.0, 0.8, 1.0) # Verde/Cian
     COLOR_BOND_FORMED = (0.4, 1.0, 0.6, 1.0)    # Verde Esmeralda
@@ -25,18 +26,21 @@ class UIConfig:
     PANEL_STATS_W = 480
     PANEL_STATS_H = 180
     PANEL_INSPECT_W = 360
-    PANEL_INSPECT_H = 240
+    PANEL_INSPECT_H = 400
     LOG_H = 420
     
     # --- TIEMPO Y VELOCIDAD ---
     SPEED_TIERS = [0.0, 0.5, 1.0, 2.0, 5.0, 10.0]
     BOOST_SPEED = 15.0
     
-    # --- PARÁMETROS DE RENDERER ---
-    HIGHLIGHT_RADIUS = 0.028
+    # --- PARÁMETROS DE RENDERER (HIGHLIGHT) ---
+    HIGHLIGHT_RADIUS = 0.018       # Radio de anillos pegado al átomo
     HIGHLIGHT_SEGMENTS = 16
-    WIDTH_PRIMARY = 5.0
-    WIDTH_SECONDARY = 3.0
+    WIDTH_PRIMARY = 5.0            # Grosor línea principal
+    WIDTH_SECONDARY = 2.5          # Grosor líneas secundarias
+    
+    # Colores de highlight mejorados
+    COLOR_HIGHLIGHT_BOND = (0.3, 0.9, 1.0, 0.8)   # Cian brillante para enlaces
     
     # --- ESTILOS DE IMGUI ---
     WINDOW_FLAGS_STATIC = (

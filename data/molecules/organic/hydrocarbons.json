@@ -1,0 +1,90 @@
+{
+    "_meta": {
+        "category": "hydrocarbons",
+        "description": "Simple carbon-hydrogen chains and rings."
+    },
+    "molecules": {
+        "CH4": {
+            "identity": {
+                "names": {
+                    "es": "Metano",
+                    "en": "Methane"
+                },
+                "formula": "CH4",
+                "category": "organic",
+                "family_color": [
+                    100,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "El alcano más simple.",
+                "biological_presence": "Producido por arqueas metanogénicas.",
+                "utility": "Fuente de carbono básica sintetizada."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Gas de los Pantanos",
+                    "Poder Orgánico"
+                ],
+                "discovery_points": 20,
+                "difficulty": "easy"
+            }
+        },
+        "C3H2": {
+            "identity": {
+                "names": {
+                    "es": "Ciclopropenilideno",
+                    "en": "Cyclopropenylidene"
+                },
+                "formula": "C3H2",
+                "category": "hydrocarbon",
+                "family_color": [
+                    180,
+                    255,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Muy abundante y estable en el medio interestelar.",
+                "biological_presence": "Demuestra la estabilidad del carbono en el vacío.",
+                "utility": "Modelo de anillos orgánicos estables."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Anillo Cósmico"
+                ],
+                "discovery_points": 85,
+                "difficulty": "hard"
+            }
+        },
+        "C1H2O1S1": {
+            "identity": {
+                "names": {
+                    "es": "Tioformaldehído",
+                    "en": "Thioformaldehyde"
+                },
+                "formula": "C1H2O1S1",
+                "category": "sulfur_compound",
+                "family_color": [
+                    200,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Análogo de azufre del formaldehído.",
+                "biological_presence": "Detectado en nubes moleculares interestelares.",
+                "utility": "Puente hacia la química prebiótica del azufre."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Alquimia de Azufre"
+                ],
+                "discovery_points": 65,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

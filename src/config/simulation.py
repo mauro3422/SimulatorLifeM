@@ -29,7 +29,7 @@ class SimulationConfig:
         # --- FÍSICA ---
         self.FRICTION = 0.95
         self.DAMPING = 2.0 * self.SCALE
-        self.SPRING_K = 1.5
+        self.SPRING_K = 2.5
         self.DIST_EQUILIBRIO = self.BASE_DIST_EQ * self.SCALE
         self.TEMPERATURE = 0.1
         self.GRAVITY = 0.0

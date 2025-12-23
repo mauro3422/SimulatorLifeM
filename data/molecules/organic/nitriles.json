@@ -1,0 +1,63 @@
+{
+    "_meta": {
+        "category": "nitriles",
+        "description": "Nitrogen-rich organic compounds."
+    },
+    "molecules": {
+        "C2H3N1": {
+            "identity": {
+                "names": {
+                    "es": "Acetonitrilo",
+                    "en": "Acetonitrile"
+                },
+                "formula": "C2H3N1",
+                "category": "nitrile",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Común en el medio interestelar y cometas.",
+                "biological_presence": "Precursor en la síntesis de Strecker.",
+                "utility": "Solvente y bloque de construcción."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrilo Espacial",
+                    "Precursor de Proteínas"
+                ],
+                "discovery_points": 50,
+                "difficulty": "medium"
+            }
+        },
+        "C1H2N2": {
+            "identity": {
+                "names": {
+                    "es": "Diazometano",
+                    "en": "Diazomethane"
+                },
+                "formula": "C1H2N2",
+                "category": "nitrogen_compound",
+                "family_color": [
+                    255,
+                    100,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto de nitrógeno altamente reactivo.",
+                "biological_presence": "Agente de metilación clave en química prebiótica.",
+                "utility": "Aporta grupos metilo y energía química."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Energía Nitrogenada"
+                ],
+                "discovery_points": 70,
+                "difficulty": "hard"
+            }
+        }
+    }
+}

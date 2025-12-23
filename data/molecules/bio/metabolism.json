@@ -1,0 +1,35 @@
+{
+    "_meta": {
+        "category": "metabolic_intermediates",
+        "description": "Molecules participating in early metabolic cycles."
+    },
+    "molecules": {
+        "C2H2O3": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Glioxílico",
+                    "en": "Glyoxylic Acid"
+                },
+                "formula": "C2H2O3",
+                "category": "organic_acid",
+                "family_color": [
+                    200,
+                    255,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Participa en el ciclo del glioxilato.",
+                "biological_presence": "Clave para convertir grasas en carbohidratos.",
+                "utility": "Intermedio metabólico prebiótico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Metabolismo Primordial"
+                ],
+                "discovery_points": 75,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "_meta": {
+        "category": "nucleobases",
+        "description": "Nitrogenous bases for genetic code."
+    },
+    "molecules": {
+        "C5H5N5": {
+            "identity": {
+                "names": {
+                    "es": "Adenina",
+                    "en": "Adenine"
+                },
+                "formula": "C5H5N5",
+                "category": "nucleobase",
+                "family_color": [
+                    255,
+                    0,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Una de las cuatro bases del ADN.",
+                "biological_presence": "Crucial en el ADN, ARN y ATP.",
+                "utility": "Código genético y moneda energética."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Código Sagrado",
+                    "Letra A"
+                ],
+                "discovery_points": 120,
+                "difficulty": "hard"
+            }
+        }
+    }
+}

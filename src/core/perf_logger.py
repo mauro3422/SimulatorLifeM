@@ -39,13 +39,28 @@ class FrameMetrics:
     chemistry_ms: float = 0.0
     grid_ms: float = 0.0
     render_ms: float = 0.0
+    logic_py_ms: float = 0.0
+    data_transfer_ms: float = 0.0
+    cpu_logic_ms: float = 0.0
     ui_ms: float = 0.0
     sync_ms: float = 0.0
+    gpu_wait_ms: float = 0.0
+    
+    # Granular Physics/Chemistry
+    phy_pre_ms: float = 0.0
+    phy_pbd_ms: float = 0.0
+    phy_post_ms: float = 0.0
+    chem_bond_ms: float = 0.0
+    phy_adv_ms: float = 0.0
+    chem_evo_ms: float = 0.0
     
     # Contadores
-    particles_active: int = 0
-    particles_visible: int = 0
+    active_particles_count: int = 0
+    simulated_count: int = 0
+    n_visible: int = 0
+    n_visible: int = 0
     bonds_count: int = 0
+    bonds_broken_dist: int = 0  # <--- NEW METRIC
     
     # FPS
     fps: float = 0.0
@@ -63,7 +78,9 @@ class SessionStats:
     avg_total_ms: float = 0.0
     avg_physics_ms: float = 0.0
     avg_chemistry_ms: float = 0.0
+    avg_chemistry_ms: float = 0.0
     avg_render_ms: float = 0.0
+    avg_logic_py_ms: float = 0.0
     avg_fps: float = 0.0
     
     # Máximos (cuellos de botella)
@@ -71,6 +88,14 @@ class SessionStats:
     max_physics_ms: float = 0.0
     max_chemistry_ms: float = 0.0
     max_render_ms: float = 0.0
+    
+    # Promedios Granulares
+    avg_phy_pre_ms: float = 0.0
+    avg_phy_pbd_ms: float = 0.0
+    avg_phy_post_ms: float = 0.0
+    avg_chem_bond_ms: float = 0.0
+    avg_phy_adv_ms: float = 0.0
+    avg_chem_evo_ms: float = 0.0
     
     # Muestras detalladas
     samples: List[Dict] = field(default_factory=list)
@@ -110,7 +135,13 @@ class PerfLogger:
         # Acumuladores para promedios
         self._totals: Dict[str, float] = {
             "total_ms": 0, "physics_ms": 0, "chemistry_ms": 0,
-            "grid_ms": 0, "render_ms": 0, "ui_ms": 0, "sync_ms": 0,
+            "grid_ms": 0, "render_ms": 0, "logic_py_ms": 0, 
+            "data_transfer_ms": 0, "cpu_logic_ms": 0,
+            "ui_ms": 0, "sync_ms": 0,
+            "gpu_wait_ms": 0, "phy_adv_ms": 0,
+            "active_particles_count": 0, "simulated_count": 0,
+            "active_particles_count": 0, "simulated_count": 0,
+            "n_visible": 0, "bonds_count": 0, "bonds_broken_dist": 0,
             "fps": 0
         }
         self._maxes: Dict[str, float] = {k: 0 for k in self._totals}
@@ -143,10 +174,11 @@ class PerfLogger:
         
         elapsed_ms = (time.perf_counter() - self._timers[name]) * 1000
         
-        # Guardar en métrica actual
+        # Guardar en métrica actual (Acumular por si hay múltiples llamadas por frame)
         attr_name = f"{name}_ms"
         if hasattr(self._current_metrics, attr_name):
-            setattr(self._current_metrics, attr_name, elapsed_ms)
+            current_val = getattr(self._current_metrics, attr_name)
+            setattr(self._current_metrics, attr_name, current_val + elapsed_ms)
         
         return elapsed_ms
     
@@ -167,7 +199,7 @@ class PerfLogger:
         self._current_metrics.timestamp = time.time()
         self._current_metrics.fps = fps
         
-        # Acumular para promedios
+        # Acumular para promedios y máximos
         for key in self._totals:
             if hasattr(self._current_metrics, key):
                 val = getattr(self._current_metrics, key)
@@ -206,6 +238,15 @@ class PerfLogger:
             max_physics_ms=self._maxes["physics_ms"],
             max_chemistry_ms=self._maxes["chemistry_ms"],
             max_render_ms=self._maxes["render_ms"],
+            
+            # Granular Averages
+            avg_phy_pre_ms=self._totals.get("phy_pre_ms", 0.0) / self.frame_count,
+            avg_phy_pbd_ms=self._totals.get("phy_pbd_ms", 0.0) / self.frame_count,
+            avg_phy_post_ms=self._totals.get("phy_post_ms", 0.0) / self.frame_count,
+            avg_chem_bond_ms=self._totals.get("chem_bond_ms", 0.0) / self.frame_count,
+            avg_phy_adv_ms=self._totals.get("phy_adv_ms", 0.0) / self.frame_count,
+            avg_chem_evo_ms=self._totals.get("chem_evo_ms", 0.0) / self.frame_count,
+            
             samples=self._samples
         )
         
@@ -258,14 +299,29 @@ class PerfLogger:
         print("=" * 60)
         print(f"Frames: {self.frame_count}")
         print(f"FPS Promedio: {self._totals['fps'] / self.frame_count:.1f}")
+        
+        avg_alloc = self._totals.get("active_particles_count", 0) / self.frame_count
+        avg_sim = self._totals.get("simulated_count", 0) / self.frame_count
+        avg_vis = self._totals.get("n_visible", 0) / self.frame_count
+        print(f"Partículas: Alloc={int(avg_alloc)} | Sim={int(avg_sim)} | Vis={int(avg_vis)}")
+        
         print(f"\nTiempos Promedio (ms):")
         print(f"  Total:     {self._totals['total_ms'] / self.frame_count:.3f}")
         print(f"  Física:    {self._totals['physics_ms'] / self.frame_count:.3f}")
         print(f"  Química:   {self._totals['chemistry_ms'] / self.frame_count:.3f}")
         print(f"  Grid:      {self._totals['grid_ms'] / self.frame_count:.3f}")
         print(f"  Render:    {self._totals['render_ms'] / self.frame_count:.3f}")
+        print(f"  LogicPy:   {self._totals['logic_py_ms'] / self.frame_count:.3f}")
+        print(f"    - GPUWait: {self._totals.get('gpu_wait_ms', 0)/self.frame_count:.3f} <-- Real Physics Cost")
+        print(f"    - DataTx:  {self._totals['data_transfer_ms'] / self.frame_count:.3f}")
+        print(f"    - CPULog:  {self._totals['cpu_logic_ms'] / self.frame_count:.3f}")
         print(f"  UI:        {self._totals['ui_ms'] / self.frame_count:.3f}")
-        print(f"\nMáximos (cuellos de botella):")
+        
+        # Physics Granular (If captured)
+        if self._totals['phy_adv_ms'] > 0:
+            print(f"  PhyAdv:    {self._totals['phy_adv_ms'] / self.frame_count:.3f} (Interleaved)")
+            
+        print(f"\nMáximos (Peak Latency):")
         print(f"  Total:     {self._maxes['total_ms']:.3f}ms")
         print(f"  Física:    {self._maxes['physics_ms']:.3f}ms")
         print(f"  Química:   {self._maxes['chemistry_ms']:.3f}ms")

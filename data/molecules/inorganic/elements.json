@@ -1,0 +1,143 @@
+{
+    "_meta": {
+        "category": "inorganic_elements",
+        "description": "Elemental gases primordial to any atmosphere."
+    },
+    "molecules": {
+        "H2": {
+            "identity": {
+                "names": {
+                    "es": "Hidrógeno Molecular",
+                    "en": "Molecular Hydrogen"
+                },
+                "formula": "H2",
+                "category": "element",
+                "family_color": [
+                    150,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "La molécula más abundante del universo.",
+                "biological_presence": "Presente en atmósferas reductoras.",
+                "utility": "Combustible fundamental para reacciones de reducción."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Simplicidad Cósmica"
+                ],
+                "discovery_points": 5,
+                "difficulty": "easy"
+            }
+        },
+        "O2": {
+            "identity": {
+                "names": {
+                    "es": "Oxígeno Molecular",
+                    "en": "Molecular Oxygen"
+                },
+                "formula": "O2",
+                "category": "element",
+                "family_color": [
+                    100,
+                    255,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Gas altamente reactivo. Su acumulación cambió el curso de la evolución.",
+                "biological_presence": "Esencial para la respiración aeróbica.",
+                "utility": "Agente oxidante clave."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Aliento de Vida"
+                ],
+                "discovery_points": 10,
+                "difficulty": "easy"
+            }
+        },
+        "N2": {
+            "identity": {
+                "names": {
+                    "es": "Nitrógeno Molecular",
+                    "en": "Molecular Nitrogen"
+                },
+                "formula": "N2",
+                "category": "element",
+                "family_color": [
+                    100,
+                    100,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Gas inerte unido por un triple enlace fuerte.",
+                "biological_presence": "Componente mayoritario de la atmósfera.",
+                "utility": "Provee estabilidad estructural a las atmósferas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Estabilidad Atmosférica"
+                ],
+                "discovery_points": 15,
+                "difficulty": "medium"
+            }
+        },
+        "C1H1O2Si1": {
+            "identity": {
+                "names": {
+                    "es": "Siloxano Simple",
+                    "en": "Siloxane"
+                },
+                "formula": "C1H1O2Si1",
+                "category": "silicate",
+                "family_color": [
+                    200,
+                    200,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Unidad fundamental de las siliconas y silicatos.",
+                "biological_presence": "Precursor de estructuras minerales y arcillas.",
+                "utility": "Base para la química alternativa basada en silicio."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Alternativa Geológica"
+                ],
+                "discovery_points": 110,
+                "difficulty": "hard"
+            }
+        },
+        "H4O3Si1": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Silícico",
+                    "en": "Silicic Acid"
+                },
+                "formula": "H4O3Si1",
+                "category": "silicate",
+                "family_color": [
+                    180,
+                    220,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Forma soluble del sílice común en océanos primitivos.",
+                "biological_presence": "Utilizado por diatomeas para construir esqueletos.",
+                "utility": "Puente entre el mundo mineral y el biológico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Esqueletos de Vidrio"
+                ],
+                "discovery_points": 95,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

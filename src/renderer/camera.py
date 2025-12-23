@@ -22,9 +22,9 @@ class Camera:
         self.y = world_size / 2.0
         self.zoom = 4.15
         
-        # Límites estrictos según preferencia del usuario
-        self.min_zoom = 4.15
-        self.max_zoom = 30.0
+        # Zoom limits - min_zoom=0.1 allows seeing entire world from far away
+        self.min_zoom = 0.1   # World view from afar
+        self.max_zoom = 100.0 # Extreme microscopic zoom
         
         # Configuración de Viewport (UI ocupa el 25% derecho)
         # La simulación se renderiza en [0.0, 0.75] de la pantalla
@@ -128,6 +128,11 @@ class Camera:
     def get_render_params(self):
         """Retorna parámetros para enviar a GPU (zoom, cx, cy)."""
         return self.zoom, self.x, self.y
+        
+    def get_render_params_label(self):
+        """Retorna (cx, cy, vis_w_half, vis_h_half) para dibujo de labels UI."""
+        vis_w, vis_h = self.get_visible_area()
+        return self.x, self.y, vis_w/2, vis_h/2
         
     def get_screen_bounds(self):
         """
