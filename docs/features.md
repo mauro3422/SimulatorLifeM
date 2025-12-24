@@ -23,6 +23,13 @@ Sistema de registro y descubrimiento con enfoque educativo:
 - **Filtro de Junk**: Las estructuras transitorias e inestables se ocultan automáticamente para mantener la pureza de los datos científicos.
 - **Buffs por Molécula**: Cada entrada en la Quimidex otorga mejoras físicas (Velocidad, Estabilidad, Atracción) basadas en su composición química.
 
+## 🛡️ Auditoría Científica Masiva
+Flujo de trabajo avanzado para garantizar la integridad química del simulador:
+- **Validación de Valencia**: Algoritmos que verifican si una molécula emergente puede existir físicamente.
+- **Detección de Isómeros**: Distinción entre isómeros estables y radicales reactivos.
+- **Sistema de Blocklist (600+)**: Filtro automático de "basura química" y fragmentos inestables detectados.
+- **Categorización Automática**: Clasificación de descubrimientos en Prebióticos, Exóticos o Desconocidos.
+
 ## 📊 Análisis Molecular Avanzado
 Panel de telemetría de alta resolución que muestra:
 - **Estabilidad Temporal**: Tracking de frames de vida promedio por fórmula.

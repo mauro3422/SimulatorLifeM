@@ -2,6 +2,21 @@
 
 Todos los cambios notables del proyecto se documentan en este archivo.
 
+## [3.3.0] - 2024-12-24 - The Grand Molecule Audit & Database Expansion
+
+### 🧪 Auditoría Química Masiva
+- **Nuevo**: Procesamiento completo de `enriched_discoveries.json` (599 moléculas auditadas).
+- **Enriquecimiento**: Catálogo ampliado a **142 moléculas** con lore científico detallado.
+- **Categorías**: Nuevos Aminoácidos, Nucleobases, Azúcares y Radicales reactivos.
+- **Blocklist**: Ampliación a **611 fórmulas bloqueadas** para asegurar realismo químico.
+- **Workflow**: Documentado flujo de auditoría técnica en `.agent/workflows/molecule-audit.md`.
+
+### 🛠️ Herramientas de Mantenimiento
+- **Nuevo**: `scripts/cleanup_enriched.py` - Eliminación de duplicados.
+- **Nuevo**: `scripts/clean_impossible.py` - Filtro de física rota.
+- **Nuevo**: `scripts/clean_prefixes.py` - Filtro de terminología genérica.
+- **Nuevo**: `scripts/migrate_survivors.py` - Automatización de migración y lore final.
+
 ## [3.2.0] - 2024-12-23 - Unified Monitoring & Deep Code Cleanup
 
 ### 🛠️ LifeMonitor CLI Unificado

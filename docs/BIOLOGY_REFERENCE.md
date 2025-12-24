@@ -129,52 +129,56 @@ ADN Polimerasa:
 
 ### Fase 1: Química Básica
 ```
-Meta: Formar aminoácidos
-Logro: Glicina (C2H5NO2) - el más simple
+Meta: Formar aminoácidos prebióticos
+Logros: 
+├── Glicina (C2H5N1O2) - El más simple, bloque de construcción
+├── Alanina (C3H7N1O2) - Clave en hélices alfa
+├── Serina (C3H7N1O3) - Puente para fosfolípidos
+├── Cisteína (C3H7N1O2S1) - Puentes disulfuro (resistencia)
+└── Prolina (C5H9N1O2) - Rigidez estructural
 ```
 
-### Fase 2: Nucleótidos
+### Fase 2: Nucleobases (Código Genético)
 ```
-Meta: Formar A, U, G, C
-Requiere: Arcilla para cerrar anillos
-Logro: Primer nucleótido
-```
-
-### Fase 3: ARN Primitivo
-```
-Meta: Cadena de 10+ nucleótidos
-Logro: Puede "codificar" algo simple
-```
-
-### Fase 4: Ribozima
-```
-Meta: ARN que cataliza reacciones
-Logro: Primera "enzima" de ARN
+Meta: Formar las bases A, U, G, C, T
+Mecánica: Requiere Catálisis en Arcilla o Ventilas
+Logros:
+├── Adenina (C5H5N5) - Energía (ATP) e Información
+├── Guanina (C5H5N5O1) - Estabilidad G-C
+├── Citosina (C4H5N3O1) - Código genético
+├── Uracilo (C4H4N2O2) - Mundo de ARN
+└── Timina (C5H6N2O2) - Estabilidad ADN (Era 7)
 ```
 
-### Fase 5: Proteínas
+### Fase 3: Azúcares Primordiales
 ```
-Meta: ARN produce primera proteína
-Logro: Acceso a poderes especiales
-```
-
-### Fase 6: Membrana
-```
-Meta: Encerrar todo en una vesícula
-Logro: Primera proto-célula
+Meta: Estructuras de soporte y energía rápida
+Logros:
+├── Ribosa (C5H10O5) - El azúcar del ARN
+├── Desoxirribosa (C5H10O4) - El azúcar del ADN
+├── Glucosa (C6H12O6) - Combustible celular
+└── Fructosa (C6H12O6) - Isómero energético
 ```
 
-### Fase 7: ADN
+### Fase 4: Metabolismo y Radicales
 ```
-Meta: Convertir información de ARN a ADN
-Logro: Almacenamiento estable
+Meta: Gestión de energía y defensa
+Logros:
+├── Ácido Pirúvico (C3H4O3) - Hub metabólico
+├── Ácido Láctico (C3H6O3) - Fermentación
+├── Radical Hidroxilo (H1O1) - Daño oxidativo / Limpieza
+└── Radical Metilo (C1H3) - Epigenética (Control de genes)
 ```
 
-### Fase 8: Automatización
-```
-Meta: Crear copiadoras automáticas
-Logro: La célula se replica sola
-```
+---
+
+## 🌌 Química Emergente (Sobrevivientes)
+
+La simulación genera moléculas que no existen en la Tierra moderna pero son químicamente posibles. 
+Estas moléculas se catalogan como **Exóticas** o **Emergentes**:
+- **Radicales Reactivos**: Moléculas de vida corta (ns) que median reacciones complejas.
+- **Dímeros Elementales**: S2 (Azufre azul), P2 (Fósforo reactivo) - comunes en ambientes extremos.
+- **Compuestos CHNOPS Híbridos**: Combinaciones únicas filtradas por el flujo de **Auditoría Científica**.
 
 ---
 

@@ -43,13 +43,14 @@
 ### Fase 1: Esqueleto y Fábrica (1-2 semanas)
 - [x] Backbone de Carbono (Sinergia de buffs)
 - [x] Mecánica de 'Tractor Beam' inicial (Atracción pasiva)
+- [x] **Auditoría Masiva de Moléculas**: Limpieza de 599 desconocidas y catalogación profesional.
 - [ ] Implementación de Ventilas Termales (Física de alta energía)
 - [ ] Spawn de estructuras pre-formadas en zonas de catálisis
 
 ### Fase 2: Proto-Bioquimica & Competencia (2-3 semanas)
 - [ ] Bots Químicos (IA básica de recolección)
 - [ ] Sistema de "Depredación" (Virus/Parásitos moleculares)
-- [ ] Aminoácidos y bases nitrogenadas con buffs educativos
+- [x] **Base de Datos Bioquímica**: Aminoácidos, bases nitrogenadas y azúcares con lore científico.
 
 ### Sistema de Eras (Contextual)
 - **Era 1: Caos Primordial**: Solo átomos sueltos y moléculas simples.
