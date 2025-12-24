@@ -19,6 +19,8 @@
 ## ✨ Características Principales
 
 - **⚙️ Motor de Física Masivo**: Simulación de miles de partículas CHONPS con "Total Fusion" (física + química en un solo pass GPU).
+- **🏭 Química Realista (140+ Moléculas)**: Catálogo enriquecido con Aminoácidos, Nucleobases y Azúcares con lore científico detallado.
+- **🛡️ Auditoría Científica**: Flujo de trabajo para filtrar basura, validar química emergente y expandir el blocklist (600+ fórmulas).
 - **🏭 Fábrica Molecular**: Evolución desde un átomo a una compleja fábrica de biopolímeros con gestión de recursos.
 - **⚛️ Quimidex**: Sistema de enciclopedia interactiva con auditoría de moléculas desconocidas y buffs educativos.
 - **🌋 Zonas de Catálisis**: Entornos con física alterada (Arcilla, Ventilas Termales) que dictan la evolución.
