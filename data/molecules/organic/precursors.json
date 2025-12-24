@@ -4,6 +4,168 @@
         "description": "Molecules that bridge inorganic chemistry and complex life."
     },
     "molecules": {
+        "C2H2O": {
+            "identity": {
+                "names": {
+                    "es": "Cetena",
+                    "en": "Ketene"
+                },
+                "formula": "C2H2O",
+                "category": "organic",
+                "family_color": [
+                    200,
+                    150,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Gas tóxico incoloro.",
+                "biological_presence": "Intermedio en síntesis orgánica.",
+                "utility": "Agente de acetilación."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Reactivo Fugaz"
+                ],
+                "discovery_points": 35,
+                "difficulty": "hard"
+            }
+        },
+        "CH4S": {
+            "identity": {
+                "names": {
+                    "es": "Metanotiol",
+                    "en": "Methanethiol"
+                },
+                "formula": "CH4S",
+                "category": "organic",
+                "family_color": [
+                    200,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto de azufre orgánico más simple.",
+                "biological_presence": "Olor a descomposición (col podrida).",
+                "utility": "Señal de degradación biológica."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Aliento de Dragón"
+                ],
+                "discovery_points": 25,
+                "difficulty": "medium"
+            }
+        },
+        "C2H6O": {
+            "identity": {
+                "names": {
+                    "es": "Etanol",
+                    "en": "Ethanol"
+                },
+                "formula": "C2H6O",
+                "category": "organic",
+                "family_color": [
+                    255,
+                    220,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Producto de fermentación.",
+                "biological_presence": "Subproducto metabólico común.",
+                "utility": "Solvente y combustible biológico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Espíritu del Vino"
+                ],
+                "discovery_points": 30,
+                "difficulty": "medium"
+            }
+        },
+        "CH2O2": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Fórmico",
+                    "en": "Formic Acid"
+                },
+                "formula": "CH2O2",
+                "category": "organic",
+                "family_color": [
+                    255,
+                    150,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Ácido orgánico más simple.",
+                "biological_presence": "Defensa química en hormigas.",
+                "utility": "Agente reductor y conservante."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Defensa Ácida"
+                ],
+                "discovery_points": 25,
+                "difficulty": "medium"
+            }
+        },
+        "CH2O": {
+            "identity": {
+                "names": {
+                    "es": "Formaldehído",
+                    "en": "Formaldehyde"
+                },
+                "formula": "CH2O",
+                "category": "organic",
+                "family_color": [
+                    200,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Aldehído más simple.",
+                "biological_presence": "Intermedio metabólico clave.",
+                "utility": "Precursor de azúcares y aminoácidos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Constructor de Azúcares"
+                ],
+                "discovery_points": 25,
+                "difficulty": "medium"
+            }
+        },
+        "C2H4O2": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Acético",
+                    "en": "Acetic Acid"
+                },
+                "formula": "C2H4O2",
+                "category": "organic",
+                "family_color": [
+                    255,
+                    180,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Componente principal del vinagre.",
+                "biological_presence": "Central en el metabolismo (Acetil-CoA).",
+                "utility": "Metabolito universal."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Vinagre Cósmico"
+                ],
+                "discovery_points": 35,
+                "difficulty": "medium"
+            }
+        },
         "C1H4N2O1": {
             "identity": {
                 "names": {
@@ -192,6 +354,308 @@
                 ],
                 "discovery_points": 80,
                 "difficulty": "hard"
+            }
+        },
+        "C2H5O1": {
+            "identity": {
+                "names": {
+                    "es": "Radical Etóxido",
+                    "en": "Ethoxide Radical"
+                },
+                "formula": "C2H5O1",
+                "category": "radical",
+                "family_color": [
+                    200,
+                    200,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "La forma radicalaria del etanol. Extremadamente reactivo, busca protones desesperadamente para estabilizarse en alcohol.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C2H2N1O2": {
+            "identity": {
+                "names": {
+                    "es": "Nitroeteno (Isómero)",
+                    "en": "Nitroethene Isomer"
+                },
+                "formula": "C2H2N1O2",
+                "category": "toxic_organic",
+                "family_color": [
+                    200,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto nitrogenado insaturado. Útil para síntesis complejas pero inestable por sí mismo.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1H4O2": {
+            "identity": {
+                "names": {
+                    "es": "Hidroperóxido de Metilo",
+                    "en": "Methyl Hydroperoxide"
+                },
+                "formula": "C1H4O2",
+                "category": "organic_peroxide",
+                "family_color": [
+                    255,
+                    150,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Oxidante orgánico volátil.",
+                "biological_presence": "Radical libre tóxico indeseado.",
+                "utility": "Fuente de oxígeno reactivo en atmósferas de metano."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Radical Libre"
+                ],
+                "discovery_points": 35,
+                "difficulty": "medium"
+            }
+        },
+        "C1H3N1O1": {
+            "identity": {
+                "names": {
+                    "es": "Formamida",
+                    "en": "Formamide"
+                },
+                "formula": "C1H3N1O1",
+                "category": "amide",
+                "family_color": [
+                    200,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "El solvente alternativo de la vida. Líquido en un amplio rango.",
+                "biological_presence": "Precursor versátil de bases nitrogenadas.",
+                "utility": "Solvente ionizante que estabiliza el ARN."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Solvente Alternativo"
+                ],
+                "discovery_points": 50,
+                "difficulty": "hard"
+            }
+        },
+        "C1H2N2": {
+            "identity": {
+                "names": {
+                    "es": "Cianamida",
+                    "en": "Cyanamide"
+                },
+                "formula": "C1H2N2",
+                "category": "precursor",
+                "family_color": [
+                    150,
+                    255,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Agente de condensación primitivo.",
+                "biological_presence": "Permite la formación de péptidos en agua.",
+                "utility": "Pega aminoácidos para formar proteínas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Enlace Peptídico"
+                ],
+                "discovery_points": 60,
+                "difficulty": "hard"
+            }
+        },
+        "C1H3O3": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Ortofórmico",
+                    "en": "Orthoformic Acid"
+                },
+                "formula": "C1H3O3",
+                "category": "unstable_hypothetical",
+                "family_color": [
+                    100,
+                    100,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Estado transitorio teórico. Hidrato inestable.",
+                "biological_presence": "No existe libremente, se descompone al instante.",
+                "utility": "Curiosidad química estabilizada por la simulación."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Estado de Transición"
+                ],
+                "discovery_points": 80,
+                "difficulty": "hard"
+            }
+        },
+        "C1H2N1O1P1S1": {
+            "identity": {
+                "names": {
+                    "es": "Fragmento Pre-Genético",
+                    "en": "Pre-Genetic Fragment"
+                },
+                "formula": "C1H2N1O1P1S1",
+                "category": "precursor",
+                "family_color": [
+                    255,
+                    215,
+                    0
+                ]
+            },
+            "lore": {
+                "origin_story": "Un compuesto 'navaja suiza' raro y estable que contiene todos los elementos de la vida (CHNOPS).",
+                "biological_presence": "Bloque fundamental para la síntesis de nucleótidos primitivos.",
+                "utility": "Catalizador de Síntesis que desbloquea la formación de bases nitrogenadas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Eslabón Perdido"
+                ],
+                "discovery_points": 150,
+                "difficulty": "hard"
+            }
+        },
+        "C1H4O1": {
+            "identity": {
+                "names": {
+                    "es": "Metanol",
+                    "en": "Methanol"
+                },
+                "formula": "C1H4O1",
+                "category": "alcohol",
+                "family_color": [
+                    200,
+                    220,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "El alcohol más simple. Detectado abundantemente en el espacio interestelar y cometas. Conocido como 'alcohol de madera' por su producción histórica.",
+                "biological_presence": "Tóxico para humanos (causa ceguera y muerte). Sin embargo, algunas bacterias metilotrofas lo usan como fuente de carbono.",
+                "utility": "Combustible (carreras de autos). Anticongelante. Precursor de formaldehído. Solvente industrial. Posible fuente de carbono prebiótico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Alcohol Espacial",
+                    "Combustible Primitivo"
+                ],
+                "discovery_points": 45,
+                "difficulty": "easy"
+            }
+        },
+        "H1C1N1": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Cianhídrico",
+                    "en": "Hydrogen Cyanide"
+                },
+                "formula": "H1C1N1",
+                "category": "nitrile",
+                "family_color": [
+                    255,
+                    100,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Una de las moléculas más importantes para el origen de la vida. Abundante en cometas (Halley), Titán, y medio interestelar. Extremadamente tóxico pero químicamente crucial.",
+                "biological_presence": "Veneno mortal: bloquea respiración celular. Sin embargo, es precursor directo de adenina (4 HCN → adenina) y aminoácidos (síntesis de Strecker).",
+                "utility": "Piedra angular de la química prebiótica. Precursor de nucleótidos, aminoácidos, y muchas biomoléculas. El veneno que pudo dar origen a la vida."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Veneno Vital",
+                    "Precursor de Adenina",
+                    "Síntesis de Strecker"
+                ],
+                "discovery_points": 120,
+                "difficulty": "medium"
+            }
+        },
+        "C3H8O1": {
+            "identity": {
+                "names": {
+                    "es": "Propanol",
+                    "en": "Propanol"
+                },
+                "formula": "C3H8O1",
+                "category": "alcohol",
+                "family_color": [
+                    180,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Alcohol de tres carbonos. Dos isómeros: 1-propanol y 2-propanol (isopropanol, alcohol para fricciones).",
+                "biological_presence": "El isopropanol es antiséptico común. Metabolizado por el hígado pero menos tóxico que metanol.",
+                "utility": "Desinfectante (alcohol 70%). Solvente. Precursor de acetona en el cuerpo. Limpiador electrónico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Antiséptico",
+                    "Solvente Universal"
+                ],
+                "discovery_points": 50,
+                "difficulty": "easy"
+            }
+        },
+        "C3H4O1": {
+            "identity": {
+                "formula": "C3H4O1",
+                "names": {
+                    "es": "Acroleína",
+                    "en": "Acroleína"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    200,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula emergente formada por la colisión y unión de fragmentos menores en condiciones de alta energía. Representa un nodo en la red química primordial.",
+                "biological_presence": "Intermedio reactivo en senderos metabólicos experimentales. No esencial para la vida terrestre pero posible cofactor exótico.",
+                "utility": "Estabilización de estructuras moleculares complejas y catálisis de reacciones de transferencia."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Descubrimiento Emergente"
+                ],
+                "discovery_points": 60,
+                "difficulty": 7,
+                "times_synthesized": 6
+            },
+            "status": {
+                "is_significant": true,
+                "first_discovery": 1766531506.4370062
             }
         }
     }

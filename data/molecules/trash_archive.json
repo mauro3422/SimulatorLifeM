@@ -1,0 +1,194 @@
+{
+  "archived_trash": {
+    "H1O3Si1": {
+      "identity": {
+        "formula": "H1O3Si1",
+        "names": {
+          "es": "Radical-H1O3Si1",
+          "en": "Radical-H1O3Si1"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "Incompatible with standard carbon biology.",
+        "utility": "Heat-resistant material component."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    },
+    "O2P1Si2": {
+      "identity": {
+        "formula": "O2P1Si2",
+        "names": {
+          "es": "Radical-O2P1Si2",
+          "en": "Radical-O2P1Si2"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "May serve as a precursor to genetic polymers.",
+        "utility": "Energy storage candidate."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    },
+    "C3P1S1": {
+      "identity": {
+        "formula": "C3P1S1",
+        "names": {
+          "es": "Radical-C3P1S1",
+          "en": "Radical-C3P1S1"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "May serve as a precursor to genetic polymers.",
+        "utility": "Energy storage candidate."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    },
+    "H1O2S2": {
+      "identity": {
+        "formula": "H1O2S2",
+        "names": {
+          "es": "Radical-H1O2S2",
+          "en": "Radical-H1O2S2"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "Currently unknown role in biological systems.",
+        "utility": "Potential catalyst for further reactions."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    },
+    "C1O3P1": {
+      "identity": {
+        "formula": "C1O3P1",
+        "names": {
+          "es": "Radical-C1O3P1",
+          "en": "Radical-C1O3P1"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "May serve as a precursor to genetic polymers.",
+        "utility": "Energy storage candidate."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    },
+    "H2O1P1S1": {
+      "identity": {
+        "formula": "H2O1P1S1",
+        "names": {
+          "es": "Radical-H2O1P1S1",
+          "en": "Radical-H2O1P1S1"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "May serve as a precursor to genetic polymers.",
+        "utility": "Energy storage candidate."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    },
+    "H1N2P2": {
+      "identity": {
+        "formula": "H1N2P2",
+        "names": {
+          "es": "Radical-H1N2P2",
+          "en": "Radical-H1N2P2"
+        },
+        "category": "emergent",
+        "family_color": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "lore": {
+        "origin_story": "[CLASSIFIED: Complex Radical] This molecule exhibits the stoichiometry of a Complex Radical.",
+        "biological_presence": "May serve as a precursor to genetic polymers.",
+        "utility": "Energy storage candidate."
+      },
+      "gameplay": {
+        "milestones": [
+          "Emergent Discovery"
+        ],
+        "discovery_points": 25,
+        "difficulty": 2.5
+      }
+    }
+  },
+  "reason": "Radicales inestables sin valor biologico"
+}

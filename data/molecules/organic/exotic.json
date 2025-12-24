@@ -1,0 +1,1507 @@
+{
+    "molecules": {
+        "C2N1O2S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C2N1O2S1",
+                    "en": "Exotic Compound C2N1O2S1"
+                },
+                "formula": "C2N1O2S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C3H1O1S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C3H1O1S1",
+                    "en": "Exotic Compound C3H1O1S1"
+                },
+                "formula": "C3H1O1S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1N1O2S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C1N1O2S1",
+                    "en": "Exotic Compound C1N1O2S1"
+                },
+                "formula": "C1N1O2S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1H1O1P2S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C1H1O1P2S1",
+                    "en": "Exotic Compound C1H1O1P2S1"
+                },
+                "formula": "C1H1O1P2S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C3H3O2P1S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C3H3O2P1S1",
+                    "en": "Exotic Compound C3H3O2P1S1"
+                },
+                "formula": "C3H3O2P1S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C3H8O2P2Si1": {
+            "identity": {
+                "names": {
+                    "es": "Complejo Si-P Orgánico",
+                    "en": "Organic Si-P Complex"
+                },
+                "formula": "C3H8O2P2Si1",
+                "category": "complex_aggregate",
+                "family_color": [
+                    150,
+                    150,
+                    160
+                ]
+            },
+            "lore": {
+                "origin_story": "Agregado complejo que incorpora silicio y fósforo en una matriz de carbono. ¿Un intento fallido de vida basada en silicio?",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C2H4O3S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C2H4O3S1",
+                    "en": "Exotic Compound C2H4O3S1"
+                },
+                "formula": "C2H4O3S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C5H4O3P1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C5H4O3P1",
+                    "en": "Exotic Compound C5H4O3P1"
+                },
+                "formula": "C5H4O3P1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C3H8O1Si1": {
+            "identity": {
+                "names": {
+                    "es": "Trimetilsilanol",
+                    "en": "Trimethylsilanol"
+                },
+                "formula": "C3H8O1Si1",
+                "category": "organosilicon",
+                "family_color": [
+                    180,
+                    180,
+                    190
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto híbrido carbono-silicio. Sugiere una química paralela donde el silicio intenta imitar al carbono.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C2H1P1Si1": {
+            "identity": {
+                "names": {
+                    "es": "Sili-Fosfo-Etino",
+                    "en": "Sili-Phospho-Ethyne"
+                },
+                "formula": "C2H1P1Si1",
+                "category": "organosilicon_rare",
+                "family_color": [
+                    160,
+                    160,
+                    170
+                ]
+            },
+            "lore": {
+                "origin_story": "Extraña unión triple entre C, P y Si. Una curiosidad química posible solo en simulaciones de alta energía.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1H3N1O4S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C1H3N1O4S1",
+                    "en": "Exotic Compound C1H3N1O4S1"
+                },
+                "formula": "C1H3N1O4S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C2H5N2O3S2": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C2H5N2O3S2",
+                    "en": "Exotic Compound C2H5N2O3S2"
+                },
+                "formula": "C2H5N2O3S2",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C4H2O2S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C4H2O2S1",
+                    "en": "Exotic Compound C4H2O2S1"
+                },
+                "formula": "C4H2O2S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "H1N1O3S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico H1N1O3S1",
+                    "en": "Exotic Compound H1N1O3S1"
+                },
+                "formula": "H1N1O3S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1H1N1O1P1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C1H1N1O1P1",
+                    "en": "Exotic Compound C1H1N1O1P1"
+                },
+                "formula": "C1H1N1O1P1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C4H4O2S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C4H4O2S1",
+                    "en": "Exotic Compound C4H4O2S1"
+                },
+                "formula": "C4H4O2S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1H1N1O2S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C1H1N1O2S1",
+                    "en": "Exotic Compound C1H1N1O2S1"
+                },
+                "formula": "C1H1N1O2S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C2H2N1O1P1S1": {
+            "identity": {
+                "names": {
+                    "es": "Compuesto Exótico C2H2N1O1P1S1",
+                    "en": "Exotic Compound C2H2N1O1P1S1"
+                },
+                "formula": "C2H2N1O1P1S1",
+                "category": "exotic_organic",
+                "family_color": [
+                    120,
+                    120,
+                    120
+                ]
+            },
+            "lore": {
+                "origin_story": "Estructura molecular inusual surgida del caos primordial. Su función biológica es desconocida.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C1H4N1O2S2": {
+            "identity": {
+                "formula": "C1H4N1O2S2",
+                "names": {
+                    "es": "Amino-Methyl Radical",
+                    "en": "Amino-Methyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Química del azufre orgánico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 85,
+                "difficulty": 9,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533168.5567138
+            }
+        },
+        "C2H8N2O3S1": {
+            "identity": {
+                "formula": "C2H8N2O3S1",
+                "names": {
+                    "es": "Ethylamine",
+                    "en": "Ethylamine"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre",
+                    "Molécula Compleja"
+                ],
+                "discovery_points": 115,
+                "difficulty": 10,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533168.6497996
+            }
+        },
+        "C3H3N1O3P1": {
+            "identity": {
+                "formula": "C3H3N1O3P1",
+                "names": {
+                    "es": "Amino-Propyl Radical",
+                    "en": "Amino-Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Forma parte de la familia de los fosfatos. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Relevante para almacenamiento de energía. Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Potencial como molécula energética. Precursor de compuestos nitrogenados. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química del Fósforo",
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 105,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533168.9358983
+            }
+        },
+        "C3H2N1O3": {
+            "identity": {
+                "formula": "C3H2N1O3",
+                "names": {
+                    "es": "Amino-Propyl Radical",
+                    "en": "Amino-Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 65,
+                "difficulty": 8,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533168.9618967
+            }
+        },
+        "C4H4N1S1": {
+            "identity": {
+                "formula": "C4H4N1S1",
+                "names": {
+                    "es": "Amino-Butyl Radical",
+                    "en": "Amino-Butyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 85,
+                "difficulty": 8,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533169.1095426
+            }
+        },
+        "C1H3N1O4P1Si1": {
+            "identity": {
+                "formula": "C1H3N1O4P1Si1",
+                "names": {
+                    "es": "Amino-Methyl Radical",
+                    "en": "Amino-Methyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Forma parte de la familia de los fosfatos. Contiene nitrógeno orgánico. Compuesto de silicio, raro en química biológica. Molécula orgánica oxigenada.",
+                "biological_presence": "Relevante para almacenamiento de energía. Precursor potencial de aminoácidos.",
+                "utility": "Potencial como molécula energética. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química del Fósforo",
+                    "Nitrógeno Orgánico",
+                    "Silicio Exótico"
+                ],
+                "discovery_points": 105,
+                "difficulty": 10,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533169.1884713
+            }
+        },
+        "C6H3N2P2S1": {
+            "identity": {
+                "formula": "C6H3N2P2S1",
+                "names": {
+                    "es": "Amino-Hexyl Radical",
+                    "en": "Amino-Hexyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico.",
+                "biological_presence": "Relevante para almacenamiento de energía. Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 135,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533169.2843785
+            }
+        },
+        "C2H2N1S1": {
+            "identity": {
+                "formula": "C2H2N1S1",
+                "names": {
+                    "es": "Amino-Ethyl Radical",
+                    "en": "Amino-Ethyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 65,
+                "difficulty": 6,
+                "times_synthesized": 3
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533169.4569025
+            }
+        },
+        "C4H2N1O1": {
+            "identity": {
+                "formula": "C4H2N1O1",
+                "names": {
+                    "es": "Amino-Butyl Radical",
+                    "en": "Amino-Butyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Precursor Prebiótico"
+                ],
+                "discovery_points": 60,
+                "difficulty": 8,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533171.3549654
+            }
+        },
+        "C3H2N1O1S1": {
+            "identity": {
+                "formula": "C3H2N1O1S1",
+                "names": {
+                    "es": "Amino-Propyl Radical",
+                    "en": "Amino-Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 75,
+                "difficulty": 9,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533173.0114725
+            }
+        },
+        "C2H6N1O4Si1": {
+            "identity": {
+                "formula": "C2H6N1O4Si1",
+                "names": {
+                    "es": "Amino-Ethyl Radical",
+                    "en": "Amino-Ethyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Compuesto de silicio, raro en química biológica. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos.",
+                "utility": "Precursor de compuestos nitrogenados. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Silicio Exótico"
+                ],
+                "discovery_points": 90,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533173.3140323
+            }
+        },
+        "C4H3": {
+            "identity": {
+                "formula": "C4H3",
+                "names": {
+                    "es": "Butyl Radical",
+                    "en": "Butyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    180,
+                    180,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula emergente formada por la colisión y unión de fragmentos menores en condiciones de alta energía. Representa un nodo en la red química primordial.",
+                "biological_presence": "Intermedio reactivo en senderos metabólicos experimentales. No esencial para la vida terrestre pero posible cofactor exótico.",
+                "utility": "Estabilización de estructuras moleculares complejas y catálisis de reacciones de transferencia."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Descubrimiento Emergente"
+                ],
+                "discovery_points": 35,
+                "difficulty": 4,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533174.4521399
+            }
+        },
+        "C3H6N1O1Si1": {
+            "identity": {
+                "formula": "C3H6N1O1Si1",
+                "names": {
+                    "es": "Amino-Propyl Radical",
+                    "en": "Amino-Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Compuesto de silicio, raro en química biológica. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Silicio Exótico"
+                ],
+                "discovery_points": 80,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533174.7813382
+            }
+        },
+        "C4H2N1O1S2": {
+            "identity": {
+                "formula": "C4H2N1O1S2",
+                "names": {
+                    "es": "Amino-Butyl Radical",
+                    "en": "Amino-Butyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre",
+                    "Precursor Prebiótico"
+                ],
+                "discovery_points": 85,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533175.5200727
+            }
+        },
+        "C3H3": {
+            "identity": {
+                "formula": "C3H3",
+                "names": {
+                    "es": "Propyl Radical",
+                    "en": "Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    180,
+                    180,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula emergente formada por la colisión y unión de fragmentos menores en condiciones de alta energía. Representa un nodo en la red química primordial.",
+                "biological_presence": "Intermedio reactivo en senderos metabólicos experimentales. No esencial para la vida terrestre pero posible cofactor exótico.",
+                "utility": "Estabilización de estructuras moleculares complejas y catálisis de reacciones de transferencia."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Descubrimiento Emergente"
+                ],
+                "discovery_points": 30,
+                "difficulty": 4,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533177.6382551
+            }
+        },
+        "C2H2N1O1S1": {
+            "identity": {
+                "formula": "C2H2N1O1S1",
+                "names": {
+                    "es": "Amino-Ethyl Radical",
+                    "en": "Amino-Ethyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 70,
+                "difficulty": 7,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533178.0417945
+            }
+        },
+        "C2H5": {
+            "identity": {
+                "formula": "C2H5",
+                "names": {
+                    "es": "Ethyl Radical",
+                    "en": "Ethyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    180,
+                    180,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula emergente formada por la colisión y unión de fragmentos menores en condiciones de alta energía. Representa un nodo en la red química primordial.",
+                "biological_presence": "Intermedio reactivo en senderos metabólicos experimentales. No esencial para la vida terrestre pero posible cofactor exótico.",
+                "utility": "Estabilización de estructuras moleculares complejas y catálisis de reacciones de transferencia."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Descubrimiento Emergente"
+                ],
+                "discovery_points": 35,
+                "difficulty": 4,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533178.120186
+            }
+        },
+        "C1H2N3": {
+            "identity": {
+                "formula": "C1H2N3",
+                "names": {
+                    "es": "Amino-Methyl Radical",
+                    "en": "Amino-Methyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico.",
+                "biological_presence": "Precursor potencial de aminoácidos.",
+                "utility": "Fragmento reactivo transitorio."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 50,
+                "difficulty": 5,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533179.7993884
+            }
+        },
+        "C2H4N1O1": {
+            "identity": {
+                "formula": "C2H4N1O1",
+                "names": {
+                    "es": "Amino-Ethyl Radical",
+                    "en": "Amino-Ethyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos.",
+                "utility": "Precursor de compuestos nitrogenados."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 60,
+                "difficulty": 8,
+                "times_synthesized": 3
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533181.0652204
+            }
+        },
+        "C1H3N1O3P1": {
+            "identity": {
+                "formula": "C1H3N1O3P1",
+                "names": {
+                    "es": "Amino-Methyl Radical",
+                    "en": "Amino-Methyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Forma parte de la familia de los fosfatos. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Relevante para almacenamiento de energía. Precursor potencial de aminoácidos.",
+                "utility": "Potencial como molécula energética."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química del Fósforo",
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 95,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533181.2950234
+            }
+        },
+        "C8H6N2P1S1": {
+            "identity": {
+                "formula": "C8H6N2P1S1",
+                "names": {
+                    "es": "Amino-Octyl Radical",
+                    "en": "Amino-Octyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico.",
+                "biological_presence": "Relevante para almacenamiento de energía. Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Precursor de compuestos nitrogenados. Química del azufre orgánico. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre",
+                    "Molécula Compleja"
+                ],
+                "discovery_points": 155,
+                "difficulty": 10,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533182.185122
+            }
+        },
+        "C1H2N1O1Si1": {
+            "identity": {
+                "formula": "C1H2N1O1Si1",
+                "names": {
+                    "es": "Amino-Methyl Radical",
+                    "en": "Amino-Methyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Compuesto de silicio, raro en química biológica. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos.",
+                "utility": "Fragmento reactivo transitorio."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Silicio Exótico"
+                ],
+                "discovery_points": 50,
+                "difficulty": 7,
+                "times_synthesized": 2
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533182.376147
+            }
+        },
+        "C1H5N4O2S1": {
+            "identity": {
+                "formula": "C1H5N4O2S1",
+                "names": {
+                    "es": "Amino-Methyl Radical",
+                    "en": "Amino-Methyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosulfurado. Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Participa en reacciones redox.",
+                "utility": "Química del azufre orgánico. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 100,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533182.7546184
+            }
+        },
+        "C3H4N1O3": {
+            "identity": {
+                "formula": "C3H4N1O3",
+                "names": {
+                    "es": "Amino-Propyl Radical",
+                    "en": "Amino-Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 75,
+                "difficulty": 8,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533184.4413593
+            }
+        },
+        "C3N1O1": {
+            "identity": {
+                "formula": "C3N1O1",
+                "names": {
+                    "es": "Amino-Propyl Radical",
+                    "en": "Amino-Propyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico.",
+                "biological_presence": "Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico"
+                ],
+                "discovery_points": 45,
+                "difficulty": 5,
+                "times_synthesized": 3
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533184.7802393
+            }
+        },
+        "C5H3N2O1Si1": {
+            "identity": {
+                "formula": "C5H3N2O1Si1",
+                "names": {
+                    "es": "Amino-Pentyl Radical",
+                    "en": "Amino-Pentyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Compuesto de silicio, raro en química biológica. Molécula orgánica oxigenada.",
+                "biological_presence": "Precursor potencial de aminoácidos. Estructura similar a metabolitos.",
+                "utility": "Precursor de compuestos nitrogenados. Molécula compleja con potencial catalítico."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Silicio Exótico",
+                    "Precursor Prebiótico"
+                ],
+                "discovery_points": 80,
+                "difficulty": 9,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533185.7611375
+            }
+        },
+        "C2H1N2Si1": {
+            "identity": {
+                "formula": "C2H1N2Si1",
+                "names": {
+                    "es": "Amino-Ethyl Radical",
+                    "en": "Amino-Ethyl Radical"
+                },
+                "category": "emergent",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Contiene nitrógeno orgánico. Compuesto de silicio, raro en química biológica.",
+                "biological_presence": "Precursor potencial de aminoácidos.",
+                "utility": "Precursor de compuestos nitrogenados."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Nitrógeno Orgánico",
+                    "Silicio Exótico"
+                ],
+                "discovery_points": 50,
+                "difficulty": 6,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": false,
+                "first_discovery": 1766533187.4960203
+            }
+        },
+        "C3H6O1": {
+            "identity": {
+                "formula": "C3H6O1",
+                "names": {
+                    "es": "Acetona / Propanal",
+                    "en": "Acetone / Propanal"
+                },
+                "category": "organic",
+                "family_color": [
+                    200,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Isómeros estructurales: acetona (cetona) o propanal (aldehído). La acetona fue el primer solvente industrial importante.",
+                "biological_presence": "La acetona es producto de cetosis en ayuno. El propanal se forma en oxidación de lípidos.",
+                "utility": "Solventes universales. La acetona es cuerpo cetónico utilizado como combustible de emergencia."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Solvente Orgánico",
+                    "Cuerpo Cetónico"
+                ],
+                "discovery_points": 80,
+                "difficulty": 4,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": true,
+                "first_discovery": 1766541412.4359772
+            }
+        },
+        "C5H5N1O5": {
+            "identity": {
+                "formula": "C5H5N1O5",
+                "names": {
+                    "es": "Ribosa-Nitrógeno Complejo",
+                    "en": "Ribose-Nitrogen Complex"
+                },
+                "category": "prebiotic",
+                "family_color": [
+                    180,
+                    100,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Fórmula compatible con derivados de ribosa nitrogenados. Posible intermediario hacia nucleósidos.",
+                "biological_presence": "Fragmentos similares aparecen en degradación de nucleótidos.",
+                "utility": "Precursor potencial de bases nitrogenadas. Importante para origen del ARN."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Precursor ARN",
+                    "Mundo ARN"
+                ],
+                "discovery_points": 140,
+                "difficulty": 7,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": true,
+                "first_discovery": 1766541414.6170297
+            }
+        },
+        "C4H3O4": {
+            "identity": {
+                "formula": "C4H3O4",
+                "names": {
+                    "es": "Ácido Fumárico (radical)",
+                    "en": "Fumaric Acid Radical"
+                },
+                "category": "metabolic",
+                "family_color": [
+                    100,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Fragmento del ácido fumárico, intermediario del Ciclo de Krebs. El ácido fumárico fue aislado de Fumaria officinalis (fumaria) en 1832.",
+                "biological_presence": "El ácido fumárico es ESENCIAL en todas las células. Intermediario entre succinato y malato en el Ciclo de Krebs. En mamíferos, deficiencias causan encefalopatía fumárica.",
+                "utility": "Corazón del metabolismo energético. Cada molécula de glucosa genera 2 fumaratos. Aditivo alimentario E297."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Ciclo de Krebs",
+                    "Metabolismo Central"
+                ],
+                "discovery_points": 130,
+                "difficulty": 5,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": true,
+                "first_discovery": 1766541426.929118
+            }
+        },
+        "C1H1N1O1S2": {
+            "identity": {
+                "formula": "C1H1N1O1S2",
+                "names": {
+                    "es": "Fragmento Tiourea-Oxo",
+                    "en": "Thiourea-Oxo Fragment"
+                },
+                "category": "prebiotic",
+                "family_color": [
+                    200,
+                    180,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Fragmento de tiourea oxidada. La tiourea (CS(NH2)2) es isómero de urea con azufre en lugar de oxígeno. Propuesta como molécula prebiótica.",
+                "biological_presence": "Los tioureidos aparecen en algunas bacterias extremófilas. El grupo tiocarbonilo es esencial en vitamina B1 (tiamina).",
+                "utility": "Intermediario en síntesis de bases nitrogenadas azufradas. El azufre puede haber sido más importante que el oxígeno en la química prebiótica."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química de Azufre",
+                    "Tiamina"
+                ],
+                "discovery_points": 95,
+                "difficulty": 6,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": true,
+                "first_discovery": 1766541429.2535841
+            }
+        },
+        "C6H5N2O2P1": {
+            "identity": {
+                "formula": "C6H5N2O2P1",
+                "names": {
+                    "es": "Fosforamida Aromática",
+                    "en": "Aromatic Phosphoramide"
+                },
+                "category": "complex",
+                "family_color": [
+                    150,
+                    100,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto aromático con fósforo y nitrógeno. Los fosforamidatos son análogos de nucleótidos y tienen actividad biológica.",
+                "biological_presence": "Compuestos similares existen como fármacos antivirales (ej: Sofosbuvir para hepatitis C) y pesticidas organofosforados.",
+                "utility": "Análogo de nucleótido. En el origen de la vida, compuestos similares pudieron ser precursores del ARN antes de la química moderna de fosfato."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Análogo Nucleótido",
+                    "Fármaco Potencial"
+                ],
+                "discovery_points": 140,
+                "difficulty": 8,
+                "times_synthesized": 1
+            },
+            "status": {
+                "is_significant": true,
+                "first_discovery": 1766541425.9259355
+            }
+        }
+    }
+}

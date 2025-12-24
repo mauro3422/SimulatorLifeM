@@ -30,6 +30,179 @@
                 "discovery_points": 75,
                 "difficulty": "medium"
             }
+        },
+        "C1H4N2O1": {
+            "identity": {
+                "names": {
+                    "es": "Urea",
+                    "en": "Urea"
+                },
+                "formula": "C1H4N2O1",
+                "category": "metabolite",
+                "family_color": [
+                    100,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Primera molécula orgánica sintetizada artificialmente por Friedrich Wöhler en 1828, marcando el nacimiento de la química orgánica moderna. Detectada en cometas y espacio interestelar.",
+                "biological_presence": "Producto final del metabolismo de proteínas en mamíferos (ciclo de la urea en hígado). Presente en orina (2% peso), sudor, lágrimas. Los peces la excretan como amoníaco.",
+                "utility": "Fertilizante más usado del mundo. Precursor prebiótico de aminoácidos. Con malononitrilo forma citosina (base del ADN)."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Hito Wöhler 1828",
+                    "Ciclo del Nitrógeno",
+                    "Síntesis Prebiótica"
+                ],
+                "discovery_points": 150,
+                "difficulty": "medium"
+            }
+        },
+        "C4H4O4": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Fumárico",
+                    "en": "Fumaric Acid"
+                },
+                "formula": "C4H4O4",
+                "category": "krebs_cycle",
+                "family_color": [
+                    100,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Aislado de Fumaria officinalis (fumaria) en 1832. Isómero trans del ácido maleico.",
+                "biological_presence": "ESENCIAL en todas las células vivas. Intermediario del Ciclo de Krebs entre succinato y malato. Deficiencias genéticas causan encefalopatía fumárica severa.",
+                "utility": "Corazón del metabolismo energético celular. Cada glucosa genera 2 fumaratos. Aditivo alimentario E297, antioxidante en panadería."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Ciclo de Krebs",
+                    "Metabolismo Central",
+                    "Respiración Celular"
+                ],
+                "discovery_points": 140,
+                "difficulty": "medium"
+            }
+        },
+        "C2H2O4": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Oxálico",
+                    "en": "Oxalic Acid"
+                },
+                "formula": "C2H2O4",
+                "category": "organic_acid",
+                "family_color": [
+                    150,
+                    200,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Ácido dicarboxílico más simple. Encontrado naturalmente en espinaca, ruibarbo, y cacao. Descubierto en 1776.",
+                "biological_presence": "Producto del metabolismo de vitamina C. Forma cristales de oxalato de calcio (cálculos renales, piedras en riñón). Toxicidad en exceso.",
+                "utility": "Quelante natural de metales pesados. Usado en limpieza de óxido. Blanqueador en industria textil."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Ácido Dicarboxílico",
+                    "Quelante Natural"
+                ],
+                "discovery_points": 90,
+                "difficulty": "easy"
+            }
+        },
+        "C3H4O3": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Pirúvico",
+                    "en": "Pyruvic Acid"
+                },
+                "formula": "C3H4O3",
+                "category": "krebs_cycle",
+                "family_color": [
+                    255,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Producto final de la glucólisis. Nombre deriva del griego 'pyr' (fuego) y latín 'uva' - fuego de las uvas (fermentación).",
+                "biological_presence": "PUNTO DE CONTROL central del metabolismo. Desde glucólisis puede ir a: fermentación láctica, fermentación alcohólica, o Ciclo de Krebs vía acetil-CoA.",
+                "utility": "Encrucijada metabólica. Cosmético (peeling químico). En dietas como quemador de grasa. Suplemento deportivo."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Fin de Glucólisis",
+                    "Punto de Control",
+                    "Encrucijada Metabólica"
+                ],
+                "discovery_points": 130,
+                "difficulty": "medium"
+            }
+        },
+        "C3H6O3": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Láctico",
+                    "en": "Lactic Acid"
+                },
+                "formula": "C3H6O3",
+                "category": "fermentation",
+                "family_color": [
+                    255,
+                    180,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Descubierto en leche agria en 1780. Producto de fermentación láctica - una de las rutas metabólicas más antiguas de la vida.",
+                "biological_presence": "Se acumula en músculos durante ejercicio intenso (sensación de quemazón). Bacterias lácticas lo producen en yogurt, queso, chucrut, kimchi.",
+                "utility": "Conservante de alimentos. Probióticos. Cosmético (exfoliante). Plásticos biodegradables (PLA). Indicador de esfuerzo muscular."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Fermentación Láctica",
+                    "Quemazón Muscular",
+                    "Probióticos"
+                ],
+                "discovery_points": 100,
+                "difficulty": "medium"
+            }
+        },
+        "C2H4O2": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Acético",
+                    "en": "Acetic Acid"
+                },
+                "formula": "C2H4O2",
+                "category": "organic_acid",
+                "family_color": [
+                    200,
+                    255,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Conocido desde la antigüedad como vinagre. Producido por bacterias acetobacter que oxidan etanol. Olor pungente característico.",
+                "biological_presence": "El acetato es intermediario metabólico universal. Vinagre tiene 4-8% ácido acético. Bacterias acetoínas lo producen. Usado en medicina tradicional.",
+                "utility": "Condimento (vinagre). Conservante. Solvente industrial. Precursor de acetil-CoA en bioquímica. Producción de plásticos (acetato de celulosa)."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Vinagre Ancestral",
+                    "Acetil-CoA",
+                    "Conservante Natural"
+                ],
+                "discovery_points": 85,
+                "difficulty": "easy"
+            }
         }
     }
 }

@@ -4,6 +4,87 @@
         "description": "Simple carbon-hydrogen chains and rings."
     },
     "molecules": {
+        "C2H4": {
+            "identity": {
+                "names": {
+                    "es": "Etileno",
+                    "en": "Ethylene"
+                },
+                "formula": "C2H4",
+                "category": "hydrocarbon",
+                "family_color": [
+                    200,
+                    255,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Alqueno más simple.",
+                "biological_presence": "Hormona vegetal de maduración.",
+                "utility": "Precursor de polímeros y alcoholes."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Maduración Química"
+                ],
+                "discovery_points": 25,
+                "difficulty": "easy"
+            }
+        },
+        "C2H2": {
+            "identity": {
+                "names": {
+                    "es": "Acetileno",
+                    "en": "Acetylene"
+                },
+                "formula": "C2H2",
+                "category": "hydrocarbon",
+                "family_color": [
+                    220,
+                    220,
+                    220
+                ]
+            },
+            "lore": {
+                "origin_story": "Alquino más simple, arde con llama brillante.",
+                "biological_presence": "Raro en biología moderna.",
+                "utility": "Sintesis orgánica de alta energía."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Soldadura Molecular"
+                ],
+                "discovery_points": 30,
+                "difficulty": "medium"
+            }
+        },
+        "C3H4": {
+            "identity": {
+                "names": {
+                    "es": "Propino",
+                    "en": "Propyne"
+                },
+                "formula": "C3H4",
+                "category": "hydrocarbon",
+                "family_color": [
+                    180,
+                    255,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Alquino de tres carbonos.",
+                "biological_presence": "Componente traza en atmósferas planetarias.",
+                "utility": "Combustible y precursor."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Cadena Triple"
+                ],
+                "discovery_points": 35,
+                "difficulty": "medium"
+            }
+        },
         "CH4": {
             "identity": {
                 "names": {
@@ -83,6 +164,93 @@
                     "Alquimia de Azufre"
                 ],
                 "discovery_points": 65,
+                "difficulty": "medium"
+            }
+        },
+        "C1H4": {
+            "identity": {
+                "names": {
+                    "es": "Metano",
+                    "en": "Methane"
+                },
+                "formula": "C1H4",
+                "category": "hydrocarbon",
+                "family_color": [
+                    100,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "El alcano más simple. Componente principal de la atmósfera de Titán. Segundo gas de efecto invernadero más potente. Abundante en Marte como posible indicio de vida.",
+                "biological_presence": "Producido por arqueas metanogénicas en pantanos, intestinos de rumiantes y arrozales. Los humanos liberan ~70 litros/día. Indicador de actividad biológica en exoplanetas.",
+                "utility": "Combustible primario (gas natural). Precursor industrial de metanol, formaldehído, y ácido cianhídrico - todos cruciales para síntesis prebiótica."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Gas de los Pantanos",
+                    "Biofirma Espacial",
+                    "Atmósfera de Titán"
+                ],
+                "discovery_points": 35,
+                "difficulty": "easy"
+            }
+        },
+        "H2O1": {
+            "identity": {
+                "names": {
+                    "es": "Agua",
+                    "en": "Water"
+                },
+                "formula": "H2O1",
+                "category": "vital",
+                "family_color": [
+                    100,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "La molécula de la vida. Única sustancia que existe naturalmente en los 3 estados en la Tierra. Propiedades anómalas: densidad máxima a 4°C, alto calor específico, tensión superficial excepcional.",
+                "biological_presence": "60-70% de la masa de un humano adulto. 95% en medusas. Solvente universal donde ocurre toda la bioquímica. Sin agua no hay vida como la conocemos.",
+                "utility": "Medio de todas las reacciones bioquímicas. Termorregulador planetario. La búsqueda de vida extraterrestre sigue el agua."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Solvente de la Vida",
+                    "Molécula Milagrosa",
+                    "Seguir el Agua"
+                ],
+                "discovery_points": 20,
+                "difficulty": "easy"
+            }
+        },
+        "O3": {
+            "identity": {
+                "names": {
+                    "es": "Ozono",
+                    "en": "Ozone"
+                },
+                "formula": "O3",
+                "category": "atmospheric",
+                "family_color": [
+                    200,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Forma alotrópica del oxígeno con 3 átomos. Se forma por radiación UV y descargas eléctricas. Olor característico después de tormentas.",
+                "biological_presence": "Capa de ozono estratosférica protege la vida de rayos UV-C letales. A nivel del suelo es contaminante y daña pulmones. Desinfectante potente.",
+                "utility": "Escudo UV que permitió la colonización de la tierra firme. Indicador de atmósfera oxigenada (biofirma). Purificador de agua."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Escudo UV",
+                    "Gran Oxidación",
+                    "Conquistar la Tierra"
+                ],
+                "discovery_points": 60,
                 "difficulty": "medium"
             }
         }

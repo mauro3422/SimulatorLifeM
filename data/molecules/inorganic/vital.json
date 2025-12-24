@@ -4,6 +4,60 @@
         "description": "Fundamental inorganic compounds for chemistry and life."
     },
     "molecules": {
+        "H3N3": {
+            "identity": {
+                "names": {
+                    "es": "Triazeno",
+                    "en": "Triazene"
+                },
+                "formula": "H3N3",
+                "category": "unstable_inorganic",
+                "family_color": [
+                    150,
+                    150,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Cadena inestable de tres nitrógenos. Efímera y reactiva.",
+                "biological_presence": "Transitorio en reacciones de fijación de nitrógeno.",
+                "utility": "Intermediario de alta energía."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Eslabón de Nitrógeno"
+                ],
+                "discovery_points": 50,
+                "difficulty": "hard"
+            }
+        },
+        "H2O2": {
+            "identity": {
+                "names": {
+                    "es": "Peróxido de Hidrógeno",
+                    "en": "Hydrogen Peroxide"
+                },
+                "formula": "H2O2",
+                "category": "inorganic",
+                "family_color": [
+                    200,
+                    240,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Agua oxigenada, inestable y oxidante.",
+                "biological_presence": "Subproducto tóxico, degradado por catalasas.",
+                "utility": "Señalización celular y defensa."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Oxidante Vital"
+                ],
+                "discovery_points": 20,
+                "difficulty": "medium"
+            }
+        },
         "H2O": {
             "identity": {
                 "names": {
@@ -111,6 +165,321 @@
                 ],
                 "discovery_points": 30,
                 "difficulty": "medium"
+            }
+        },
+        "H1N1O3": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Nítrico",
+                    "en": "Nitric Acid"
+                },
+                "formula": "H1N1O3",
+                "category": "strong_acid",
+                "family_color": [
+                    255,
+                    255,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Ácido mineral corrosivo y oxidante fuerte.",
+                "biological_presence": "Fuente de nitratos para el ciclo del nitrógeno.",
+                "utility": "Precursor de explosivos y fertilizantes orgánicos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Lluvia Ácida"
+                ],
+                "discovery_points": 40,
+                "difficulty": "medium"
+            }
+        },
+        "C1O1": {
+            "identity": {
+                "names": {
+                    "es": "Monóxido de Carbono",
+                    "en": "Carbon Monoxide"
+                },
+                "formula": "C1O1",
+                "category": "inorganic",
+                "family_color": [
+                    150,
+                    150,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Gas incoloro e inodoro. Segunda molécula más abundante del espacio interestelar después del H2. Se forma en combustión incompleta.",
+                "biological_presence": "Altamente tóxico: se une a hemoglobina 200x más fuerte que O2. Paradójicamente, en dosis bajas es señalizador celular (vasodilatador). Producido naturalmente por degradación de hemo.",
+                "utility": "Precursor industrial clave (síntesis Fischer-Tropsch). En el origen de la vida, pudo ser fuente de carbono. Detectado en cometas y atmósferas de exoplanetas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Gas Primordial",
+                    "Señalizador Celular",
+                    "Química Espacial"
+                ],
+                "discovery_points": 50,
+                "difficulty": "easy"
+            }
+        },
+        "C1O2": {
+            "identity": {
+                "names": {
+                    "es": "Dióxido de Carbono",
+                    "en": "Carbon Dioxide"
+                },
+                "formula": "C1O2",
+                "category": "inorganic",
+                "family_color": [
+                    200,
+                    200,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Gas más oxidado del carbono. Componente original de la atmósfera terrestre primitiva (95%). Abundante en Marte y Venus.",
+                "biological_presence": "Producto final de respiración celular. Reactivo inicial de fotosíntesis (Ciclo de Calvin). Regula pH sanguíneo como bicarbonato.",
+                "utility": "Materia prima para toda la vida fotosintética. Efecto invernadero. Carbonatación de bebidas. Extintores."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Fotosíntesis",
+                    "Respiración Celular",
+                    "Atmósfera Primitiva"
+                ],
+                "discovery_points": 30,
+                "difficulty": "easy"
+            }
+        },
+        "H2S1": {
+            "identity": {
+                "names": {
+                    "es": "Sulfuro de Hidrógeno",
+                    "en": "Hydrogen Sulfide"
+                },
+                "formula": "H2S1",
+                "category": "volcanic",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Gas volcánico con olor a huevos podridos. Abundante en la Tierra primitiva antes de la oxigenación. Detectado en atmósferas de Venus y Júpiter.",
+                "biological_presence": "Usado por bacterias extremófilas en ventilas hidrotermales para fotosíntesis anoxigénica (sin O2). Señalizador gaseoso en mamíferos (gasotransmisor). Tóxico en altas concentraciones.",
+                "utility": "Fuente de energía para quimiosíntesis. Fuente de azufre para aminoácidos (cisteína, metionina). Posible molécula clave en el origen de la vida."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Ventilas Hidrotermales",
+                    "Quimiosíntesis",
+                    "Gasotransmisor"
+                ],
+                "discovery_points": 55,
+                "difficulty": "easy"
+            }
+        },
+        "H3N1": {
+            "identity": {
+                "names": {
+                    "es": "Amoníaco",
+                    "en": "Ammonia"
+                },
+                "formula": "H3N1",
+                "category": "inorganic",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto de nitrógeno más simple. Abundante en planetas gigantes (Júpiter, Saturno). Detectado en cometas y medio interestelar. Base importante.",
+                "biological_presence": "Producto tóxico del metabolismo de proteínas. Convertido a urea en el hígado (ciclo de urea). Fuente de nitrógeno para síntesis de aminoácidos y nucleótidos.",
+                "utility": "Fertilizante más importante del mundo (proceso Haber-Bosch). Precursor universal de compuestos nitrogenados. Refrigerante industrial."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Ciclo del Nitrógeno",
+                    "Fertilizante Universal",
+                    "Química Prebiótica"
+                ],
+                "discovery_points": 45,
+                "difficulty": "easy"
+            }
+        },
+        "C1H2O1": {
+            "identity": {
+                "names": {
+                    "es": "Formaldehído",
+                    "en": "Formaldehyde"
+                },
+                "formula": "C1H2O1",
+                "category": "prebiotic",
+                "family_color": [
+                    200,
+                    180,
+                    160
+                ]
+            },
+            "lore": {
+                "origin_story": "Aldehído más simple. Una de las moléculas orgánicas más abundantes del universo. Detectado en nubes moleculares interestelares y cometas.",
+                "biological_presence": "Tóxico y cancerígeno. Sin embargo, es intermediario metabólico universal y precursor de azúcares por reacción de formosa. Producido naturalmente en pequeñas cantidades.",
+                "utility": "Precursor clave en el origen de la vida: 5 formaldehídos → ribosa (azúcar del ARN). Conservante (formol). Síntesis de resinas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Reacción de Formosa",
+                    "Precursor de Azúcares",
+                    "Molécula Interestelar"
+                ],
+                "discovery_points": 70,
+                "difficulty": "easy"
+            }
+        },
+        "H1O1": {
+            "identity": {
+                "names": {
+                    "es": "Radical Hidroxilo",
+                    "en": "Hydroxyl Radical"
+                },
+                "formula": "H1O1",
+                "category": "radical",
+                "family_color": [
+                    255,
+                    150,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "El radical más reactivo de la química atmosférica. Se forma por radiólisis del agua (rayos UV + H2O). Vida media de nanosegundos.",
+                "biological_presence": "Agente de daño oxidativo en células. Causa envejecimiento y daño al ADN. Los antioxidantes como vitamina C lo neutralizan.",
+                "utility": "Detergente atmosférico: destruye contaminantes y metano. Crucial en tratamiento de aguas. Radioterapia lo genera para destruir tumores."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química Radical",
+                    "Estrés Oxidativo",
+                    "Limpiador Atmosférico"
+                ],
+                "discovery_points": 75,
+                "difficulty": "medium"
+            }
+        },
+        "C1H2O2": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Fórmico",
+                    "en": "Formic Acid"
+                },
+                "formula": "C1H2O2",
+                "category": "organic_acid",
+                "family_color": [
+                    255,
+                    180,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "El ácido carboxílico más simple. Nombre de 'formica' (hormiga) - destilado de hormigas en 1671. Detectado en cometas y espacio interestelar.",
+                "biological_presence": "Veneno de picadura de hormigas y abejas. Producto del metabolismo del metanol (causa ceguera). Algunas bacterias lo usan como fuente de energía.",
+                "utility": "Conservante natural (silaje). Antibacteriano en agricultura. Coagulante del caucho. Precursor en química prebiótica."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Ácido Primordial",
+                    "Veneno de Hormiga",
+                    "Prebiótico"
+                ],
+                "discovery_points": 90,
+                "difficulty": "easy"
+            }
+        },
+        "C1H3": {
+            "identity": {
+                "names": {
+                    "es": "Radical Metilo",
+                    "en": "Methyl Radical"
+                },
+                "formula": "C1H3",
+                "category": "radical",
+                "family_color": [
+                    180,
+                    255,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Fragmento de metano con un electrón desapareado. Muy reactivo, vida media de milisegundos. Clave en química de combustión.",
+                "biological_presence": "La metilación de ADN (agregar CH3) regula qué genes se expresan. Marcas epigenéticas se heredan. S-adenosilmetionina es donador biológico de metilos.",
+                "utility": "Epigenética: controla activación/silenciamiento de genes sin cambiar la secuencia. Metilación aberrante causa cáncer."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Metilación",
+                    "Epigenética",
+                    "Control Genético"
+                ],
+                "discovery_points": 80,
+                "difficulty": "medium"
+            }
+        },
+        "C1H3O1": {
+            "identity": {
+                "names": {
+                    "es": "Radical Metoxilo",
+                    "en": "Methoxy Radical"
+                },
+                "formula": "C1H3O1",
+                "category": "radical",
+                "family_color": [
+                    255,
+                    200,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Radical de metanol. Intermedio en oxidación atmosférica de compuestos volátiles. Reactivo pero más estable que OH.",
+                "biological_presence": "Producto de degradación de metanol en el hígado (por alcohol deshidrogenasa). Intermedio hacia formaldehído.",
+                "utility": "Química atmosférica: oxida metano y otros hidrocarburos. Estudios de química de combustión."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química Atmosférica",
+                    "Oxidación de Metano"
+                ],
+                "discovery_points": 60,
+                "difficulty": "medium"
+            }
+        },
+        "C2H2O1": {
+            "identity": {
+                "names": {
+                    "es": "Cetena",
+                    "en": "Ketene"
+                },
+                "formula": "C2H2O1",
+                "category": "reactive",
+                "family_color": [
+                    200,
+                    150,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula con doble enlace C=C=O. Extremadamente reactiva e inestable. Se sintetiza por pirólisis de ácido acético.",
+                "biological_presence": "No existe libre en biología por su alta reactividad. Se usa en laboratorio para acetilación.",
+                "utility": "Agente acetilante industrial. Síntesis de anhídrido acético. Intermedio en manufactura de aspirina."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Reactivo Fugaz",
+                    "Síntesis Acetílica"
+                ],
+                "discovery_points": 95,
+                "difficulty": "hard"
             }
         }
     }

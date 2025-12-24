@@ -19,16 +19,132 @@
                 ]
             },
             "lore": {
-                "origin_story": "El aminoácido más simple. Detectado en cometas.",
-                "biological_presence": "Abundante en colágeno y proteínas estructurales.",
-                "utility": "Bloque de construcción básico para proteínas."
+                "origin_story": "El aminoácido más simple y único aquiral. Detectado en meteoritos (Murchison) y cometas (Wild 2, 67P). Probablemente presente en la Tierra primitiva.",
+                "biological_presence": "33% del colágeno es glicina. Neurotransmisor inhibitorio en médula espinal. Componente del glutatión (antioxidante). Precursor de porfirina (hemo).",
+                "utility": "Bloque básico de proteínas. Síntesis de creatina. Tratamiento de esquizofrenia. Aditivo de sabor dulce."
             },
             "gameplay": {
                 "milestones": [
                     "Enlace Peptídico",
-                    "Bloque Primordial"
+                    "Aminoácido Espacial",
+                    "Colágeno"
                 ],
-                "discovery_points": 50,
+                "discovery_points": 80,
+                "difficulty": "medium"
+            }
+        },
+        "C3H7N1O2": {
+            "identity": {
+                "names": {
+                    "es": "Alanina",
+                    "en": "Alanine"
+                },
+                "formula": "C3H7N1O2",
+                "category": "amino_acid",
+                "family_color": [
+                    180,
+                    120,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Segundo aminoácido más simple. Nombre de 'aldeído'. Detectado en meteoritos. Uno de los primeros formados en experimentos Miller-Urey.",
+                "biological_presence": "Segundo más abundante en proteínas humanas. Ciclo alanina-glucosa: transporta nitrógeno desde músculo a hígado. β-alanina es precursor de carnosina (antioxidante muscular).",
+                "utility": "Suplemento deportivo (β-alanina). Gluconeogénesis: puede convertirse en glucosa durante ayuno. Indicador de pancreatitis."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Miller-Urey",
+                    "Ciclo Alanina-Glucosa"
+                ],
+                "discovery_points": 85,
+                "difficulty": "medium"
+            }
+        },
+        "C3H7N1O3": {
+            "identity": {
+                "names": {
+                    "es": "Serina",
+                    "en": "Serine"
+                },
+                "formula": "C3H7N1O3",
+                "category": "amino_acid",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Nombre deriva de 'sericina' (proteína de seda). Contiene grupo hidroxilo (-OH) que lo hace muy reactivo.",
+                "biological_presence": "Crucial en fosforilación de proteínas (Ser/Thr quinasas). Precursor de glicina, cisteína, triptófano. Componente de fosfolípidos de membrana (fosfatidilserina).",
+                "utility": "Sitio de fosforilación en señalización celular. 'Switch' molecular que activa/desactiva proteínas. Objetivo de muchos fármacos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Fosforilación",
+                    "Switch Molecular",
+                    "Señalización"
+                ],
+                "discovery_points": 95,
+                "difficulty": "medium"
+            }
+        },
+        "C3H7N1O2S1": {
+            "identity": {
+                "names": {
+                    "es": "Cisteína",
+                    "en": "Cysteine"
+                },
+                "formula": "C3H7N1O2S1",
+                "category": "amino_acid",
+                "family_color": [
+                    255,
+                    200,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Único aminoácido con grupo tiol (-SH). Nombre de 'kystis' (vejiga, donde se descubrió). Contiene AZUFRE - elemento crucial para la vida.",
+                "biological_presence": "Forma puentes disulfuro (S-S) que estabilizan proteínas. Componente del glutatión (principal antioxidante celular). Presente en queratina (cabello, uñas).",
+                "utility": "Antídoto para intoxicación por paracetamol (N-acetilcisteína). Mucolítico. Forma puentes S-S que dan forma a proteínas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Puente Disulfuro",
+                    "Glutatión",
+                    "Química del Azufre"
+                ],
+                "discovery_points": 110,
+                "difficulty": "hard"
+            }
+        },
+        "C5H9N1O2": {
+            "identity": {
+                "names": {
+                    "es": "Prolina",
+                    "en": "Proline"
+                },
+                "formula": "C5H9N1O2",
+                "category": "amino_acid",
+                "family_color": [
+                    200,
+                    180,
+                    220
+                ]
+            },
+            "lore": {
+                "origin_story": "Único aminoácido cíclico (iminoácido). Nombre de 'pirrolidina'. Detectado en meteoritos.",
+                "biological_presence": "Rompe estructuras α-hélice y β-lámina. Componente clave del colágeno (10%). Hidroxiprolina estabiliza la triple hélice del colágeno.",
+                "utility": "Vital para estructura del colágeno. Deficiencia causa escorbuto (vitamina C necesaria para hidroxilar prolina). Arrugas en piel = degradación de colágeno."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Colágeno",
+                    "Estructura Proteica",
+                    "Anti-Escorbuto"
+                ],
+                "discovery_points": 90,
                 "difficulty": "medium"
             }
         }

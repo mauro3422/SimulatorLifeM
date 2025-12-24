@@ -1,0 +1,10 @@
+{
+  "trash": [],
+  "valuable": [],
+  "neutral": [],
+  "summary": {
+    "trash_count": 0,
+    "valuable_count": 0,
+    "neutral_count": 0
+  }
+}

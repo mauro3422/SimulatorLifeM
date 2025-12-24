@@ -58,6 +58,63 @@
                 "discovery_points": 70,
                 "difficulty": "hard"
             }
+        },
+        "C3H2N2": {
+            "identity": {
+                "names": {
+                    "es": "Malononitrilo",
+                    "en": "Malononitrile"
+                },
+                "formula": "C3H2N2",
+                "category": "dinitrile",
+                "family_color": [
+                    200,
+                    100,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Dos grupos nitrilo (-CN) unidos a carbono central. Detectado en nubes moleculares interestelares. Sintetizado industrialmente desde 1900.",
+                "biological_presence": "Precursor clave de pirimidinas (citosina, timina, uracilo). Puede formarse en experimentos Miller-Urey. Con urea forma citosina espontáneamente.",
+                "utility": "Ruta directa hacia nucleótidos del ADN/ARN. Piedra angular de la hipótesis del Mundo ARN."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Precursor Pirimidinas",
+                    "Mundo ARN",
+                    "Síntesis Citosina"
+                ],
+                "discovery_points": 180,
+                "difficulty": "hard"
+            }
+        },
+        "C5H2N2": {
+            "identity": {
+                "names": {
+                    "es": "Glutaronitrilo",
+                    "en": "Glutaronitrile"
+                },
+                "formula": "C5H2N2",
+                "category": "dinitrile",
+                "family_color": [
+                    180,
+                    120,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Dinitrilo de cinco carbonos. Intermediario industrial en síntesis de poliamidas (nylon).",
+                "biological_presence": "Su hidrólisis produce glutamina y ácido glutámico - aminoácidos esenciales. Precursor de glutamato, principal neurotransmisor excitador del cerebro.",
+                "utility": "Ruta hacia aminoácidos dicarboxílicos y neurotransmisores. Conexión química-neurociencia."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Precursor Glutamato",
+                    "Neuroquímica Ancestral"
+                ],
+                "discovery_points": 110,
+                "difficulty": "hard"
+            }
         }
     }
 }

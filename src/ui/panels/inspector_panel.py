@@ -47,10 +47,10 @@ def draw_inspector_panel(state, synced_data, win_h: float):
     imgui.push_style_color(imgui.Col_.title_bg_active, title_col)
     
     full_name = info.get('name', name).upper()
-    imgui.begin(f"🔬 {full_name}", None, UIConfig.WINDOW_FLAGS_STATIC)
+    imgui.begin(f"[+] {full_name}", None, UIConfig.WINDOW_FLAGS_STATIC)
     
     # Header con nombre del átomo
-    imgui.text_colored((col[0], col[1], col[2], 1.0), f"◉ {full_name}")
+    imgui.text_colored((col[0], col[1], col[2], 1.0), f">> {full_name}")
     imgui.same_line()
     imgui.text_disabled(f"(ID: {state.selected_idx})")
     
@@ -82,14 +82,16 @@ def _draw_atom_info(info: dict, current_bonds: int, max_valence: int, col):
     
     imgui.spacing()
     imgui.spacing()
-    imgui.text_colored((0.4, 0.8, 1.0, 1.0), "💡 Clic de nuevo → Ver molécula")
+    imgui.text_colored((0.4, 0.8, 1.0, 1.0), "[i] Clic de nuevo -> Ver molecula")
 
 
 from src.gameplay.inventory import get_inventory
 from src.config.molecules import get_molecule_name
 
 def _draw_molecule_info_v4(state, atom_types_np):
-    """Dibuja información de una molécula (Rápido V4)."""
+    """Dibuja información BÁSICA de una molécula (sin lore detallado)."""
+    from src.ui.components.periodic_widget import draw_molecule_box, get_family_color
+    
     # Obtain raw formula (e.g., H2O1)
     raw_formula = state.get_formula(state.selected_mol)
     # Identify Name
@@ -108,18 +110,33 @@ def _draw_molecule_info_v4(state, atom_types_np):
     
     # Si en el inventario tiene un nombre mejor (no genérico), usar ese
     display_name = inv_data.get('name', mol_name)
+    category = inv_data.get('category', 'Estable')
+    count = inv_data.get('count', 1)
     
-    mol_data = {
-        'category': inv_data.get('category', 'Estable'), # Default a Estable si está en inv
-        'count': inv_data.get('count', 1),
-        'discovery_count': inv_data.get('count', 1)
-    }
+    # --- VISTA SIMPLIFICADA ---
+    draw_list = imgui.get_window_draw_list()
+    p_min = imgui.get_cursor_screen_pos()
+    size = 70
     
-    # Si no está en inventario y es 'Desconocida', mostrar como tal
-    if not inv_data and mol_name in ["Desconocida", "Transitorio"]:
-        mol_data['category'] = 'Inestable' if mol_name == "Transitorio" else 'Desconocida'
-
-    draw_molecule_infographic(raw_formula, display_name, mol_data)
+    # Obtener color de familia
+    f_color = get_family_color(raw_formula)[:3]
+    f_color = [int(c * 255) for c in f_color]
+    
+    # Dibujar caja de molécula
+    draw_molecule_box(draw_list, (p_min.x, p_min.y), size, raw_formula, display_name, f_color)
+    imgui.dummy((size, size))
+    
+    # Info a la derecha
+    imgui.same_line(offset_from_start_x=90.0)
+    imgui.begin_group()
+    imgui.text_colored((1, 1, 1, 1), display_name.upper())
+    imgui.text_disabled(f"Fórmula: {raw_formula}")
+    imgui.text_disabled(f"Estado: {category}")
+    imgui.text(f"Hallazgos: {count}")
+    imgui.end_group()
+    
+    imgui.spacing()
+    imgui.separator()
     
     # Listado de Átomos
     imgui.spacing()
@@ -136,4 +153,6 @@ def _draw_molecule_info_v4(state, atom_types_np):
         imgui.text(f" {c}")
     
     imgui.spacing()
-    imgui.text_disabled("💡 Clic → Inspección simple")
+    imgui.separator()
+    imgui.text_colored((0.4, 0.8, 1.0, 1.0), "[i] Presiona [P] -> Enciclopedia completa")
+

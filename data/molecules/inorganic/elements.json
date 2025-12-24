@@ -138,6 +138,90 @@
                 "discovery_points": 95,
                 "difficulty": "medium"
             }
+        },
+        "S2": {
+            "identity": {
+                "names": {
+                    "es": "Azufre Diatómico",
+                    "en": "Diatomic Sulfur"
+                },
+                "formula": "S2",
+                "category": "element",
+                "family_color": [
+                    255,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula de azufre con doble enlace S=S. Existe en vapores de azufre a alta temperatura (>700°C). Coloración azul característica.",
+                "biological_presence": "No existe libre en biología. El azufre biológico está principalmente en cisteína, metionina y cofactores Fe-S.",
+                "utility": "Intermedio en química del azufre. Detectado en atmósferas volcánicas y en Io (luna de Júpiter). Color azul de fumarolas."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química del Azufre",
+                    "Vapores Volcánicos"
+                ],
+                "discovery_points": 60,
+                "difficulty": "medium"
+            }
+        },
+        "P2": {
+            "identity": {
+                "names": {
+                    "es": "Fósforo Diatómico",
+                    "en": "Diatomic Phosphorus"
+                },
+                "formula": "P2",
+                "category": "element",
+                "family_color": [
+                    255,
+                    150,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula P≡P con triple enlace. Existe solo a muy alta temperatura (>1200°C). El fósforo normalmente forma P4.",
+                "biological_presence": "No existe libre. El fósforo es ESENCIAL: ATP, ADN/ARN, fosfolípidos, huesos (fosfato de calcio).",
+                "utility": "Forma transitoria. El fósforo es el cuello de botella de la vida: limitante en agricultura y océanos."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Cuello de Botella",
+                    "Química del Fósforo"
+                ],
+                "discovery_points": 70,
+                "difficulty": "hard"
+            }
+        },
+        "C2H3": {
+            "identity": {
+                "names": {
+                    "es": "Radical Vinilo",
+                    "en": "Vinyl Radical"
+                },
+                "formula": "C2H3",
+                "category": "radical",
+                "family_color": [
+                    180,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Fragmento de etileno con un electrón desapareado. Muy reactivo, vida corta. Clave en química de combustión y polimerización.",
+                "biological_presence": "No existe libre. El grupo vinilo (-CH=CH2) está en muchos metabolitos secundarios y fármacos.",
+                "utility": "Intermedio en polimerización del PVC (policloruro de vinilo). Química de combustión. Precursor de vinilacetileno."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Radical Vinilo",
+                    "Polimerización"
+                ],
+                "discovery_points": 55,
+                "difficulty": "medium"
+            }
         }
     }
 }

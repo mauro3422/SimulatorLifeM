@@ -386,7 +386,11 @@ class AppContext:
         sorted_syms = sorted(counts.keys())
         formula = ""
         for s in sorted_syms:
-            formula += f"{s}{counts[s]}"
+            count = counts[s]
+            if count > 1:
+                formula += f"{s}{count}"
+            else:
+                formula += f"{s}"
             
         return formula
 

@@ -19,16 +19,160 @@
                 ]
             },
             "lore": {
-                "origin_story": "Una de las cuatro bases del ADN.",
-                "biological_presence": "Crucial en el ADN, ARN y ATP.",
-                "utility": "Código genético y moneda energética."
+                "origin_story": "Purina. Se forma espontáneamente de 4-5 moléculas de HCN. Detectada en meteoritos y medio interestelar. Nombre de glándula 'adeno' (páncreas).",
+                "biological_presence": "Base A del ADN/ARN. Componente de ATP (moneda energética), NAD, FAD, CoA. Forma par A-T en ADN (2 puentes H) y A-U en ARN.",
+                "utility": "Información genética. Energía celular (ATP). Sin adenina no hay vida como la conocemos."
             },
             "gameplay": {
                 "milestones": [
-                    "Código Sagrado",
-                    "Letra A"
+                    "Código Genético",
+                    "ATP",
+                    "Purina Primordial"
                 ],
-                "discovery_points": 120,
+                "discovery_points": 150,
+                "difficulty": "hard"
+            }
+        },
+        "C5H5N5O1": {
+            "identity": {
+                "names": {
+                    "es": "Guanina",
+                    "en": "Guanine"
+                },
+                "formula": "C5H5N5O1",
+                "category": "nucleobase",
+                "family_color": [
+                    100,
+                    255,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Purina. Nombre de 'guano' (excremento de murciélago, donde se descubrió en 1846). Segunda purina del código genético.",
+                "biological_presence": "Base G del ADN/ARN. Par G-C (3 puentes H, más estable que A-T). Componente de GTP (energía para síntesis proteica) y GMPc (señalización).",
+                "utility": "Código genético. Señalización celular (proteínas G). Las regiones ricas en G-C son más estables térmicamente."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Par G-C",
+                    "Proteínas G",
+                    "Doble Hélice"
+                ],
+                "discovery_points": 150,
+                "difficulty": "hard"
+            }
+        },
+        "C4H5N3O1": {
+            "identity": {
+                "names": {
+                    "es": "Citosina",
+                    "en": "Cytosine"
+                },
+                "formula": "C4H5N3O1",
+                "category": "nucleobase",
+                "family_color": [
+                    255,
+                    255,
+                    0
+                ]
+            },
+            "lore": {
+                "origin_story": "Pirimidina. Nombre de 'kytos' (célula). Se forma de urea + malononitrilo en condiciones prebióticas. La más inestable de las bases.",
+                "biological_presence": "Base C del ADN/ARN. Par C-G. Puede desaminarse espontáneamente a Uracilo (causa mutaciones que el ADN repara).",
+                "utility": "Código genético. Metilación de citosina (5mC) regula expresión génica (epigenética). Músculo metilación = silenciamiento de genes."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Par C-G",
+                    "Epigenética",
+                    "Urea + Malononitrilo"
+                ],
+                "discovery_points": 140,
+                "difficulty": "hard"
+            }
+        },
+        "C5H6N2O2": {
+            "identity": {
+                "names": {
+                    "es": "Timina",
+                    "en": "Thymine"
+                },
+                "formula": "C5H6N2O2",
+                "category": "nucleobase",
+                "family_color": [
+                    255,
+                    150,
+                    0
+                ]
+            },
+            "lore": {
+                "origin_story": "Pirimidina. Nombre de 'thymus' (timo). SOLO en ADN, nunca en ARN. Citosina metilada evolutivamente se convirtió en timina.",
+                "biological_presence": "Base T del ADN SOLAMENTE. Par A-T. Su presencia distingue ADN de ARN. Dímeros de timina (T-T) por UV causan cáncer de piel.",
+                "utility": "Marca del ADN. Protección vs. mutaciones (timina es más estable que uracilo). Bloqueador solar protege formación de dímeros T-T."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Solo ADN",
+                    "Par A-T",
+                    "Dímeros UV"
+                ],
+                "discovery_points": 130,
+                "difficulty": "hard"
+            }
+        },
+        "C4H4N2O2": {
+            "identity": {
+                "names": {
+                    "es": "Uracilo",
+                    "en": "Uracil"
+                },
+                "formula": "C4H4N2O2",
+                "category": "nucleobase",
+                "family_color": [
+                    0,
+                    200,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Pirimidina. Nombre de 'urea' (de donde deriva). SOLO en ARN, nunca en ADN. El ARN es probablemente más antiguo que el ADN (Mundo ARN).",
+                "biological_presence": "Base U del ARN SOLAMENTE. Par A-U. Cuando citosina se desamina, forma uracilo (error detectable porque U no debería estar en ADN).",
+                "utility": "Marca del ARN. La distinción U/T permite al sistema de reparación detectar daño en ADN. Hipótesis Mundo ARN: vida comenzó con ARN."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Solo ARN",
+                    "Mundo ARN",
+                    "Par A-U"
+                ],
+                "discovery_points": 130,
+                "difficulty": "hard"
+            }
+        },
+        "C4H4N3O2": {
+            "identity": {
+                "names": {
+                    "es": "Proto-Citosina",
+                    "en": "Proto-Cytosine"
+                },
+                "formula": "C4H4N3O2",
+                "category": "nucleobase_precursor",
+                "family_color": [
+                    100,
+                    255,
+                    150
+                ]
+            },
+            "lore": {
+                "origin_story": "Variante primitiva y deshidrogenada de Citosina. 'Borrador' evolutivo hacia el código genético.",
+                "biological_presence": "Trazas en meteoritos.",
+                "utility": "Evidencia de química prebiótica."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química Prebiótica"
+                ],
+                "discovery_points": 80,
                 "difficulty": "hard"
             }
         }

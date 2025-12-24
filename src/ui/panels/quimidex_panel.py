@@ -18,70 +18,123 @@ def draw_quimidex_panel(state, open_quimidex: list):
     imgui.set_next_window_size((800, 600), imgui.Cond_.first_use_ever)
     imgui.set_next_window_bg_alpha(1.0) # Completamente opaca
     
-    # Empujar estilo oscuro
-    imgui.push_style_color(imgui.Col_.window_bg, (0.02, 0.02, 0.05, 1.0))
+    # Empujar estilo oscuro con tinte azul
+    imgui.push_style_color(imgui.Col_.window_bg, (0.02, 0.04, 0.08, 1.0))
+    imgui.push_style_color(imgui.Col_.title_bg_active, (0.05, 0.15, 0.30, 1.0))
+    imgui.push_style_color(imgui.Col_.tab, (0.08, 0.12, 0.20, 1.0))
+    imgui.push_style_color(imgui.Col_.tab_hovered, (0.15, 0.30, 0.50, 1.0))
+    imgui.push_style_color(imgui.Col_.tab_selected, (0.10, 0.25, 0.45, 1.0))
+    
     expanded, is_open = imgui.begin("QUIMIDEX: Enciclopedia Estelar", open_quimidex[0])
-    imgui.pop_style_color()
+    
     open_quimidex[0] = is_open # Actualizar estado del toggle
     
     if expanded:
         if imgui.begin_tab_bar("quimidex_tabs"):
             
             # --- PESTAÑA 1: MOLÉCULAS ---
-            if imgui.begin_tab_item("🧬 MOLÉCULAS")[0]:
+            if imgui.begin_tab_item("[M] MOLECULAS")[0]:
                 _draw_molecules_tab(state)
                 imgui.end_tab_item()
                 
             # --- PESTAÑA 2: ÁTOMOS (Origen Cósmico) ---
-            if imgui.begin_tab_item("🌟 ÁTOMOS")[0]:
+            if imgui.begin_tab_item("[A] ATOMOS")[0]:
                 _draw_atoms_origin_tab(state)
                 imgui.end_tab_item()
                 
             imgui.end_tab_bar()
 
+    imgui.pop_style_color(5)  # Pop all 5 colors
     imgui.end()
 
 
 def _draw_molecules_tab(state):
-    """Pestaña de descubrimientos moleculares en Split-View."""
+    """Pestaña de descubrimientos moleculares en Split-View con Modo Auditoría."""
     inventory = get_inventory()
     collection = inventory.get_collection()
     
-    # Filtrado: Solo conocidas (Incógnitas y Transitorias van a contadores numéricos abajo)
-    known_collection = {f: d for f, d in collection.items() if d.get('name') not in ["Transitorio", "Desconocida"]}
-    unknown_count = sum(1 for d in collection.values() if d.get('name') == "Desconocida")
-    transitory_count = sum(1 for d in collection.values() if d.get('name') == "Transitorio")
+    # Init state toggle
+    if not hasattr(state, 'quimidex_show_audit'):
+        state.quimidex_show_audit = False
+
+    # Filtrado Inteligente
+    # 1. Conocidas: Tienen nombre real y NO son categoría 'audit_candidate'
+    # 2. Auditables: Categoría 'audit_candidate' o nombre placeholder
+    # 3. Transitorias: "Transitorio" (Junk)
+
+    known_collection = {}
+    audit_collection = {}
+    transitory_count = 0
+    
+    from src.config.molecules import get_molecule_entry
+    
+    # Filtrado y preparación (Iteramos sobre copia para evitar RuntimeError por concurrencia)
+    for f, d in list(collection.items()):
+        name = d.get('name', 'Desconocida')
+        category = d.get('category', '').lower()
+        if name in ["Transitorio", "Residuo Inestable", "Unstable Residue", "[Nombre Sugerido]", "[Suggested Name]"] or category == 'waste':
+            transitory_count += 1
+            continue
+            
+        # Detectar si es candidato de auditoría
+        entry = get_molecule_entry(f)
+        is_candidate = False
+        if entry and entry.get("identity", {}).get("category") == "audit_candidate":
+            is_candidate = True
+        elif name in ["Desconocida", "[DETECTADA - SIN NOMBRE]", "[DETECTED - UNNAMED]"]:
+            is_candidate = True
+            
+        if is_candidate:
+            audit_collection[f] = d
+        else:
+            known_collection[f] = d
+            
+    # Selección de qué lista mostrar
+    display_collection = audit_collection if state.quimidex_show_audit else known_collection
     
     # --- COLUMNA IZQUIERDA: LISTA ---
     imgui.begin_child("mols_list_child", (240, 0), True)
-    imgui.text_colored((0.1, 0.8, 1.0, 1.0), "DESCUBRIMIENTOS")
+    
+    # Header con Toggle
+    if state.quimidex_show_audit:
+        imgui.text_colored((1.0, 0.4, 0.4, 1.0), "ANTENA FORENSE")
+        if imgui.small_button("<< Volver a Enciclopedia"):
+            state.quimidex_show_audit = False
+    else:
+        imgui.text_colored((0.1, 0.8, 1.0, 1.0), "ENCICLOPEDIA")
+        
     imgui.separator()
     
-    if len(known_collection) > 0:
+    if len(display_collection) > 0:
         flags = imgui.TableFlags_.row_bg | imgui.TableFlags_.scroll_y
         if imgui.begin_table("mols_list_table", 1, flags):
-            sorted_items = sorted(known_collection.items(), key=lambda x: x[1]['first_discovery'], reverse=True)
+            # Ordenar: Más recientes primero para auditoría, cronológico inverso para enciclopedia
+            sorted_items = sorted(display_collection.items(), key=lambda x: x[1]['first_discovery'], reverse=True)
+            
             for formula, data in sorted_items:
                 imgui.table_next_row()
                 imgui.table_set_column_index(0)
                 
                 is_selected = getattr(state, 'selected_quimidex_mol', None) == formula
                 
-                # Color dinámico: Manual -> Familia -> Default
-                raw_col = data.get('color')
-                if raw_col:
-                    col_v4 = np.array(raw_col) / 255.0
+                # Color dinámico
+                if state.quimidex_show_audit:
+                    col_v4 = np.array([0.6, 0.6, 0.6]) # Gris para auditoría
                 else:
-                    # Usar el sistema de colores por familia
-                    col_v4 = get_family_color(formula)
+                    raw_col = data.get('color')
+                    if raw_col:
+                        col_v4 = np.array(raw_col) / 255.0
+                    else:
+                        col_v4 = get_family_color(formula)
                 
-                # Nombre legible (fallback a la fórmula si no tiene nombre)
                 display_name = data.get('name', formula)
+                if state.quimidex_show_audit:
+                    # En auditoría mostramos la fórmula primero para facilitar identificación visual rapida
+                    display_name = f"{formula} {display_name}"
                 
                 p = imgui.get_cursor_screen_pos()
                 draw_list = imgui.get_window_draw_list()
                 
-                # Dibujar "pelotita" (círculo) en lugar de cuadrado, unificado con átomos
                 draw_list.add_circle_filled(imgui.ImVec2(p.x + 10, p.y + 10), 4.5, imgui.get_color_u32((col_v4[0], col_v4[1], col_v4[2], 1.0)))
                 
                 imgui.indent(20)
@@ -90,11 +143,24 @@ def _draw_molecules_tab(state):
                 imgui.unindent(20)
             imgui.end_table()
     else:
-        imgui.text_disabled("Sin fórmulas estables.")
+        if state.quimidex_show_audit:
+            imgui.text_disabled("No hay anomalías detectadas.")
+        else:
+            imgui.text_disabled("Sin descubrimientos validados.")
         
     imgui.spacing()
     imgui.separator()
-    imgui.text_colored((1.0, 0.4, 0.4, 1.0), f"⚠ UNK: {unknown_count}")
+    
+    # Footer con Contadores Interactivos
+    if not state.quimidex_show_audit:
+        if len(audit_collection) > 0:
+            if imgui.small_button(f"⚠ AUDITORIA ({len(audit_collection)})"):
+                state.quimidex_show_audit = True
+            if imgui.is_item_hovered():
+                imgui.set_tooltip("Ver lista de moléculas detectadas pero no clasificadas")
+        else:
+            imgui.text_disabled("✓ Auditoría Limpia")
+            
     imgui.text_colored((0.6, 0.6, 0.6, 1.0), f"🗑 JUNK: {transitory_count}")
     imgui.end_child()
     
@@ -108,7 +174,7 @@ def _draw_molecules_tab(state):
         data = collection[selected_formula]
         name = data.get('name', 'Desconocida')
         
-        imgui.text_colored((0.1, 0.8, 1.0, 1.0), "🧬 ANÁLISIS ESTRUCTURAL")
+        imgui.text_colored((0.1, 0.8, 1.0, 1.0), "[#] ANALISIS ESTRUCTURAL")
         imgui.separator()
         
         # Si es un agregado, mostrar información especial de conteo
@@ -124,9 +190,42 @@ def _draw_molecules_tab(state):
         if imgui.button("Reset Inventario", (imgui.get_content_region_avail().x, 0)):
              imgui.open_popup("Confirmar Reset")
     else:
-        imgui.spacing()
-        imgui.spacing()
-        imgui.text_disabled("<- Selecciona una molécula\n   para ver su estructura.")
+        # Dashboard de métricas globales cuando no hay selección
+        if len(collection) > 0:
+            # Calcular estadísticas en tiempo real (puede optimizarse si es lento)
+            most_freq_item = max(collection.items(), key=lambda item: item[1].get('count', 0))
+            last_disc_item = max(collection.items(), key=lambda item: item[1].get('first_discovery', 0))
+            
+            imgui.spacing()
+            imgui.text_colored((0.2, 0.9, 0.9, 1.0), "[*] METRICAS DEL SISTEMA")
+            imgui.separator()
+            imgui.spacing()
+            
+            imgui.text("Total Registros:")
+            imgui.same_line()
+            imgui.text_colored((1, 1, 0, 1), str(len(collection)))
+            
+            imgui.spacing()
+            imgui.separator()
+            
+            # Seccion Ultimo Hallazgo
+            imgui.spacing()
+            imgui.text_colored((0.6, 0.8, 1.0, 1.0), "[>] Ultimo Detectado:")
+            ld_name = last_disc_item[1].get('name', 'Desconocida')
+            imgui.text(f"{ld_name}") 
+            imgui.text_colored((0.5, 0.5, 0.5, 1.0), f"Fórmula: {last_disc_item[0]}")
+            
+            # Seccion Más Frecuente
+            imgui.spacing()
+            imgui.text_colored((0.6, 1.0, 0.6, 1.0), "[+] Mayor Hallazgo:")
+            mf_name = most_freq_item[1].get('name', 'Desconocida')
+            imgui.text(f"{mf_name}")
+            imgui.text_colored((1.0, 0.8, 0.2, 1.0), f"Cantidad: {most_freq_item[1].get('count', 0)}")
+            
+        else:
+            imgui.spacing()
+            imgui.spacing()
+            imgui.text_disabled("<- Inicia la simulación para\n   descubrir moléculas.")
         
     # El popup de confirmación debe estar fuera del condicional del seleccionado pero dentro del child o panel
     if imgui.begin_popup_modal("Confirmar Reset", None, imgui.WindowFlags_.always_auto_resize)[0]:
@@ -182,7 +281,7 @@ def _draw_atoms_origin_tab(state):
     
     if selected_name and selected_name in cfg.ATOMS:
         info = cfg.ATOMS[selected_name]
-        imgui.text_colored((0.2, 1.0, 0.5, 1.0), "📊 DETALLE ATÓMICO")
+        imgui.text_colored((0.2, 1.0, 0.5, 1.0), "[#] DETALLE ATOMICO")
         imgui.separator()
         
         # Dibujar el widget modular con el nombre completo

@@ -1,0 +1,187 @@
+{
+    "molecules": {
+        "H2N2O2": {
+            "identity": {
+                "names": {
+                    "es": "Ácido Hiponitroso",
+                    "en": "Hyponitrous Acid"
+                },
+                "formula": "H2N2O2",
+                "category": "precursor_unstable",
+                "family_color": [
+                    150,
+                    150,
+                    255
+                ]
+            },
+            "lore": {
+                "origin_story": "Un ácido de nitrógeno inestable y explosivo en estado sólido. Su presencia indica un ciclo del nitrógeno activo pero volátil.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "C3N1P1": {
+            "identity": {
+                "names": {
+                    "es": "Ciano-Fosfina",
+                    "en": "Cyanophosphine"
+                },
+                "formula": "C3N1P1",
+                "category": "precursor_toxic",
+                "family_color": [
+                    200,
+                    100,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Precursor reactivo que combina las propiedades tóxicas del cianuro con la reactividad química del fósforo.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "H2O4": {
+            "identity": {
+                "names": {
+                    "es": "Tetróxido de Hidrógeno",
+                    "en": "Hydrogen Tetroxide"
+                },
+                "formula": "H2O4",
+                "category": "exotic_oxidizer",
+                "family_color": [
+                    255,
+                    100,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Molécula teórica rica en oxígeno. Altamente reactiva y efímera, actúa como un super-oxidante en la sopa primordial.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "H4S1": {
+            "identity": {
+                "names": {
+                    "es": "Sulfurano",
+                    "en": "Sulfurane"
+                },
+                "formula": "H4S1",
+                "category": "exotic_hydride",
+                "family_color": [
+                    255,
+                    230,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto hipervalente de azufre. Desafía la regla del octeto, existiendo solo bajo presiones moleculares locales extremas.",
+                "biological_presence": "Trazas",
+                "utility": "Investigación"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 15,
+                "difficulty": "hard"
+            }
+        },
+        "N2O4": {
+            "identity": {
+                "names": {
+                    "es": "Tetróxido de Dinitrógeno",
+                    "en": "Dinitrogen Tetroxide"
+                },
+                "formula": "N2O4",
+                "category": "oxidizer",
+                "family_color": [
+                    200,
+                    180,
+                    100
+                ]
+            },
+            "lore": {
+                "origin_story": "Dímero del dióxido de nitrógeno. Un poderoso oxidante utilizado en propulsión de cohetes. Altamente corrosivo y tóxico.",
+                "biological_presence": "Tóxica",
+                "utility": "Propelente"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 20,
+                "difficulty": "hard"
+            }
+        },
+        "C2H5O1Si1": {
+            "identity": {
+                "names": {
+                    "es": "Etoxisilano",
+                    "en": "Ethoxysilane"
+                },
+                "formula": "C2H5O1Si1",
+                "category": "organosilicon",
+                "family_color": [
+                    150,
+                    150,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Compuesto organosilícico. Los silanos se forman en atmósferas reductoras y fueron propuestos como base de vida alternativa al carbono en astrobiología.",
+                "biological_presence": "NO existe en biología terrestre. Sin embargo, diatomeas y esponjas usan sílice (SiO2) en sus esqueletos. Los silanos podrían ser relevantes en mundos con menos oxígeno.",
+                "utility": "Precursor industrial de siliconas y vidrios. En contexto prebiótico, representa química exótica - posible vida basada en silicio."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química Exótica",
+                    "Silicio Orgánico",
+                    "Astrobiología"
+                ],
+                "discovery_points": 100,
+                "difficulty": "hard"
+            }
+        },
+        "H1O1S3": {
+            "identity": {
+                "names": {
+                    "es": "Trisulfuro de Hidrógeno",
+                    "en": "Hydrogen Trisulfide"
+                },
+                "formula": "H1O1S3",
+                "category": "polysulfide",
+                "family_color": [
+                    255,
+                    200,
+                    50
+                ]
+            },
+            "lore": {
+                "origin_story": "Polisulfuro encontrado en ventilas hidrotermales submarinas y volcanes activos. Los polisulfuros fueron abundantes en la Tierra primitiva hace 4 mil millones de años.",
+                "biological_presence": "Bacterias extremófilas en ventilas oceánicas utilizan compuestos de azufre como fuente de energía (quimiosíntesis). Algunos polisulfuros participan en señalización celular moderna.",
+                "utility": "Donador de electrones para quimiosíntesis sin luz solar. Los polisulfuros pudieron catalizar formación de enlaces peptídicos en el origen de la vida."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Química Volcánica",
+                    "Ventila Hidrotermal",
+                    "Quimiosíntesis"
+                ],
+                "discovery_points": 85,
+                "difficulty": "medium"
+            }
+        }
+    }
+}

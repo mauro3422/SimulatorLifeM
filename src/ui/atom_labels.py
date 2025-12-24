@@ -27,7 +27,14 @@ def draw_atom_labels(pos_data, type_data, visible_indices_field,
     
     # Prioritize CLOSEST atoms (End of Z-sorted array)
     # The array is sorted Far -> Near, so we want the last n_limit elements.
-    start_idx = n_visible - n_limit
+    # Safety Check: Ensure we don't request more atoms than exist in the buffer
+    num_particles = len(pos_data)
+    n_limit = min(n_visible, max_labels, num_particles)
+    
+    if n_limit <= 0 or num_particles == 0:
+        return
+
+    start_idx = num_particles - n_limit
     
     # Slice taking the end of the array
     pos_subset = pos_data[start_idx:]

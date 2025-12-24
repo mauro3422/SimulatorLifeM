@@ -23,6 +23,7 @@ def load_molecule_database(language: str = "es") -> bool:
     """
     Carga la base de datos de moléculas desde archivos JSON en data/molecules/.
     Unifica todos los archivos en un registro central rico.
+    Prioriza enriched_discoveries.json para lore científico.
     """
     global _molecule_db, _current_language, _db_loaded
     
@@ -35,9 +36,14 @@ def load_molecule_database(language: str = "es") -> bool:
     
     try:
         files_loaded = 0
+        enriched_path = db_dir / "enriched_discoveries.json"  # Prioridad
+        
+        # Primera pasada: cargar todos excepto enriched_discoveries
         for file_path in db_dir.rglob("*.json"):
             if "unknown_molecules" in file_path.name or "player_molecules" in file_path.name:
                 continue
+            if file_path.name == "enriched_discoveries.json":
+                continue  # Cargar al final para prioridad
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
@@ -51,14 +57,81 @@ def load_molecule_database(language: str = "es") -> bool:
             except Exception as e:
                 print(f"[MOLECULES] ❌ Error cargando {file_path.name}: {e}")
 
+        # Segunda pasada: cargar enriched_discoveries.json con PRIORIDAD
+        enriched_count = 0
+        if enriched_path.exists():
+            try:
+                with open(enriched_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    molecules = data.get("molecules", {})
+                    
+                    for formula, raw_data in molecules.items():
+                        # Sobrescribir con datos enriquecidos (lore científico real)
+                        _molecule_db[formula] = _normalize_molecule_data(formula, raw_data)
+                        enriched_count += 1
+                    
+                    files_loaded += 1
+                print(f"[MOLECULES] 🔬 Lore científico cargado: {enriched_count} moléculas enriquecidas")
+            except Exception as e:
+                print(f"[MOLECULES] ❌ Error cargando enriched_discoveries.json: {e}")
+
+        # --- CARGA DE AUDITORÍA (Candidatos desconocidos) ---
+        audit_count = _load_audit_molecules(db_dir.parent / "unknown_molecules.json")
+
         _current_language = language
         _db_loaded = True
         
-        print(f"[MOLECULES] ✅ Enciclopedia modular cargada: {len(_molecule_db)} moléculas desde {files_loaded} archivos.")
+        print(f"[MOLECULES] ✅ Enciclopedia modular cargada: {len(_molecule_db)} moléculas desde {files_loaded} archivos (+{audit_count} candidatos de auditoría).")
         return True
     except Exception as e:
         print(f"[MOLECULES] ❌ Error general cargando base de datos: {e}")
         return False
+
+def _load_audit_molecules(path: Path) -> int:
+    """
+    Carga moléculas del archivo de auditoría (unknown_molecules.json)
+    y las inyecta como candidatos en la DB principal.
+    """
+    global _molecule_db
+    count = 0
+    if not path.exists():
+        return 0
+
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            # Lista de desconocidos
+            unknowns = data.get("unknown_molecules", [])
+            for entry in unknowns:
+                formula = entry.get("formula")
+                if formula and formula not in _molecule_db:
+                    # Crear entrada temporal de "Candidato"
+                    _molecule_db[formula] = {
+                        "identity": {
+                            "names": {
+                                "es": entry.get("suggested_entry", {}).get("names", {}).get("es", "[DETECTADA - SIN NOMBRE]"),
+                                "en": entry.get("suggested_entry", {}).get("names", {}).get("en", "[DETECTED - UNNAMED]")
+                            },
+                            "formula": formula,
+                            "category": "audit_candidate", # Categoría especial para UI
+                            "family_color": [100, 100, 100] # Gris oscuro para indicar 'pendiente'
+                        },
+                        "lore": {
+                            "origin_story": "Estructura molecular detectada en simulación reciente. Pendiente de clasificación.",
+                            "biological_presence": "Desconocida",
+                            "utility": "En investigación"
+                        },
+                        "gameplay": {
+                            "milestones": [],
+                            "discovery_points": 5,
+                            "difficulty": "unknown"
+                        }
+                    }
+                    count += 1
+    except Exception as e:
+        print(f"[MOLECULES] ⚠️ Error leyendo auditoría {path.name}: {e}")
+    
+    return count
 
 def _normalize_molecule_data(formula: str, data: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -98,6 +171,16 @@ def get_molecule_entry(formula: str) -> Optional[Dict[str, Any]]:
     if entry:
         return entry
         
+    # Fallback: Intentar buscar versión con 1s implícitos (H2O1 -> H2O)
+    import re
+    if formula not in _molecule_db:
+        # Elimina '1's explícitos: C1H4 -> CH4, H2O1 -> H2O
+        normalized = re.sub(r'([A-Z][a-z]?)1(?![0-9])', r'\1', formula)
+        if normalized != formula:
+            entry = _molecule_db.get(normalized)
+            if entry:
+                return entry
+
     # Fallback para Agregados (Glitches convertidos en Lore)
     import re
     atoms_count = sum(int(n if n else 1) for n in re.findall(r'[A-Z][a-z]?(\d*)', formula))
@@ -114,8 +197,53 @@ def get_molecule_entry(formula: str) -> Optional[Dict[str, Any]]:
         
     if atoms_count > 64:
         return _molecule_db.get("AGGREGATE_AMORPHOUS")
+    
+    # Detección automática de "Basura" para evitar "Desconocida"
+    if _is_procedural_waste(formula):
+         return {
+            "identity": {
+                "names": {"es": "Residuo Inestable", "en": "Unstable Residue"},
+                "formula": formula,
+                "category": "waste",
+                "family_color": [100, 100, 100]
+            },
+            "lore": {
+                "origin_story": "Subproducto de reacciones desordenadas o agregación aleatoria.",
+                "biological_presence": "Tóxica/Nula",
+                "utility": "Ninguna"
+            },
+            "gameplay": {
+                "milestones": [],
+                "discovery_points": 0,
+                "difficulty": "trivial"
+            }
+        }
         
     return None
+
+def _is_procedural_waste(formula: str) -> bool:
+    """
+    Heurística para identificar moléculas que son probablemente 'basura'
+    o alquitrán molecular, y no merecen ser auditadas como 'Nuevas'.
+    """
+    import re
+    # Conteo de átomos
+    atoms_count = sum(int(n if n else 1) for n in re.findall(r'[A-Z][a-z]?(\d*)', formula))
+    
+    # 1. Filtro de Complejidad: Estructuras grandes no canónicas son asfalto
+    if atoms_count > 18: 
+        return True
+        
+    # 2. Filtro de "Alquitrán" (Carbono alto, Hidrógeno bajo)
+    # Moléculas biológicas suelen tener H >= C. El hollín tiene H << C.
+    h_match = re.search(r'H(\d+)', formula)
+    h_count = int(h_match.group(1)) if h_match else (1 if 'H' in formula else 0)
+    
+    # Si tiene un tamaño decente (>6) pero muy poco hidrógeno (<20%) -> Probablemente basura inorgánica/carbonizada
+    if atoms_count > 6 and (h_count / atoms_count) < 0.2:
+        return True
+        
+    return False
 
 def get_molecule_name(formula: str) -> str:
     """Busca el nombre en el idioma actual."""
@@ -190,13 +318,34 @@ def export_unknown_molecules(discovered_formulas: set, output_path: str = None) 
     Exporta moléculas desconocidas y anomalías para revisión forense.
     Separa las descubiertas plausibles de los glitches físicos.
     """
+    import json
+    from pathlib import Path
+
+    if output_path is None:
+        base = Path(__file__).parent.parent.parent
+        output_path = str(base / "data" / "unknown_molecules.json")
+
+    # 1. Recuperar datos existentes para no perder definiciones manuales (ej: Residuo Inestable)
+    existing_data = {}
+    if os.path.exists(output_path):
+        try:
+            with open(output_path, 'r', encoding='utf-8') as f:
+                old_report = json.load(f)
+                for item in old_report.get("unknown_molecules", []):
+                    existing_data[item["formula"]] = item
+        except:
+            pass
+
     unknown = []
     anomalies = []
     db = get_all_known_molecules()
     
     import re
     
-    for formula in discovered_formulas:
+    # Combinar lo nuevo descubierto + lo que ya teníamos registrado
+    all_formulas = discovered_formulas.union(existing_data.keys())
+
+    for formula in all_formulas:
         if formula in db:
             continue
             
@@ -217,19 +366,31 @@ def export_unknown_molecules(discovered_formulas: set, output_path: str = None) 
                 "reason": "Macro-glitch (>64 at)" if is_glitch else "Inestabilidad (H-Saturation)",
                 "critical": is_glitch
             })
-        else:
-            unknown.append({
-                "formula": formula,
-                "atoms": atoms_count,
-                "suggested_entry": {
-                    "names": {"es": "[Nombre Sugerido]", "en": "[Suggested Name]"},
-                    "category": "unknown"
-                }
-            })
-    
-    if output_path is None:
-        base = Path(__file__).parent.parent.parent
-        output_path = str(base / "data" / "unknown_molecules.json")
+            continue
+
+        # FILTRO DE RUIDO PROCEDURAL (Solicitado por usuario)
+        # Si es residuo procedural, NO se agrega a la lista de 'unknown' (Auditoría limpia)
+        if _is_procedural_waste(formula):
+           continue
+
+        # Si ya existía y tenía datos custom (no default), preservarlos
+        entry_data = {
+            "formula": formula,
+            "atoms": atoms_count,
+            "suggested_entry": {
+                "names": {"es": "[Nombre Sugerido]", "en": "[Suggested Name]"},
+                "category": "unknown"
+            }
+        }
+        
+        if formula in existing_data:
+            old_entry = existing_data[formula]
+            # Preservar si el nombre NO es el placeholder
+            old_name_es = old_entry.get("suggested_entry", {}).get("names", {}).get("es", "")
+            if old_name_es and old_name_es != "[Nombre Sugerido]":
+                entry_data = old_entry
+        
+        unknown.append(entry_data)
     
     report = {
         "summary": {

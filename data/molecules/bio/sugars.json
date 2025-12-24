@@ -19,16 +19,17 @@
                 ]
             },
             "lore": {
-                "origin_story": "El combustible universal de la vida.",
-                "biological_presence": "Base del metabolismo celular.",
-                "utility": "Principal fuente de energía rápida."
+                "origin_story": "Hexosa. Nombre de 'glykys' (dulce). Molécula más importante para la vida en la Tierra. Se sintetiza por fotosíntesis.",
+                "biological_presence": "COMBUSTIBLE UNIVERSAL. Glucólisis: glucosa → 2 piruvato + 2 ATP. Cerebro consume 120g/día (solo puede usar glucosa). Sangre: 70-100 mg/dL normal.",
+                "utility": "Energía instantánea. Almacenada como glucógeno (hígado/músculo) y almidón (plantas). Diabetes = desregulación de glucosa."
             },
             "gameplay": {
                 "milestones": [
-                    "Energía Vital",
-                    "Primer Azúcar"
+                    "Fotosíntesis",
+                    "Glucólisis",
+                    "Combustible Universal"
                 ],
-                "discovery_points": 100,
+                "discovery_points": 150,
                 "difficulty": "hard"
             }
         },
@@ -47,16 +48,104 @@
                 ]
             },
             "lore": {
-                "origin_story": "Componente estructural del ARN.",
-                "biological_presence": "Forma el esqueleto de los ácidos ribonucleicos.",
-                "utility": "Soporte estructural para la información genética."
+                "origin_story": "Pentosa. Se forma de formaldehído por reacción de formosa (5 HCHO → ribosa). Crucial en hipótesis del Mundo ARN.",
+                "biological_presence": "Esqueleto azucarado del ARN. Componente de ATP, NAD, FAD, CoA. Puede formarse espontáneamente en condiciones prebióticas.",
+                "utility": "Sin ribosa no hay ARN, ni ATP, ni vida. La reacción de formosa pudo ser el puente entre química simple y vida."
             },
             "gameplay": {
                 "milestones": [
-                    "Arquitecto del ARN"
+                    "Mundo ARN",
+                    "Reacción Formosa",
+                    "Esqueleto de ARN"
                 ],
-                "discovery_points": 80,
+                "discovery_points": 140,
                 "difficulty": "hard"
+            }
+        },
+        "C5H10O4": {
+            "identity": {
+                "names": {
+                    "es": "Desoxirribosa",
+                    "en": "Deoxyribose"
+                },
+                "formula": "C5H10O4",
+                "category": "sugar",
+                "family_color": [
+                    255,
+                    160,
+                    160
+                ]
+            },
+            "lore": {
+                "origin_story": "Ribosa sin un oxígeno ('desoxi'). El ADN usa desoxirribosa en lugar de ribosa, haciéndolo más estable.",
+                "biological_presence": "Esqueleto azucarado del ADN EXCLUSIVAMENTE. Más estable que ribosa porque carece de -OH en posición 2' (menos reactivo).",
+                "utility": "La estabilidad de la desoxirribosa permitió que el ADN fuera la molécula de almacenamiento genético a largo plazo. ARN = temporal, ADN = permanente."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Esqueleto de ADN",
+                    "Estabilidad Genética",
+                    "Doble Hélice"
+                ],
+                "discovery_points": 145,
+                "difficulty": "hard"
+            }
+        },
+        "C3H6O3": {
+            "identity": {
+                "names": {
+                    "es": "Gliceraldehído",
+                    "en": "Glyceraldehyde"
+                },
+                "formula": "C3H6O3",
+                "category": "simple_sugar",
+                "family_color": [
+                    255,
+                    220,
+                    180
+                ]
+            },
+            "lore": {
+                "origin_story": "Triosa más simple. Primer azúcar quiral. Define la configuración D/L de todos los azúcares y aminoácidos.",
+                "biological_presence": "Intermediario en glucólisis (gliceraldehído-3-fosfato). La vida usa azúcares D y aminoácidos L - quiralidad fundamental.",
+                "utility": "Define la 'mano' de la bioquímica. Por qué la vida eligió D-azúcares y L-aminoácidos sigue siendo un misterio."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Quiralidad",
+                    "Mano de la Vida",
+                    "Glucólisis"
+                ],
+                "discovery_points": 100,
+                "difficulty": "medium"
+            }
+        },
+        "C6H12O6_fru": {
+            "identity": {
+                "names": {
+                    "es": "Fructosa",
+                    "en": "Fructose"
+                },
+                "formula": "C6H12O6",
+                "category": "sugar",
+                "family_color": [
+                    255,
+                    230,
+                    200
+                ]
+            },
+            "lore": {
+                "origin_story": "Hexosa. Nombre de 'fructus' (fruto). Isómero de glucosa. El azúcar más dulce naturalmente.",
+                "biological_presence": "Abundante en frutas y miel. Metabolizada principalmente en hígado. Jarabe de maíz alto en fructosa (HFCS) controversia en obesidad.",
+                "utility": "1.7x más dulce que glucosa. Espermatozoides la usan como combustible. Exceso relacionado con hígado graso."
+            },
+            "gameplay": {
+                "milestones": [
+                    "Azúcar de Frutas",
+                    "Isómero de Glucosa"
+                ],
+                "discovery_points": 90,
+                "difficulty": "medium"
             }
         }
     }
